@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.card{
+    display: flex;
+align-items: flex-start;
+justify-content: flex-start;
+margin: 10rem 5px auto 10px;
+/* background-color: orange; */
+}
+.heading{
+    font-size: 18px;
+    font-weight: normal;
+}
+.desc{
+    padding: 0 1rem;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ height: 100px;
+}
+
+.rating_time{
+    display: flex;
+    justify-content: space-between;
+}
+.card p,hr{
+    color: rgb(117, 117, 117);
+    padding: 4 0;
+}
+.card p{
+    padding: 0.5rem auto;
+    font-size: 14px;
+}
+.hr{
+    /* font-weight: lighter; */
+    width: 100px;
+    height: 1px;
+    color: black;
+    
+}

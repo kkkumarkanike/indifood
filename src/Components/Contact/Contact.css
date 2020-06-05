@@ -1,0 +1,88 @@
+.contact{
+    height: 400px;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+  }
+  .contact_text{
+    font-size: 50px;
+    font-weight: bolder;
+  }
+  .contact_input input{
+    border: none;
+    padding: 1rem;
+    height: 20px;
+    width: 350px;
+    background-color: white;
+  }
+  .send_icon{
+    border: none;
+    padding: 1rem;
+    height: 52px;
+    margin-left: -3px;
+    background-color: var(--main-bg-color);
+  cursor: pointer;
+  transition: 0.3s all ease;
+  }
+  .send_icon:hover{
+    background-color: white;
+  color: var(--main-bg-color);
+  border-left: 1px solid #aaa;
+  }
+  .send_button{
+    display: none;
+  }
+  
+  
+
+/* MEDIA QUERIES */
+
+@media (max-width:900px){
+    .contact{
+      margin: 1rem;
+      display: flex;
+      height: 250px;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      
+    }
+    .contact_text{
+      font-size: 40px;
+      font-weight: normal;
+      text-align: center;
+    }
+    .send_icon{
+      display: none;
+    }
+   .contact_input input{
+     padding: 0.8rem;
+   }
+   .contact_input input,.send_button{
+     border-radius: 3px;
+   }
+    .send_button{
+      display: block;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 4px;
+      width: 100%;
+      text-align: center;
+      height: 40px;
+      border: none;
+      background-color: var(--main-bg-color);
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+
+    }
+    .send_button:hover{
+      color: var(--main-bg-color);
+      background-color: white;
+    }
+    
+    
+    }
+    

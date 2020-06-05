@@ -1,0 +1,56 @@
+.service{
+  margin: 4rem auto;
+}
+
+.style_items{
+    padding: 0.5rem 1rem;
+  }
+  .menu_item{
+    height: 260px;
+    width: 250px;
+      margin: 20px;
+  box-shadow: 0px 0px 5px #ccc;
+      transition: all .3s ease-in-out;
+    }
+    .menu_item:hover{
+      cursor: pointer;
+      transform: scale(1.02);
+      box-shadow: 0px 0px 10px #ccc;
+    
+    }
+    .menu_item img{
+      height: 150px;
+      width: 250px;
+      text-align: center;
+      background-size: cover;
+    }
+    .Menu{
+      color: black;
+    }
+    .rupee{
+      font-size: 13px;
+    }
+    .type,.rating,.type_rating{
+      display: flex ;
+      padding: 0 1rem;
+      justify-content: space-between;
+      
+    }
+    .type > p,i,.rating>p,i{
+      padding-right: 4px;  }
+    .type,.rating{
+      color: white;
+      background-color: var(--main-bg-color);
+      padding: 0.5rem 1rem;
+      text-align:center;
+    }
+    .veg,.non_veg{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+  .service .heading{
+    text-align: center;
+    font-size: 50px;
+  }
