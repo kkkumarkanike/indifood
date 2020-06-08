@@ -1,8 +1,8 @@
-
+/* 
 :root {
     --main-bg-color: rgb(72, 158, 72);
   }
-  
+   */
 .footer {
     background-color: rgb(32, 31, 31);
     color: white;
@@ -14,16 +14,15 @@
   .fa-instagram,
   .fa-github {
     padding: 1rem 1rem;
-    background-color: var(--main-bg-color);
     border-radius: 50%;
   }
   .facebook {
     padding: 1rem 1.15rem;
-    background-color: var(--main-bg-color);
     border-radius: 50%;
   }
   .social_icons i {
     margin-right: 1rem;
+    font-size: 25px;
     cursor: pointer;
     transition: all 0.3s ease-in;
   }
@@ -40,18 +39,22 @@
   }
   .copy_right {
     height: 3rem;
-    background-color: var(--main-bg-color);
-    /* width: 100vw; */
+
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .social_icons i:hover {
     transform: rotate(20deg);
-    /* transform:  scale(1.1, 1.1); */
-    background-color: rgb(248, 244, 244);
-    color: black;
+   
   }
   .nav_links p:hover{
-    color: var(--main-bg-color);
+    color: #ff5e62;
+    
+  }
+
+  @media (max-width:900px){
+    .nav_links p{
+      font-size: 12px;
+    }
   }
