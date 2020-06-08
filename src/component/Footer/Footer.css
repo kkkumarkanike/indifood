@@ -1,0 +1,60 @@
+/* 
+:root {
+    --main-bg-color: rgb(72, 158, 72);
+  }
+   */
+.footer {
+  background-color: rgb(32, 31, 31);
+  color: white;
+  text-align: center;
+  padding: 2rem 0 0 0;
+}
+
+.fa-linkedin,
+.fa-instagram,
+.fa-github {
+  padding: 1rem 1rem;
+  border-radius: 50%;
+}
+.facebook {
+  padding: 1rem 1.15rem;
+  border-radius: 50%;
+}
+.social_icons i {
+  margin-right: 1rem;
+  font-size: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+.nav_links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem auto;
+}
+.nav_links p {
+  margin: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.copy_right {
+  height: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social_icons i:hover {
+  transform: rotate(20deg);
+
+}
+.nav_links p:hover{
+  color: #ff5e62;
+
+}
+
+@media (max-width:900px){
+  .nav_links p{
+    font-size: 12px;
+  }
+}

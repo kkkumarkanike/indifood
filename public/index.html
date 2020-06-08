@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="red" />
     <meta
       name="description"
       content="Web site created using create-react-app"
@@ -21,4 +21,15 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
+  <script>
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction(){
+      if(document.body.scrollTop > 10 || document.documentElement.scrollTop > 10){
+        document.getElementById('navigation').style.boxShadow = '0px 0px 10px #aaa';
+        document.getElementsByClassName('head').style.fontSize="200px";
+      }else{
+        document.getElementById('navigation').style.boxShadow = '';
+      }
+    }
+  </script>
 </html>

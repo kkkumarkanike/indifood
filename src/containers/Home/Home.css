@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.mobile{
+    display: none;
+}
+@media (max-width: 499px) {
+    .mobile{
+        display: block;
+    }
+    .desk{
+        display: none;
+    }
+}
+@media (min-width: 500px) and (max-width: 799px) {
+    .mobile h4{
+        display: none;
+    }
+
+    .desk{
+        display: block;
+    }
+}
+@media (min-width: 800px) and (max-width: 1030px) {
+    .mobile h4{
+        display: none;
+    }
+    .desk{
+        display: block;
+    }
+}
