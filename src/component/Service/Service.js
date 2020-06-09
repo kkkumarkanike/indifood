@@ -1,8 +1,10 @@
 import React from "react";
 import "./Service.css"
 import itemImg from "../../images/img2.jpg"
+import {connect} from "react-redux"
 
-function Service() {
+function Service(props) {
+  console.log(props)
   return (
     <div className="service">
       <h1 className="heading">VEG</h1>
@@ -88,4 +90,9 @@ function Service() {
   );
 }
 
-export default Service;
+const mapStateToProps = (state) =>{
+  return{
+    items:state.item.items
+  }
+}
+export default connect(mapStateToProps)(Service);

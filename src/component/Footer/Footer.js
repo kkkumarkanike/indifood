@@ -2,6 +2,7 @@ import React from 'react'
 import "./Footer.css";
 import {connect} from 'react-redux';
 import Aux from './../../hoc/Auxilary';
+import {Link} from "react-router-dom"
 
 function Footer(props) {
     return (
@@ -22,7 +23,7 @@ function Footer(props) {
                     </Aux>
                     :
                     <Aux>
-                        <p>About</p>
+                      <p>About</p>
                         <p>Contact Us</p>
                     </Aux>
                 }

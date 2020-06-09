@@ -32,10 +32,17 @@ body{
 .navigation ul li{
     display: inline;
     padding: 26px;
+    cursor: pointer;
+}
+.navigation ul li a{
+    text-decoration: none;
+    color: black;
+
 }
 
-.navigation ul li:hover{
-    color: chartreuse;
+.navigation ul li a:hover{
+    /* color: chartreuse; */
+    color: #ff5e62;
 
 }
 .search{
