@@ -3,13 +3,53 @@ import Aux from "./../../../../hoc/Auxilary";
 import logo from "./../../../../images/logo.png";
 import "./Nav.css";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { logout } from "../../../../store/actions/authActions";
 
 class nav extends Component {
   logout = () => {
     this.props.logout();
+    return <Redirect to="/login" />
   };
+
+  signedInLinks = () => {
+    return (
+      <ul>
+        <li>
+        <Link to ="/search"> <i className="fa fa-search"> </i>Search</Link></li>
+        <li>
+        <Link to="/cart"><i className="fa fa-shopping-cart"> </i>Cart</Link>
+        </li>
+        <li>
+         
+          <Link to="/orders"><i className="fa fa-box-open"> </i>Orders</Link>
+        </li>
+        <li>
+          <Link to="/profile"><i className="fa fa-user"> </i>Profile</Link>
+        </li>
+
+        <li>
+          <a className="logout" style={{color:"white"}} onClick={this.logout} to="LogOut">
+            LogOut
+          </a>
+        </li>
+      </ul>
+    );
+  };
+
+  signedOutLinks = () => {
+    return (
+      <ul>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+        <li>
+          <Link to="/signup"> Sign Up</Link>
+        </li>
+      </ul>
+    );
+  };
+
   render() {
     // console.log(this.props)
     return (
@@ -27,39 +67,15 @@ class nav extends Component {
               </Link>
             </div>
             <div className="desktop">
-              {this.props.auth.uid ?
-              <ul>
-                <li>Cart</li>
-                <li>Profile</li>
-                <li>Search</li>
-                <li>About</li>
-              </ul>
-              :
-              <ul>
-                <li>
-                  <Link to="login">Login</Link>
-                </li>
-                <li>
-                  <Link to="signup"> Sign Up</Link>
-                </li>
-                <li>
-                  <a onClick={this.logout} to="LogOut">
-                    LogOut
-                  </a>
-                </li>
-              </ul>
-              }
+              {this.props.auth.uid
+                ? this.signedInLinks()
+                : this.signedOutLinks()}
             </div>
             <div className="mobile">
               <ul>
                 <li>
-                  <input
-                    type="text"
-                    placeholder="search here..."
-                    className="search"
-                    name="search"
-                    id=""
-                  />
+                
+                  <Link to ="/search"> <i className="fa fa-search"> Search</i></Link>
                 </li>
               </ul>
             </div>
@@ -102,7 +118,7 @@ const matchDispatchToProps = (dispatch) => {
   };
 };
 const mapStateToProps = (state) => {
-  console.log(state);
+  console.log("STATE",state)
   return {
     auth: state.firebase.auth,
   };

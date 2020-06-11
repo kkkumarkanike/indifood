@@ -7,6 +7,7 @@ import Landing from "../../component/UI/LandingImage/LandImg";
 import Footer from "../../component/Footer/Footer";
 import { connect } from "react-redux";
 import {login} from "../../store/actions/authActions"
+import {Redirect} from "react-router-dom"
 
 class Login extends Component {
   state = {
@@ -20,28 +21,19 @@ class Login extends Component {
   };
   handleLogin = (e) => {
     e.preventDefault();
-    console.log(this.state)
     this.props.login(this.state)
-    if(this.props.authError !=null){
-        return this.props.history.push("/")
-    }
+  
   };
 
   render() {
-    //   console.log(this.props)
-    const {authError} = this.props;
+    const {authError,auth} = this.props;
+    if(auth.uid) return <Redirect to ="/" />
     return (
       <Aux>
         <Nav />
         <div className="login_page" style={{ marginTop: "60px" }}>
           <div className="login_fields">
-            {/*<div className="login_nav">*/}
-            {/*    <img src={logo} height="70" width="70" alt=""/>*/}
-            {/*    <div className="login_text">*/}
-            {/*         <p>Login</p>*/}
-            {/*         <p>Sign Up</p>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+          
             <div className="login">
               <div className="login-text">
                 <h3>Log In</h3>
@@ -78,9 +70,9 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) =>{
-    // console.log(state)
     return{
-        authError:state.auth.authError
+        authError:state.auth.authError,
+        auth:state.firebase.auth
     }
 }
 const mapDispatchToProps = (dispatch) =>{

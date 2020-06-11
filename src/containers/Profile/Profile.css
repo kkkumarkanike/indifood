@@ -1,0 +1,74 @@
+.profile{
+    margin-top: 150px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    width: 60%;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 0;
+    box-shadow: 1px 1px 5px black;
+    
+}
+.profile_pic{
+    position: relative;
+    width: 80px;
+
+}
+.profile_pic img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+.profile_pic i{
+    position: absolute;
+    bottom: -12px;
+        left: 35px;
+    right: auto;
+    cursor: pointer;
+    background-color:papayawhip;
+    color: black;
+    padding: 8px;
+    border-radius: 50%;
+}
+.user_detail{
+}
+.danger_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.change_pass{
+    background-color: #489E48;
+    border: none;
+    padding: 0.5rem 1rem;
+    color:white;
+    border-radius:2px;
+    
+}
+.delete_ac{
+    background-color: rgb(214, 63, 63);
+    border: none;
+    padding: 0.5rem 1rem;
+    color:white;
+    border-radius:2px;
+}
+
+@media (max-width:900px){
+    .profile{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .profile_pic,.danger_section{
+        margin: 0.6rem;
+    }
+    
+    .danger_section > button{
+        margin: 4px;
+    }
+}

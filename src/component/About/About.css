@@ -1,3 +1,8 @@
+.about{
+  margin-top: 70px;
+  margin-bottom: 60px;
+}
+
 .pic{
     height: 250px;
     width: 250px;
@@ -75,23 +80,5 @@
     } 
     
     
-    }
-     .goTop{
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      padding: 10px;
-      height: 25px;
-      width: 25px;
-      border-radius: 50%;
-     
- background-color: var(--main-bg-color);
-
-      text-align: center;
-    }
-    .goTop a{
-      text-decoration: none;
-      color: white;
-      text-align: center;
     }
   

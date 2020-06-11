@@ -8,12 +8,20 @@ import Contact from './../../component/Contact/Contact';
 import About from './../../component/About/About';
 import Service from './../../component/Service/Service';
 import MobileCard from './../../component/FoodCard/MobileCard';
+import {connect} from "react-redux"
+import { Redirect } from 'react-router';
 
 const home = props =>{
+
+    const {auth} = props;
+
+if(!auth.uid) return <Redirect to="/login" />
      return(
           <Aux>
               <Nav/>
-              <Landing/>
+            <div id="landing">
+            <Landing/>
+            </div>
               <div className="mobile" >
                   <div style={{margin : "0 20px 0 20px"}}>
                       <h4>Veg</h4>
@@ -35,9 +43,20 @@ const home = props =>{
               </div>
               <Contact/>
               <Footer/>
-              <br/><br/><br/><br/><br/><br/>
+         
+      <div className="goTop">
+        <a href="#landing"><i className="fa fa-arrow-up"></i></a>
+      </div>
+              {/* <br/><br/><br/><br/><br/><br/> */}
           </Aux>
+        
      );
 }
 
-export default home;
+const mapStateToProps = (state) =>{
+    return{
+auth:state.firebase.auth
+    }
+}
+
+export default connect(mapStateToProps)(home);

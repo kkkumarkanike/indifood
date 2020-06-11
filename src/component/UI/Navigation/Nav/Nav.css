@@ -81,6 +81,20 @@ body{
 .bottom-navigation{
     display: none;
 }
+.logout{
+    padding: 0.5rem 1rem;
+    color: white;
+    border: none;
+    /* background: #ff5e62;  */
+   background: #489E48;
+    border-radius: 3px;
+    cursor: pointer;
+}
+/* .logout:hover{
+    background-color: white;
+    border: 2px solid #ff5e62;
+    color: #ff5e62;
+} */
 @media(min-width : 301px) and (max-width : 1025px){
     .navigation ul li{
         display: inline;

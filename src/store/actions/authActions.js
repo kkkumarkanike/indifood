@@ -29,19 +29,23 @@ export const signUp = (credentials) => {
         dispatch({ type: "SIGNUP_SUCCESS" });
       })
       .catch((error) => {
-        dispatch({ type: "SIGNUP_FAILED", error });
+        dispatch({ type: "SIGNUP_ERROR", error });
       });
   };
 };
 
-
 export const logout = () => {
-    return (dispatch, getState, {getFirebase}) => {
-      const firebase = getFirebase();
-  
-      firebase.auth().signOut().then(() => {
-        dispatch({ type: 'SIGNOUT_SUCCESS' })
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
+
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        dispatch({ type: "SIGNOUT_SUCCESS" });
+      })
+      .catch((error) => {
+        dispatch({ type: "SIGNOUT_ERROR", error });
       });
-    }
-  }
-  
+  };
+};

@@ -32,14 +32,27 @@
   align-items: center;
   margin: 0.5rem auto;
 }
-.nav_links p {
+.nav_links ul{
+  list-style-type:none;
+  display: flex;
+
+}
+.nav_links ul a{
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: auto 0.5rem;
+}
+.nav_links ul a:hover{
+color: #ff5e62;
+}
+/* .nav_links p {
   margin: 1rem;
   text-transform: uppercase;
   cursor: pointer;
-}
+} */
 .copy_right {
   height: 3rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,10 +61,10 @@
   transform: rotate(20deg);
 
 }
-.nav_links p:hover{
+/* .nav_links p:hover{
   color: #ff5e62;
 
-}
+} */
 
 @media (max-width:900px){
   .nav_links p{
