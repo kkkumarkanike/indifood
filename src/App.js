@@ -14,9 +14,20 @@ import Error from "./component/Error/Error"
 
 
 function App() {
+  const routes = (
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/login"  component= {Login}/>
+        <Route path="/signup"  component={SignUp} />
+        <Route path="/admin" component={Admin} />
+        <Route path="/service"  component={Service} />
+      </Switch>
+  );
+
   return (
     <BrowserRouter>
     <Nav />
+<<<<<<< HEAD
 
     <Switch>
     <Route path="/" exact component={Home} />
@@ -34,6 +45,9 @@ function App() {
     </Switch>
 {/* <Footer /> */}
 
+=======
+      {routes}
+>>>>>>> 0c1712e30b4c95ecc2768742ef1d5d29b7349b3f
     </BrowserRouter>
   );
 }

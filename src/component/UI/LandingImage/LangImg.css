@@ -50,15 +50,16 @@
     font-size: 18px;
     font-weight: bold;
     color: white;
-    background-color: #99E028;
+    background-color: #FD6831;
     border-radius: 30px;
-    transition: all  0.3s ease;
+    transition: all  0.2s ease;
     /* border: 2px solid white; */
     cursor: pointer;
-    box-shadow: 5px 5px 30px #99E028;
+    box-shadow: 5px 5px 30px #FD6831;
 }
 .get-started:hover{
-    color: #5E52AD;
+    border: 2px solid var(--primaryColor);
+    color: var(--primaryColor);
     background-color: white;
 }
 @media(min-width : 301px) and (max-width : 1025px){

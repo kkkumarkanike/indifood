@@ -1,5 +1,5 @@
 const initState = {
-  res:null
+  res:[]
 };
 
 const itemReducer = (state = initState, action) => {

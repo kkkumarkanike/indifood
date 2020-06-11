@@ -67,9 +67,35 @@ class nav extends Component {
               </Link>
             </div>
             <div className="desktop">
+<<<<<<< HEAD
               {this.props.auth.uid
                 ? this.signedInLinks()
                 : this.signedOutLinks()}
+=======
+              {this.props.auth.uid ?
+              <ul>
+                <li>Cart</li>
+                <li>Profile</li>
+                <li>Search</li>
+                <li>About</li>
+                <li>
+                  <a onClick={this.logout} to="LogOut">
+                    LogOut
+                  </a>
+                </li>
+              </ul>
+              :
+              <ul>
+                <li>
+                  <Link to="login">Login</Link>
+                </li>
+                <li>
+                  <Link to="signup"> Sign Up</Link>
+                </li>
+
+              </ul>
+              }
+>>>>>>> 0c1712e30b4c95ecc2768742ef1d5d29b7349b3f
             </div>
             <div className="mobile">
               <ul>
