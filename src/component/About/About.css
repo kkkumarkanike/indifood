@@ -2,96 +2,60 @@
     height: 250px;
     width: 250px;
     border-radius: 50%;
-    box-shadow: 0 10px 30px 1px rgba(0,0,0,.3);  }
-  section{
+    box-shadow: 0px 5px 20px #aaa  ;
+}
+section{
     margin: 2rem 10rem;
     text-align: center;
-  }
-  .about{
+}
+.about{
     display: flex;
     justify-content: space-around;
     align-items: center;
-  }
-  .ramu{
- /* background-color: red; */
+}
+.ramu{
+    /* background-color: red; */
     margin-right: 1.5rem;
     padding: 1rem;
-    /* box-shadow: 0px 0px 50px #ccc; */
+    box-shadow: 0px 0px 50px #ccc;
 
 
-  }
-  .ramu h2,.kalyan h2{
+}
+.ramu h2,.kalyan h2{
     font-size: 25px;
     letter-spacing: 2px;
-  }
-  .ramu h6,.kalyan h6{
+}
+.ramu h6,.kalyan h6{
     font-size: 18px;
     font-weight: normal;
-  }
-  .kalyan{
+}
+.kalyan{
     margin-left: 1.5rem;
     /* background-color: green; */
     padding: 1rem;
-    /* box-shadow: 0px 0px 50px #ccc; */
+    box-shadow: 0px 0px 50px #ccc;
 
-  }
-  .ramu>p,.ramu>h3,.ramu>h6,.kalyan>p,.kalyan>h3,.kalyan>h6{
+}
+.ramu>p,.ramu>h3,.ramu>h6,.kalyan>p,.kalyan>h3,.kalyan>h6{
     padding: 0.5rem;
-  }
-  .ramu>p,.kalyan>p{
+}
+.ramu>p,.kalyan>p{
     text-align: justify;
-  }
-  /* LINKED IN LOGO ON BESIDES OF PROFILE IMG */
-  /* .image_logo{
-    height: 250px;
-    width: 350px;
-  } */
-  .img_linkedin{
-    position: relative;
-    bottom: 5px;
-    right: 40px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .img_linkedin:hover{
-    transform: rotate(20deg);
-  }
+}
  
   
 /* MEDIA QUERIES */
-
 @media (max-width:900px){
     .about{
-      display: flex;
-      flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
     }
     .ramu,.kalyan{
-      margin: 1rem;
-      box-shadow: 0px;
-      /* padding: 5rem; */
+        margin: 1rem;
+        box-shadow: 0px;
+        /* padding: 5rem; */
     }
     section{
-      margin:0
-    } 
-    
-    
+        margin:0
     }
-     .goTop{
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      padding: 10px;
-      height: 25px;
-      width: 25px;
-      border-radius: 50%;
-     
- background-color: var(--main-bg-color);
-
-      text-align: center;
-    }
-    .goTop a{
-      text-decoration: none;
-      color: white;
-      text-align: center;
-    }
-  
+}

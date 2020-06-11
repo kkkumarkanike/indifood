@@ -1,17 +1,9 @@
-import {storage} from "../../config/Config"
+
 export const addItem = (item) => {
   return (dispatch, getState, { getFirestore }) => {
     // Make async call to database
 // const firebase = getFirebase();
     const firestore = getFirestore();
-
-
-    // const storageRef = storage.ref().child(item.img.name);
-    // storageRef.put(item.img).then((snap) =>{
-    //   storageRef.getDownloadURL().then((url) =>{
-    //     console.log(url)
-    //   })
-    // })
 
     firestore.collection("items").add({
       ...item,
@@ -28,14 +20,17 @@ export const addItem = (item) => {
 export const getItems = () => {
     return (dispatch, getState, { getFirestore }) => {
       // Make async call to database
-  
+  const foodItems = [];
       const firestore = getFirestore();
       firestore.collection("items").get().then((data) =>{
+          console.log("DOCS",data.docs)
         data.docs.map((doc) =>{
-          console.log("HLEJLKJLKF",doc.id)
-          dispatch({ type: "GET_ITEMS_SUCCESS" ,res:doc.data()});
+            foodItems.push(doc.data())
         })
-         
+          console.log("foodItems",foodItems)
+          dispatch({ type: "GET_ITEMS_SUCCESS" ,res:foodItems});
+
+
       }).catch((error) =>{
           dispatch({type:"GET_ITEMS_ERROR"},error)
       })

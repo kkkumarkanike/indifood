@@ -1,5 +1,5 @@
 .service{
-  margin: 4rem auto;
+  margin: 1rem auto;
 }
 
 .style_items{
@@ -46,7 +46,7 @@
     }
     .veg,.non_veg{
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
     }

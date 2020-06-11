@@ -1,14 +1,14 @@
 import React from "react";
 import img from "../../images/avatar.png"
 import linkedIn from "../../images/linkedin.png"
-import "./About.css"
-import "../../App.css"
+import "./About.css";
+import "../../App.css";
 
 function About() {
   return (
     <>
     <section>
-      <div className="about">
+      <div className="main-about">
         <div className="ramu">
           <h2>Ramu Bugudi</h2>
           <h6>Founder & CEO</h6>
@@ -70,11 +70,11 @@ function About() {
     </section>
 
   <div className="goTop">
-  <a href="#top">Top</a>
+      <a href="#top">Top</a>
   </div>
-      {/* <div className="goTop">
+       <div className="goTop">
         <a href="#top"><i className="fa fa-arrow-up"></i></a>
-      </div> */}
+      </div>
       </>
   );
 }

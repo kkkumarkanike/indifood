@@ -33,6 +33,11 @@ class nav extends Component {
                 <li>Profile</li>
                 <li>Search</li>
                 <li>About</li>
+                <li>
+                  <a onClick={this.logout} to="LogOut">
+                    LogOut
+                  </a>
+                </li>
               </ul>
               :
               <ul>
@@ -42,11 +47,7 @@ class nav extends Component {
                 <li>
                   <Link to="signup"> Sign Up</Link>
                 </li>
-                <li>
-                  <a onClick={this.logout} to="LogOut">
-                    LogOut
-                  </a>
-                </li>
+
               </ul>
               }
             </div>

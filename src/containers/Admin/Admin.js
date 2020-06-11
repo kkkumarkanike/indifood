@@ -4,30 +4,34 @@ import"./Admin.css"
 import {connect} from "react-redux";
 import {addItem} from "../../store/actions/itemActions"
 import {getItems} from "../../store/actions/itemActions"
-import firebase from "../../config/Config"
+import  {storage} from "../../config/Config";
+import Spinner from './../../component/UI/Spinner/Spinner';
 
 
 
  class Admin extends Component {
 
-state={
-    title : "",
-    desc : "",
-    price:"",
-    category:"",
-    // img:""
-}
+    state={
+        title : "",
+        desc : "",
+        price:"",
+        category:"",
+        img:"",
+        loading : false
+    }
 
+     componentDidMount(){
+        this.props.getItems();
+  // const fetchData = async() =>{
+  //   const db = firebase.firestore();
+  //   const data = await db.collection('items').get();
+  //   const doc = data.docs.map((doc) =>{
+  //       console.log(doc.data())
+  //   });
+      console.log("FOODITEMS",this.props.foodItems)
 
-componentDidMount(){
-  const fetchData = async() =>{
-    const db = firebase.firestore();
-    const data = await db.collection('items').get();
-    const doc = data.docs.map((doc) =>{
-        // console.log(doc.data())
-    });
-  }
-  fetchData();
+  // }
+  // fetchData();
 }
 handleSubmit = (e) =>{
     const {title,desc,price,category} =this.state;
@@ -36,24 +40,35 @@ handleSubmit = (e) =>{
     if(!title || !desc || !price || !category){
         return alert("Please provide all the fields...")
     }
-    this.props.addItem(this.state)
+    this.props.addItem({
+        title : this.state.title,
+        desc : this.state.desc,
+        price: this.state.price,
+        category: this.state.category,
+        img: this.state.img
+    });
     this.props.history.push('/service');
 
 
 }
 
-// handleFileChange = (e) =>{
-//     const file = e.target.files[0];
-//     this.setState({
-//         img:file
-//     })
-// }
+handleFileChange = (event) =>{
+        this.setState({loading : true});
+    const file = event.target.files[0];
+    const storageRef = storage.ref().child(file.name);
+    storageRef.put(file).then((snapshot) =>{
+        storageRef.getDownloadURL().then(url =>{
+            console.log(url);
+            this.setState({img : url, loading : false});
+        })
+    });
+}
+
 handleChange = (e) =>{
     this.setState({[e.target.name] : e.target.value})
 }
 
     render() {
-        console.log(this.props.getItems())
         return (
           
             <div className="login_fields admin">
@@ -68,8 +83,14 @@ handleChange = (e) =>{
                     <input type="text" placeholder="Description" name="desc" onChange={this.handleChange}/>
                     <input type="text" placeholder="Price" name="price" onChange={this.handleChange}/>
                     <input type="text" placeholder="Category" name="category" onChange={this.handleChange}/>
-                    {/* <input type="file" name="image" onChange={this.handleFileChange}/> */}
-
+                    <input type="file" name="image" onChange={this.handleFileChange}/>
+                    {this.state.loading ?
+                        <div style={{display : "flex", marginTop : "10px"}}>
+                            <p style={{marginLeft : "16px"}}>Uploading file...</p>
+                            &nbsp;&nbsp;
+                            <Spinner/></div> :
+                    null
+                    }
 
                     <button onClick={this.handleSubmit}>Add item</button>
                 </div>
@@ -88,12 +109,12 @@ const mapDispatchToProps = (dispatch) =>{
         getItems:() => dispatch(getItems())
     }
 }
-// const mapStateToProps = (state) =>{
-//     console.log("STATE",state)
-//     return{
-//     }
-// }
+const mapStateToProps = (state) =>{
+    return{
+        foodItems: state.item.res
+    }
+}
 
 
 
-export default connect(null,mapDispatchToProps)(Admin)
+export default connect(mapStateToProps,mapDispatchToProps)(Admin)

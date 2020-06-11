@@ -9,16 +9,20 @@ import Admin from "./containers/Admin/Admin"
 
 
 function App() {
+  const routes = (
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/login"  component= {Login}/>
+        <Route path="/signup"  component={SignUp} />
+        <Route path="/admin" component={Admin} />
+        <Route path="/service"  component={Service} />
+      </Switch>
+  );
+
   return (
     <BrowserRouter>
     <Nav />
-    <Switch>
-    <Route path="/" exact component={Home} />
-    <Route path="/login"  component= {Login}/>
-    <Route path="/signup"  component={SignUp} />
-    <Route path="/admin" component={Admin} />
-    <Route path="/service"  component={Service} />
-    </Switch>
+      {routes}
     </BrowserRouter>
   );
 }

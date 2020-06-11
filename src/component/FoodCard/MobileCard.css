@@ -19,10 +19,12 @@
 }
 .desc{
     padding: 0 1rem;
- display: flex;
- flex-direction: column;
- justify-content: space-between;
- height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60vw;
+    height: 100px;
+
 }
 
 .rating_time{
@@ -38,13 +40,10 @@
     font-size: 14px;
     padding: 0;
 }
-.hr{
-    /* font-weight: lighter; */
+.line{
+    padding: 1px;
+    background-color: #cccccc;
     width: 100%;
-    height: 1px;
-    background-color: #ccc;
-    margin-top: 2px;
-    
 }
 
 @media (min-width: 500px) and (max-width: 799px) {

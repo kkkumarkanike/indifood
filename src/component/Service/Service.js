@@ -1,98 +1,125 @@
-import React from "react";
+import React, {Component} from "react";
 import "./Service.css"
 import itemImg from "../../images/img2.jpg"
+import Aux from './../../hoc/Auxilary';
 import {connect} from "react-redux"
+import {getItems} from "../../store/actions/itemActions";
 
-function Service(props) {
-  console.log(props)
-  return (
-    <div className="service">
-      <h1 className="heading">VEG</h1>
-      <div class="veg">
-        <div class="menu_item" id="top">
-          <img src={itemImg} alt="Item Image" />
-          <div class="style_items">
-            <h4>Cusine</h4>
-            <p>
-              Price: <i class="fa fa-rupee rupee"></i>200
-            </p>
-          </div>
-          <div class="type_rating">
-            <span class="type">
-              <i class="fa fa-leaf"></i>
-              <p>Veg</p>
-            </span>
-            <span class="rating">
-              <i class="fa fa-star"></i>
-              <p>4.5</p>
-            </span>
-          </div>
-        </div>
-        <div class="menu_item" id="top">
-          <img src={itemImg} alt="Item Image" />
-          <div class="style_items">
-            <h4>Cusine</h4>
-            <p>
-              Price: <i class="fa fa-rupee rupee"></i>200
-            </p>
-          </div>
-          <div class="type_rating">
-            <span class="type">
-              <i class="fa fa-leaf"></i>
-              <p>Veg</p>
-            </span>
-            <span class="rating">
-              <i class="fa fa-star"></i>
-              <p>4.5</p>
-            </span>
-          </div>
-        </div>
-        <div class="menu_item" id="top">
-          <img src={itemImg} alt="Item Image" />
-          <div class="style_items">
-            <h4>Cusine</h4>
-            <p>
-              Price: <i class="fa fa-rupee rupee"></i>200
-            </p>
-          </div>
-          <div class="type_rating">
-            <span class="type">
-              <i class="fa fa-leaf"></i>
-              <p>Veg</p>
-            </span>
-            <span class="rating">
-              <i class="fa fa-star"></i>
-              <p>4.5</p>
-            </span>
-          </div>
-        </div>
-        <div class="menu_item" id="top">
-          <img src={itemImg} alt="Item Image" />
-          <div class="style_items">
-            <h4>Cusine</h4>
-            <p>
-              Price: <i class="fa fa-rupee rupee"></i>200
-            </p>
-          </div>
-          <div class="type_rating">
-            <span class="type">
-              <i class="fa fa-leaf"></i>
-              <p>Veg</p>
-            </span>
-            <span class="rating">
-              <i class="fa fa-star"></i>
-              <p>4.5</p>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+class Service extends Component{
+
+    componentDidMount() {
+        this.props.getItems();
+        //     console.log('UseEffect worked successfully')
+    }
+
+    render() {
+        let products = null;
+        if (this.props.items){
+             products = this.props.items.map(item =>{
+                return (
+                    <Aux>
+                    <div className="menu_item" id="top">
+                        <img src={item.img} alt="Item Image"/>
+                        <div className="style_items">
+                            <h4>{item.title}</h4>
+                            <p>
+                                Price: <i className="fa fa-rupee rupee"></i>200
+                            </p>
+                        </div>
+                        <div className="type_rating">
+                        <span className="type">
+                            <i className="fa fa-leaf"></i>
+                            <p>{item.category}</p>
+                        </span>
+                            <span className="rating">
+                            <i className="fa fa-star"></i>
+                            <p>4.5</p>
+                        </span>
+                        </div>
+                    </div>
+                        <div className="menu_item" id="top">
+                            <img src={item.img} alt="Item Image"/>
+                            <div className="style_items">
+                                <h4>{item.title}</h4>
+                                <p>
+                                    Price: <i className="fa fa-rupee rupee"></i>200
+                                </p>
+                            </div>
+                            <div className="type_rating">
+                        <span className="type">
+                            <i className="fa fa-leaf"></i>
+                            <p>{item.category}</p>
+                        </span>
+                                <span className="rating">
+                            <i className="fa fa-star"></i>
+                            <p>4.5</p>
+                        </span>
+                            </div>
+                        </div>
+                        <div className="menu_item" id="top">
+                            <img src={item.img} alt="Item Image"/>
+                            <div className="style_items">
+                                <h4>{item.title}</h4>
+                                <p>
+                                    Price: <i className="fa fa-rupee rupee"></i>200
+                                </p>
+                            </div>
+                            <div className="type_rating">
+                        <span className="type">
+                            <i className="fa fa-leaf"></i>
+                            <p>{item.category}</p>
+                        </span>
+                                <span className="rating">
+                            <i className="fa fa-star"></i>
+                            <p>4.5</p>
+                        </span>
+                            </div>
+                        </div>
+                        <div className="menu_item" id="top">
+                            <img src={item.img} alt="Item Image"/>
+                            <div className="style_items">
+                                <h4>{item.title}</h4>
+                                <p>
+                                    Price: <i className="fa fa-rupee rupee"></i>200
+                                </p>
+                            </div>
+                            <div className="type_rating">
+                        <span className="type">
+                            <i className="fa fa-leaf"></i>
+                            <p>{item.category}</p>
+                        </span>
+                                <span className="rating">
+                            <i className="fa fa-star"></i>
+                            <p>4.5</p>
+                        </span>
+                            </div>
+                        </div>
+
+
+                    </Aux>
+                );
+            })
+        }
+
+        return (
+            <div className="service">
+                <div class="veg">
+                    {products}
+                </div>
+            </div>
+        );
+    }
 }
 
-const mapStateToProps = (state) =>{
-  return{
-    items:state.item.items
-  }
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        items: state.item.res
+    }
 }
-export default connect(mapStateToProps)(Service);
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        getItems:() => dispatch(getItems())
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Service);
