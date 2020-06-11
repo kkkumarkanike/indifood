@@ -27,7 +27,6 @@ function App() {
   return (
     <BrowserRouter>
     <Nav />
-<<<<<<< HEAD
 
     <Switch>
     <Route path="/" exact component={Home} />
@@ -45,9 +44,6 @@ function App() {
     </Switch>
 {/* <Footer /> */}
 
-=======
-      {routes}
->>>>>>> 0c1712e30b4c95ecc2768742ef1d5d29b7349b3f
     </BrowserRouter>
   );
 }

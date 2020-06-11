@@ -2,7 +2,6 @@ body{
     margin: 0;
     padding: 0;
 }
-<<<<<<< HEAD
 .goTop{
     position: fixed;
     right: 20px;
@@ -25,12 +24,10 @@ text-align: center;
       padding: 16px 18px;
      
   }
-=======
 .main-heading{
     font-size: 25px;
     font-weight: bold;
 }
->>>>>>> 0c1712e30b4c95ecc2768742ef1d5d29b7349b3f
 
 .mobile{
     display: none;

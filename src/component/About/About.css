@@ -1,5 +1,5 @@
-.about{
-  margin-top: 70px;
+.main-about{
+  margin-top: 150px;
   margin-bottom: 60px;
 }
 
@@ -8,23 +8,31 @@
     width: 250px;
     border-radius: 50%;
     box-shadow: 0px 5px 20px #aaa  ;
+    
 }
 section{
     margin: 2rem 10rem;
     text-align: center;
 }
-.about{
+.main-about{
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 .ramu{
+    margin-bottom: 1rem;
+}
+.ramu,.kalyan{
     /* background-color: red; */
     margin-right: 1.5rem;
     padding: 1rem;
-    box-shadow: 0px 0px 50px #ccc;
+    box-shadow: 0px 0px 5px #eee;
+    /* background-color: red; */
 
 
+}
+.kalyan{
+    margin-top: -1rem;
 }
 .ramu h2,.kalyan h2{
     font-size: 25px;
@@ -34,13 +42,13 @@ section{
     font-size: 18px;
     font-weight: normal;
 }
-.kalyan{
+/* .kalyan{
     margin-left: 1.5rem;
-    /* background-color: green; */
     padding: 1rem;
     box-shadow: 0px 0px 50px #ccc;
+    background-color: green;
 
-}
+} */
 .ramu>p,.ramu>h3,.ramu>h6,.kalyan>p,.kalyan>h3,.kalyan>h6{
     padding: 0.5rem;
 }
@@ -51,7 +59,7 @@ section{
   
 /* MEDIA QUERIES */
 @media (max-width:900px){
-    .about{
+    .main-about{
         display: flex;
         flex-wrap: wrap;
     }
@@ -61,15 +69,9 @@ section{
         /* padding: 5rem; */
     }
     section{
-<<<<<<< HEAD
       margin:0
     } 
     
     
     }
   
-=======
-        margin:0
-    }
-}
->>>>>>> 0c1712e30b4c95ecc2768742ef1d5d29b7349b3f

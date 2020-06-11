@@ -39,7 +39,7 @@ function About() {
           </p>
         </div>
 
-        <div className="ramu">
+        <div className="kalyan">
           <h2>Ramu Bugudi</h2>
           <h6>Founder & CEO</h6>
           <div className="image_logo">
@@ -72,16 +72,7 @@ function About() {
       </div>
     </section>
 
-<<<<<<< HEAD
- 
-=======
-  <div className="goTop">
-      <a href="#top">Top</a>
-  </div>
-       <div className="goTop">
-        <a href="#top"><i className="fa fa-arrow-up"></i></a>
-      </div>
->>>>>>> 0c1712e30b4c95ecc2768742ef1d5d29b7349b3f
+
       </>
   );
 }

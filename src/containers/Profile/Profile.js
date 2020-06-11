@@ -3,8 +3,13 @@ import "./Profile.css";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import profileImg from "../../images/avatar.png";
-
+import {resetPassword} from "../../store/actions/authActions"
 class Profile extends Component {
+
+  changePass =() =>{
+    this.props.resetPassword();
+  }
+
   render() {
     const { name } = this.props.profile;
     const { uid, email } = this.props.auth;
@@ -17,12 +22,14 @@ class Profile extends Component {
           <i className="fa fa-pencil"></i>
         </div>
         <div className="user_detail">
-          <h1>{name}</h1>
-          <h4>{email}</h4>
+          <p>UserName : {name}</p>
+          <p>Email : {email}</p>
+          <p>Phone : +918919308004</p>
+
         </div>
         <div className="danger_section">
-          <button className="change_pass">Change Password</button>
-          <button className="delete_ac">Delete Account</button>
+          <button onClick={this.changePass} className="change_pass">Change Password</button>
+          {/* <button className="delete_ac">Delete Account</button> */}
         </div>
       </div>
     );
@@ -34,4 +41,10 @@ const mapStateToProps = (state) => {
     auth: state.firebase.auth,
   };
 };
-export default connect(mapStateToProps)(Profile);
+
+const mapDispatchToProps =(dispatch) =>{
+  return{
+    resetPassword:() => dispatch(resetPassword())
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Profile);

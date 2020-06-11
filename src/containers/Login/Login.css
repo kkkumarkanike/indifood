@@ -122,12 +122,15 @@ margin: 0 5rem;
      }   
      .login_fields{
          width: 100%;
-         margin: 1rem;
+         margin: 1rem auto;
      }
      .hr{
          display: none;
      }
      .email_password input{
          margin-right: 0px;
+     }
+     .email_password button{
+         width: 95%;
      }
     }

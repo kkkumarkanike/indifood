@@ -20,6 +20,7 @@
     height: 20px;
     width: 350px;
     background-color: white;
+    margin-bottom: 4px;
   }
   .send_icon{
     border: none;

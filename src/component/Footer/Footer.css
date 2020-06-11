@@ -71,3 +71,8 @@ color: #ff5e62;
     font-size: 12px;
   }
 }
+@media(min-width : 301px) and (max-width : 1025px){
+  .footer{
+    margin-bottom: 1.5rem;
+  }
+}
