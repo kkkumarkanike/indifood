@@ -24,8 +24,10 @@ const home = (props) => {
 
   let mobileCards = null;
   if (props.foodItems) {
-    mobileCards = props.foodItems.map((item) => {
-      return <MobileCard details={item} />;
+    console.log(props.foodItems);
+    const keys = Object.keys(props.foodItems);
+    mobileCards = keys.map((id) => {
+      return <MobileCard details={props.foodItems[id]} />;
     });
   }
   return (

@@ -1,0 +1,121 @@
+/************************* Cart Page ********************************/
+
+.checkout{
+    margin: 10px 1rem 0 1rem;
+}
+.checkout-head{
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 0;
+}
+.checkout-container{
+    margin: 0 auto;
+    margin-top: 5px;
+    width: 60%;
+    /* box-shadow: 0 0 10px #ccc; */
+    padding: 0;
+}
+.checkout-container .checkout-card{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.checkout-container .checkout-card .checkout-image{
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+}
+.checkout-details{
+    margin-left: 20px;
+}
+.checkout-details .name{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.checkout-details .price{
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding: 0;
+    font-size: 15px;
+}
+.checkout-details h3{
+    padding: 0;
+    margin-top:5px;
+    margin-bottom: 0;
+}
+/* .orders{
+     box-shadow: 0 5px 50px #ddd;
+} */
+.checkout .hr-cart{
+    padding: 1px;
+    background-color: #ccc;
+    width: 60%;
+    margin: auto;
+    margin-top: 15px;
+}
+.checkout-items{
+    display: flex;
+    margin-left: 120px;
+}
+.items{
+    display: flex;
+}
+.delete{
+    padding: 6px 10px;
+    color: white;
+    background-color: #EC4654;
+    border: none;
+    margin-left: 20px;
+
+}
+.items .bt{
+    padding: 5px 10px;
+    color: rgb(61, 59, 59);
+    border: none;
+}
+.items .inc{
+    background-color: #449D44;
+    color: white;
+}
+.items .dec{
+    background-color: #449D44;
+    color: white;
+}
+.items .number{
+    background-color: white;
+    border-bottom: 1px solid #aaa;
+    border-top: 1px solid #aaa ;
+}
+.checkout-button{
+    padding: 1rem;
+    margin-top: 10px;
+    margin-left: 0;
+    display: block;
+}
+.checkout-button .button{
+    padding: 1rem;
+    border: none;
+    background-color: #ff5e62;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+}
+@media (min-width : 300px) and (max-width : 499px){
+    .checkout-container{
+        margin: 0 auto;
+        margin-top: 10px;
+        width: 100%;
+        /* box-shadow: 0 0 10px #ccc; */
+        padding: 0;
+    }
+    .checkout .hr-cart{
+        padding: 1px;
+        background-color: #eee;
+        width: 100%;
+        margin: auto;
+        margin-top: 10px;
+    }
+
+}

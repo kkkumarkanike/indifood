@@ -47,7 +47,7 @@ handleSubmit = (e) =>{
         category: this.state.category,
         img: this.state.img
     });
-    this.props.history.push('/service');
+    this.props.history.push('/');
 
 
 }
