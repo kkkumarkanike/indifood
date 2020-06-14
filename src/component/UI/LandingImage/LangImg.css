@@ -3,7 +3,7 @@
     padding: 0;
 }
 :root{
-    --primaryColor :#FD6831;
+    --primaryColor :#ff5e62;
 }
 .landing-image{
     display: flex;
@@ -32,7 +32,8 @@
 .head{
     font-size: 60px;
     font-weight: bolder;
-    color: var(--primaryColor);
+    /* color: var(--primaryColor); */
+    color: #FD6831;
     margin-top: 10%;
     margin-bottom: 20px;
 }
@@ -50,12 +51,11 @@
     font-size: 18px;
     font-weight: bold;
     color: white;
-    background-color: #FD6831;
+    background-color: var(--primaryColor);
     border-radius: 30px;
-    transition: all  0.2s ease;
-    /* border: 2px solid white; */
+    /* transition: all  0.3s linear; */
     cursor: pointer;
-    box-shadow: 5px 5px 30px #FD6831;
+    box-shadow: 0px 0px 10px var(--primaryColor);;
 }
 .get-started:hover{
     border: 2px solid var(--primaryColor);
@@ -74,7 +74,6 @@
         margin-top: 50px;
         margin-bottom: 30px;
         margin-left: 0;
-        background-color: red;
         width: 100vw;
     }
     .text{
@@ -102,16 +101,6 @@
         width: 100%;
         z-index: -1;
     }
-    /* .layer {
-         background-color: black;
-         opacity: 0.6;
-         position: absolute;
-         z-index: -2;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-     } */
     .banner-image{
         display: none;
     }
@@ -136,7 +125,6 @@
         background-color: #FD6831;
         border-radius: 30px;
         transition: all  0.3s ease;
-        /* border: 2px solid white; */
         cursor: pointer;
         box-shadow: 5px 5px 30px #FD6831;
     }

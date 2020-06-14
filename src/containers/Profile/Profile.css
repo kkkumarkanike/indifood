@@ -46,7 +46,8 @@
     justify-content: space-evenly;
 }
 .change_pass{
-    background-color: #489E48;
+    background-color: #ff5e62;
+    cursor: pointer;
     border: none;
     padding: 0.8rem 1rem;
     color:white;

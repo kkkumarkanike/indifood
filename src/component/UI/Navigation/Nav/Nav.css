@@ -86,7 +86,7 @@ body{
     color: white;
     border: none;
     /* background: #ff5e62;  */
-   background: #489E48;
+   background: rgb(233, 29, 29);
     border-radius: 3px;
     cursor: pointer;
 }

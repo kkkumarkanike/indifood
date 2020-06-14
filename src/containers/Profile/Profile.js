@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import profileImg from "../../images/avatar.png";
 import {resetPassword} from "../../store/actions/authActions"
+import firebase from "../../config/Config"
 class Profile extends Component {
 
   changePass =() =>{
@@ -12,6 +13,8 @@ class Profile extends Component {
 
   render() {
     const { name } = this.props.profile;
+    const currentUser = firebase.auth().currentUser;
+    console.log(name)
     const { uid, email } = this.props.auth;
 
     if (!this.props.auth.uid) return <Redirect to="/login" />;
@@ -22,7 +25,7 @@ class Profile extends Component {
           <i className="fa fa-pencil"></i>
         </div>
         <div className="user_detail">
-          <p>UserName : {name}</p>
+          <p>UserName : {!name?email.split("@")[0] : name}</p>
           <p>Email : {email}</p>
           <p>Phone : +918919308004</p>
 

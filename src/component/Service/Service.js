@@ -14,11 +14,13 @@ class Service extends Component{
 
     render() {
         let products = null;
+        console.log("ARRAY OF ITEMS",this.props.items)
         if (this.props.items){
              products = this.props.items.map(item =>{
+
                 return (
                     <Aux>
-                    <div className="menu_item" id="top">
+                    <div className="menu_item" id="top" >
                         <img src={item.img} alt="Item Image"/>
                         <div className="style_items">
                             <h4>{item.title}</h4>
@@ -112,7 +114,6 @@ class Service extends Component{
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         items: state.item.res
     }

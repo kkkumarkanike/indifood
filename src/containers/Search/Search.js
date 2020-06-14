@@ -1,9 +1,22 @@
 import React, { Component } from "react";
 import "./Search.css";
+import {connect} from "react-redux"
+import {getItems} from "../../store/actions/itemActions"
+
+
 class Search extends Component {
+
   state = {
     searchText: "",
   };
+  // filteredItems = () =>{
+  //   this.props.items.filter(filItem =>{
+  //     return filItem.title.toLowerCase().includes(this.state.searchText.toLowerCase());
+  //   })
+  // }
+  componentDidMount(){
+    this.props.getItems()
+  }
 
   clearText = (e) => {
     this.setState({
@@ -16,10 +29,16 @@ class Search extends Component {
     });
   };
 
-  render() {
 
+   filteredItems = this.props.items.filter((item) => {
+    return item.title.toLowerCase().includes(this.state.searchText.toLowerCase());
+  });
+  render() {
+    console.log(this.filteredItems)
+// console.log("ITEMS",this.props.items)
     const {searchText} = this.state;
     return (
+      <>
       <div className="search_bar">
         <div className="search-field">
           <span className="fa fa-search"></span>
@@ -34,13 +53,40 @@ class Search extends Component {
           ) : (
             ""
           )}
-          {/* <button>
-             <i className="fa fa-close">    </i>
-         </button> */}
+        
         </div>
       </div>
+
+      {/* {this.props.items.filter(item => item.title.includes(this.state.searchText)).map(filItem => (
+        <li>
+          {filItem.title}
+        </li>
+      ))} */}
+            {searchText.length >= 1 ? (
+        <div>
+          {this.filteredItems.map((item) => (
+              <p>{item.title}</p>
+        
+          ))}
+        </div>
+      ) : null}
+     
+      </>
     );
   }
 }
 
-export default Search;
+const mapStateToProps = state =>{
+  return{
+items:state.item.res
+  }
+}
+
+  const mapDispatchToProps = dispatch =>{
+    return {
+      getItems : () => dispatch(getItems())
+    }
+  }
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Search);

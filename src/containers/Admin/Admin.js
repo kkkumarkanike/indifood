@@ -22,16 +22,7 @@ import Spinner from './../../component/UI/Spinner/Spinner';
 
      componentDidMount(){
         this.props.getItems();
-  // const fetchData = async() =>{
-  //   const db = firebase.firestore();
-  //   const data = await db.collection('items').get();
-  //   const doc = data.docs.map((doc) =>{
-  //       console.log(doc.data())
-  //   });
       console.log("FOODITEMS",this.props.foodItems)
-
-  // }
-  // fetchData();
 }
 handleSubmit = (e) =>{
     const {title,desc,price,category} =this.state;

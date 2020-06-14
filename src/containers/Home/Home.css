@@ -10,7 +10,7 @@ body{
     /* height: 25px;
     width: 25px; */
     border-radius: 50%;
-background-color: #489E48;
+  background:  linear-gradient(90deg, rgba(247, 112, 98, 1), rgba(254, 81, 150, 1));
 text-align: center;
 
     text-align: center;

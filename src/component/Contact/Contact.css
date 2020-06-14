@@ -1,92 +1,59 @@
 
-
 .contact{
-    height: 400px;
-    width: auto;
-    background-color: #eee;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-left: 0;
-    
-  }
-  .contact_text{
-    font-size: 50px;
-    font-weight: bolder;
-  }
-  .contact_input input{
-    border: none;
-    padding: 1rem;
-    height: 20px;
-    width: 350px;
-    background-color: white;
-    margin-bottom: 4px;
-  }
-  .send_icon{
-    border: none;
-    padding: 1rem;
-    height: 52px;
-    margin-left: -3px;
-    background-color: var(--main-bg-color);
+text-align: center;
+  background-image:
+  linear-gradient(90deg, rgba(247, 112, 98, 0.44), rgba(254, 81, 150, 0.5)),
+  url('../../images/pizza.jpg');
+  width: auto;
+    height: 480px;
+  background-size: cover;
+  background-position: center;
+  /* color: white; */
+  display: flex;
+  align-items: center;
+}
+
+.contact_card{
+  height: 350px;
+  width: 350px;
+  background-color: white;
+  /* box-shadow: 0 0 1px #eee; */
+  border-radius: 4px;
+  margin: auto;
+  
+}
+.contact_input_fields{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contact_card h2{
+  letter-spacing: 2px;
+  font-weight: bold;
+  padding: 0.7rem;
+  color: rgb(105, 105, 105);
+}
+ .contact_input_fields input,.contact_input_fields textarea{
+  border: none;
+  background-color: transparent;
+  padding: 1.5rem 0;
+  width: 90%;
+  border-bottom: 1px solid gray;
+  color: gray;
+  text-indent: 20px;
+}
+.contact_input_fields input::placeholder,.contact_input_fields textarea::placeholder{
+  color: gray;
+}
+.contact_input_fields button{
+  background:  linear-gradient(90deg, rgba(247, 112, 98, 1), rgba(254, 81, 150, 1));
+  border: none;
+  color: white;
+  width: 90%;
+  padding: 1rem 0;
+  margin-top: 1.5rem;
   cursor: pointer;
-  transition: 0.3s all ease;
-  }
-  .send_icon:hover{
-    background-color: white;
-  color: var(--main-bg-color);
-  border-left: 1px solid #aaa;
-  }
-  .send_button{
-    display: none;
-  }
-  
-  
-
-/* MEDIA QUERIES */
-
-@media (max-width:900px){
-    .contact{
-      display: flex;
-      height: 250px;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      
-    }
-    .contact_text{
-      font-size: 30px;
-      font-weight: normal;
-      text-align: center;
-    }
-    .send_icon{
-      display: none;
-    }
-   .contact_input input{
-     padding: 0.8rem;
-   }
-   .contact_input input,.send_button{
-     border-radius: 3px;
-   }
-    .send_button{
-      display: block;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 4px;
-      width: 100%;
-      text-align: center;
-      height: 40px;
-      border: none;
-      background-color: var(--main-bg-color);
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-
-    }
-    .send_button:hover{
-      color: var(--main-bg-color);
-      background-color: white;
-    }
-    
-    
-    }
-    
+  font-weight: bold;
+  letter-spacing:1px;
+}

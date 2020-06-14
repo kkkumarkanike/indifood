@@ -9,9 +9,9 @@ export const addItem = (item) => {
       ...item,
       createdAt: new Date(),
     }).then((res) =>{
-        dispatch({ type: "ADD_ITEM", item },res);
+        dispatch({ type: "ADD_ITEM", item });
     }).catch((error) =>{
-        dispatch({type:"ADD_ITEM_ERROR"},error);
+        dispatch({type:"ADD_ITEM_ERROR",error});
     })
     
   };
