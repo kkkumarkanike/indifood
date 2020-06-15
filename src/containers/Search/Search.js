@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 import "./Search.css";
-import {connect} from "react-redux"
-import {getItems} from "../../store/actions/itemActions"
-
+import {connect} from "react-redux";
+import Aux from './../../hoc/Auxilary';
+import {getItems} from "../../store/actions/itemActions";
+import load from './../../images/loading-search.gif';
 
 class Search extends Component {
 
   state = {
     searchText: "",
+    filteredItems : {},
+    message : ''
   };
-  // filteredItems = () =>{
-  //   this.props.items.filter(filItem =>{
-  //     return filItem.title.toLowerCase().includes(this.state.searchText.toLowerCase());
-  //   })
-  // }
-  componentDidMount(){
-    this.props.getItems()
+  componentDidMount() {
+    this.props.onGetItems();
   }
 
   clearText = (e) => {
@@ -24,69 +22,73 @@ class Search extends Component {
     });
   };
   handleInput = (e) => {
+    let filteredItems = {};
     this.setState({
       [e.target.name]: e.target.value,
     });
+    const val = e.target.value;
+    const foodItems = this.props.items;
+    const keys = Object.keys(foodItems);
+    if(keys.length){
+       const filteredItemsKeys = keys.filter(id => foodItems[id].title.toLowerCase().includes(val.toLowerCase()));
+       filteredItemsKeys.map(key =>{
+           filteredItems[key] = foodItems[key];
+      })
+      // console.log("************Filtered Items*************",filteredItems);
+       this.setState({filteredItems : filteredItems});
+    }
+    if (e.target.value.length <= 0){
+       this.setState({filteredItems : {}, message : "No Items Found For This Search"})
+    }
+
   };
-
-
-   filteredItems = this.props.items.filter((item) => {
-    return item.title.toLowerCase().includes(this.state.searchText.toLowerCase());
-  });
   render() {
-    console.log(this.filteredItems)
-// console.log("ITEMS",this.props.items)
+    let result = null;
+    if (this.state.filteredItems.length > 0){
+      result = this.state.filteredItems.map(item =>{
+        return <h1>{item.title}</h1>;
+      })
+    
+    }else{
+      result = <h3 style={{textAlign : "center"}}>{this.state.message}</h3>;
+    }
     const {searchText} = this.state;
     return (
-      <>
-      <div className="search_bar">
-        <div className="search-field">
-          <span className="fa fa-search"></span>
-          <input
-            placeholder="Search For Restaurants Or Dishes"
-            name="searchText"
-            value={searchText}
-            onChange={this.handleInput}
-          />
-          {searchText.length > 0 ? (
-            <span onClick={this.clearText} className="fa fa-close"></span>
-          ) : (
-            ""
-          )}
-        
+      <Aux>
+        <div className="search_bar">
+          <div className="search-field">
+            <span className="fa fa-search"></span>
+            <input
+                placeholder="Search For Restaurants Or Dishes"
+                name="searchText"
+                value={searchText}
+                onChange={this.handleInput}
+            />
+            {searchText.length > 0 ? (
+                <span onClick={this.clearText} className="fa fa-close"></span>
+            ) : (
+                ""
+            )}
+            {/* <button>
+             <i className="fa fa-close">    </i>
+         </button> */}
+          </div>
         </div>
-      </div>
-
-      {/* {this.props.items.filter(item => item.title.includes(this.state.searchText)).map(filItem => (
-        <li>
-          {filItem.title}
-        </li>
-      ))} */}
-            {searchText.length >= 1 ? (
-        <div>
-          {this.filteredItems.map((item) => (
-              <p>{item.title}</p>
-        
-          ))}
-        </div>
-      ) : null}
-     
-      </>
+        {result ? result : this.state.message}
+      </Aux>
     );
   }
 }
 
 const mapStateToProps = state =>{
-  return{
-items:state.item.res
+  return {
+      items : state.item.res
   }
 }
-
-  const mapDispatchToProps = dispatch =>{
-    return {
-      getItems : () => dispatch(getItems())
-    }
+const mapDispatchToProps = dispatch =>{
+  return {
+     onGetItems : () => dispatch(getItems())
   }
-
+}
 
 export default connect(mapStateToProps,mapDispatchToProps)(Search);

@@ -1,5 +1,6 @@
 const initState = {
-  res:[]
+    res:[],
+    cart : []
 };
 
 const itemReducer = (state = initState, action) => {
@@ -20,6 +21,13 @@ const itemReducer = (state = initState, action) => {
         case 'GET_ITEMS_ERROR':
             console.log("Getting all items error")
             return state
+        case 'GET_CART_ITEMS_SUCCESS':
+            console.log("Getting all items")
+
+            return {
+                ...state,
+                cart:action.cart
+            }
         default:
           return state;
       }

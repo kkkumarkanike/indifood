@@ -16,33 +16,14 @@ class Service extends Component{
         let products = null;
         console.log("ARRAY OF ITEMS",this.props.items)
         if (this.props.items){
-             products = this.props.items.map(item =>{
-
+            const itemList = this.props.items;
+             products = Object.keys(itemList).map(id =>{
                 return (
                     <Aux>
-                    <div className="menu_item" id="top" >
-                        <img src={item.img} alt="Item Image"/>
-                        <div className="style_items">
-                            <h4>{item.title}</h4>
-                            <p>
-                                Price: <i className="fa fa-rupee rupee"></i>200
-                            </p>
-                        </div>
-                        <div className="type_rating">
-                        <span className="type">
-                            <i className="fa fa-leaf"></i>
-                            <p>{item.category}</p>
-                        </span>
-                            <span className="rating">
-                            <i className="fa fa-star"></i>
-                            <p>4.5</p>
-                        </span>
-                        </div>
-                    </div>
                         <div className="menu_item" id="top">
-                            <img src={item.img} alt="Item Image"/>
+                            <img src={itemList[id].img} alt="Item Image"/>
                             <div className="style_items">
-                                <h4>{item.title}</h4>
+                                <h4>{itemList[id].title[0].toUpperCase() + itemList[id].title.slice(1)}</h4>
                                 <p>
                                     Price: <i className="fa fa-rupee rupee"></i>200
                                 </p>
@@ -50,7 +31,7 @@ class Service extends Component{
                             <div className="type_rating">
                         <span className="type">
                             <i className="fa fa-leaf"></i>
-                            <p>{item.category}</p>
+                            <p>{itemList[id].category}</p>
                         </span>
                                 <span className="rating">
                             <i className="fa fa-star"></i>
@@ -58,46 +39,6 @@ class Service extends Component{
                         </span>
                             </div>
                         </div>
-                        <div className="menu_item" id="top">
-                            <img src={item.img} alt="Item Image"/>
-                            <div className="style_items">
-                                <h4>{item.title}</h4>
-                                <p>
-                                    Price: <i className="fa fa-rupee rupee"></i>200
-                                </p>
-                            </div>
-                            <div className="type_rating">
-                        <span className="type">
-                            <i className="fa fa-leaf"></i>
-                            <p>{item.category}</p>
-                        </span>
-                                <span className="rating">
-                            <i className="fa fa-star"></i>
-                            <p>4.5</p>
-                        </span>
-                            </div>
-                        </div>
-                        <div className="menu_item" id="top">
-                            <img src={item.img} alt="Item Image"/>
-                            <div className="style_items">
-                                <h4>{item.title}</h4>
-                                <p>
-                                    Price: <i className="fa fa-rupee rupee"></i>200
-                                </p>
-                            </div>
-                            <div className="type_rating">
-                        <span className="type">
-                            <i className="fa fa-leaf"></i>
-                            <p>{item.category}</p>
-                        </span>
-                                <span className="rating">
-                            <i className="fa fa-star"></i>
-                            <p>4.5</p>
-                        </span>
-                            </div>
-                        </div>
-
-
                     </Aux>
                 );
             })

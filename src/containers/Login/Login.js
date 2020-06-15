@@ -30,7 +30,6 @@ class Login extends Component {
     if(auth.uid) return <Redirect to ="/" />
     return (
       <Aux>
-        <Nav />
         <div className="login_page" style={{ marginTop: "60px" }}>
           <div className="login_fields">
           

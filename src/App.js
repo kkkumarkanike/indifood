@@ -10,7 +10,10 @@ import About from './component/About/About';
 import Profile from './containers/Profile/Profile';
 import Search from './containers/Search/Search';
 import Footer from './component/Footer/Footer';
-import Error from "./component/Error/Error"
+import Error from "./component/Error/Error";
+import VegItems from './containers/VegItems/VegItems';
+import Cart from './containers/Cart/Cart';
+import Orders from './containers/Orders/Orders';
 
 
 function App() {
@@ -34,6 +37,10 @@ function App() {
     <Route path="/signup"  component={SignUp} />
     <Route path="/admin" component={Admin} />
     <Route path="/service"  component={Service} />
+    <Route path="/veg" component={VegItems}/>
+    <Route path="/non-veg" component={VegItems}/>
+    <Route path="/cart" component={Cart}/>
+    <Route path="/orders" component={Orders}/>
     <Route path ="/about" component={About} />
     <Route path ="/profile" component={Profile} />
     <Route path ="/search" component={Search} />

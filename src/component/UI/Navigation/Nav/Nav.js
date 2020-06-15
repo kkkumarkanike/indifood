@@ -5,6 +5,8 @@ import "./Nav.css";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { logout } from "../../../../store/actions/authActions";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faBoxOpen} from "@fortawesome/free-solid-svg-icons";
 
 class nav extends Component {
   logout = () => {
@@ -22,7 +24,7 @@ class nav extends Component {
         </li>
         <li>
          
-          <Link to="/orders"><i className="fa fa-box-open"> </i>Orders</Link>
+          <Link to="/orders"><FontAwesomeIcon icon={faBoxOpen} style={{fontSize : "15px"}}/>&nbsp;Orders</Link>
         </li>
         <li>
           <Link to="/profile"><i className="fa fa-user"> </i>Profile</Link>
@@ -90,15 +92,14 @@ class nav extends Component {
           </div>
           <div className="flex-item">
             <i
-              className="fa fa-home"
+              className="fa fa-shopping-cart"
               style={{ fontSize: "32px", width: "22%" }}
             ></i>
           </div>
           <div className="flex-item">
-            <i
-              className="fa fa-shopping-cart"
-              style={{ fontSize: "32px", width: "22%" }}
-            ></i>
+            <FontAwesomeIcon icon={faBoxOpen}
+              style={{ fontSize: "30px", width: "22%" }}
+            />
           </div>
           <div className="flex-item">
             <i
