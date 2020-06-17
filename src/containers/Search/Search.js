@@ -35,6 +35,7 @@ class Search extends Component {
        this.setState({filteredItems : [], message : "No Items Found For This Search"})
     }
 
+
   };
   render() {
     let result = null;

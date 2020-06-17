@@ -127,7 +127,7 @@ body{
 }
 .filtered-items .filtered-food-card{
     width: 230px;
-    height: 230px;
+    height: 250px;
     padding: 0;
     margin: 30px;
     /* border: 1px solid #ddd; */
@@ -326,4 +326,6 @@ body{
 
 
 }
+
+
 

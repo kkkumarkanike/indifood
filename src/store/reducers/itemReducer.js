@@ -1,6 +1,7 @@
 const initState = {
     res:[],
-    cart : []
+    cart : {},
+    itemDetails : {}
 };
 
 const itemReducer = (state = initState, action) => {
@@ -23,10 +24,41 @@ const itemReducer = (state = initState, action) => {
             return state
         case 'GET_CART_ITEMS_SUCCESS':
             console.log("Getting all items")
-
             return {
                 ...state,
-                cart:action.cart
+                cart: action.cart
+            }
+
+        case 'UPDATE_STATE_CART':
+            console.log("Cart count updated");
+            return {
+                ...state,
+                cart: {
+                    ...state.cart,
+                    [action.id] : {
+                        ...state.cart[action.id],
+                        count : action.count
+                    }
+                }
+            }
+        case 'ITEM_DETAILS':
+            console.log("Item Details Got");
+            return {
+                ...state,
+                itemDetails: action.data
+            }
+
+        case 'CART_ITEM_DELETE':
+            console.log("Item Deleted from State");
+            return {
+                ...state,
+                cart: action.data
+            }
+        case 'EMPTY_CART':
+            console.log("Cart Emptied");
+            return {
+                ...state,
+                cart: {}
             }
         default:
           return state;

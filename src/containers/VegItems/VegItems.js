@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import './VegItems.css';
+import {Link} from "react-router-dom";
 import Aux from './../../hoc/Auxilary';
 import special from './../../images/special.jpg';
 import biryaani from './../../images/biryaani.jpg';
@@ -13,42 +14,50 @@ const vegItems = props =>{
         console.log('Use Effect working');
     },[]);
 
+
+
+
     let items = null;
     let mobileItems = null;
-    if (props.foodItems.length > 0){
-        items = props.foodItems.map(item =>{
+    const allItems = props.foodItems;
+    const allItemsIds = Object.keys(allItems);
+    if (allItemsIds.length > 0){
+        items = allItemsIds.map(item =>{
             console.log("Single Item array",item);
             return (
-                <div className="filtered-food-card">
-                <img src={item.img} alt="image" className="food-image"/>
-                    <div className="filtered-details">
-                        <p style={{margin: 0}}><b>{item.title}</b><br/>
-                            <span className="filtered-desc">{item.desc}</span>
-                        </p>
-                        <button className="left"><i className="fa fa-rupee"></i>&nbsp;{item.price}
-                        </button>
-                        <button className="right" onClick={() => {props.onAddItemToCart(item)}}><b>ADD</b></button>
+
+                    <div className="filtered-food-card">
+                        <Link to={'/details/'+item} >
+                            <img src={allItems[item].img} alt="image" className="food-image"/>
+                        </Link>
+                        <div className="filtered-details">
+                            <p style={{margin: 0, color : "#000"}}><b>{allItems[item].title}</b><br/>
+                                <span className="filtered-desc">{allItems[item].desc}</span>
+                            </p>
+                            <button className="left"><i className="fa fa-rupee"></i>&nbsp;{allItems[item].price}
+                            </button>
+                            <button className="right" onClick={() => {props.onAddItemToCart(allItems[item])}}><b>ADD</b></button>
+                        </div>
                     </div>
-                </div>
             )
         });
-        mobileItems = props.foodItems.map(item =>{
+        mobileItems = allItemsIds.map(item =>{
             return (
                 <div className="mobile-single-item">
-                    <img src={item.img} alt="" className="mobi-image"/>
+                    <img src={allItems[item].img} alt="" className="mobi-image"/>
                     <div className="mobi-item-details">
-                        <h5 className="mobi-item-head">{item.title}</h5>
-                        <p className="mobi-item-para">{item.desc}</p>
+                        <h5 className="mobi-item-head">{allItems[item].title}</h5>
+                        <p className="mobi-item-para">{allItems[item].desc}</p>
                         <div className="rate-add">
                             <div className="rate-flex">
                                 <div>
-                                    <button className="rate-btn"><i className="fa fa-rupee"></i>&nbsp;{item.price}
+                                    <button className="rate-btn"><i className="fa fa-rupee"></i>&nbsp;{allItems[item].price}
                                     </button>
                                 </div>
                             </div>
                             <div className="add-flex">
                                 <div>
-                                    <button className="add-btn" onClick={() => props.onAddItemToCart(item)}>ADD</button>
+                                    <button className="add-btn" onClick={() => props.onAddItemToCart(allItems[item])}>ADD</button>
                                 </div>
                             </div>
                         </div>
@@ -111,77 +120,10 @@ const vegItems = props =>{
                             </div>
                             <div className="vl"></div>
                             <div className="filtered-items-block">
-                                <p className="txt">{props.foodItems.length} ITEMS</p>
+                                <p className="txt">{Object.keys(props.foodItems).length} ITEMS</p>
                                 <div className="filtered-items">
                                     {items}
-                                    {items}
-                                    {/*<div className="filtered-food-card">*/}
-                                    {/*    <img src={biryaani} alt="image" className="food-image"/>*/}
-                                    {/*        <div className="filtered-details">*/}
-                                    {/*            <p style={{margin: 0}}><b>Biryaani</b><br/>*/}
-                                    {/*                <span className="filtered-desc">Dham Biryaani</span>*/}
-                                    {/*            </p>*/}
-                                    {/*            <button className="left"><i className="fa fa-rupee"></i>&nbsp;200*/}
-                                    {/*            </button>*/}
-                                    {/*            <button className="right"><b>ADD</b></button>*/}
-                                    {/*        </div>*/}
-                                    {/*</div>*/}
-                                    {/*<div className="filtered-food-card">*/}
-                                    {/*    <img src={biryaani} alt="image" className="food-image"/>*/}
-                                    {/*        <div className="filtered-details">*/}
-                                    {/*            <p style={{margin: 0}}><b>Biryaani</b><br/>*/}
-                                    {/*                <span className="filtered-desc">Dham Biryaani</span>*/}
-                                    {/*            </p>*/}
-                                    {/*            <button className="left"><i className="fa fa-rupee"></i>&nbsp;200*/}
-                                    {/*            </button>*/}
-                                    {/*            <button className="right"><b>ADD</b></button>*/}
-                                    {/*        </div>*/}
-                                    {/*</div>*/}
-                                    {/*<div className="filtered-food-card">*/}
-                                    {/*    <img src={biryaani} alt="image" className="food-image"/>*/}
-                                    {/*        <div className="filtered-details">*/}
-                                    {/*            <p style={{margin: 0}}><b>Biryaani</b><br/>*/}
-                                    {/*                <span className="filtered-desc">Dham Biryaani</span>*/}
-                                    {/*            </p>*/}
-                                    {/*            <button className="left"><i className="fa fa-rupee"></i>&nbsp;200*/}
-                                    {/*            </button>*/}
-                                    {/*            <button className="right"><b>ADD</b></button>*/}
-                                    {/*        </div>*/}
-                                    {/*</div>*/}
-                                    {/*<div className="filtered-food-card">*/}
-                                    {/*    <img src={biryaani} alt="image" className="food-image"/>*/}
-                                    {/*        <div className="filtered-details">*/}
-                                    {/*            <p style={{margin: 0}}><b>Biryaani</b><br/>*/}
-                                    {/*                <span className="filtered-desc">Dham Biryaani</span>*/}
-                                    {/*            </p>*/}
-                                    {/*            <button className="left"><i className="fa fa-rupee"></i>&nbsp;200*/}
-                                    {/*            </button>*/}
-                                    {/*            <button className="right"><b>ADD</b></button>*/}
-                                    {/*        </div>*/}
-                                    {/*</div>*/}
-                                    {/*<div className="filtered-food-card">*/}
-                                    {/*    <img src={biryaani} alt="image" className="food-image"/>*/}
-                                    {/*        <div className="filtered-details">*/}
-                                    {/*            <p style={{margin: 0}}><b>Biryaani</b><br/>*/}
-                                    {/*                <span className="filtered-desc">Dham Biryaani</span>*/}
-                                    {/*            </p>*/}
-                                    {/*            <button className="left"><i className="fa fa-rupee"></i>&nbsp;200*/}
-                                    {/*            </button>*/}
-                                    {/*            <button className="right"><b><i*/}
-                                    {/*                className="fa fa-cart-plus"></i>&nbsp;ADD</b></button>*/}
-                                    {/*        </div>*/}
-                                    {/*</div>*/}
-                                    {/*<div className="filtered-food-card">*/}
-                                    {/*    <img src={biryaani} alt="image" className="food-image"/>*/}
-                                    {/*        <div className="filtered-details">*/}
-                                    {/*            <p style={{margin: 0}}><b>Biryaani</b><br/>*/}
-                                    {/*                <span className="filtered-desc">Dham Biryaani</span>*/}
-                                    {/*            </p>*/}
-                                    {/*            <button className="left"><i className="fa fa-rupee"></i>&nbsp;200*/}
-                                    {/*            </button>*/}
-                                    {/*            <button className="right"><b>ADD</b></button>*/}
-                                    {/*        </div>*/}
-                                    {/*</div>*/}
+
                                 </div>
                             </div>
                         </div>
@@ -284,6 +226,7 @@ const vegItems = props =>{
                     </div>
                 </div>
             </div>
+
         </Aux>
     );
 }

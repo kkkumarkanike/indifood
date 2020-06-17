@@ -11,7 +11,7 @@ import {faBoxOpen} from "@fortawesome/free-solid-svg-icons";
 class nav extends Component {
   logout = () => {
     this.props.logout();
-    return <Redirect to="/login" />
+    return <Redirect to='/'/>;
   };
 
   signedInLinks = () => {
@@ -31,7 +31,7 @@ class nav extends Component {
         </li>
 
         <li>
-          <a className="logout" style={{color:"white"}} onClick={this.logout} to="LogOut">
+          <a href="/" className="logout" style={{color:"white"}} onClick={this.logout} >
             LogOut
           </a>
         </li>

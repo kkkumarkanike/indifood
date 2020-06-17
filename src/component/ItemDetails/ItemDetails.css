@@ -1,0 +1,113 @@
+
+
+.container{
+
+    margin: auto;
+    margin-top: 100px;
+    background-color: #E9ECEE;
+    width: 60%;
+    border: 5px solid #ddd;
+    border-radius: 5px ;
+}
+.container .image{
+    width: 100%;
+    height: 380px;
+    padding: 0;
+    margin: 0;
+    transition: all 0.5s ease;
+}
+.container .image:hover{
+    /* transform: scale(1.05); */
+    overflow: hidden;
+}
+.details{
+    padding: 20px;
+}
+.container .details .details-head{
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(49, 46, 46);
+}
+.details .name{
+    font-size: 17px;
+    color: rgb(82, 78, 78);
+    margin-top: 10px;
+}
+.other-details {
+    margin-top: 20px;
+    display: flex;
+}
+.other-details .rating{
+    padding: 12px;
+    border: none;
+    background-color: #ff5e62;
+    color: white;
+    margin-right: 10px;
+}
+.btn {
+    padding: 12px;
+    border: none;
+    background-color: #ff5e62;
+    color: white;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.add-to-cart-box-mobile{
+    display: none;
+}
+.price{
+    margin-top: 10px;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+@media (min-width : 300px) and (max-width : 499px){
+    .container{
+        margin-top:100px;
+        background-color: #E9ECEE;
+        width: 90%;
+    }
+    .container .image{
+        width: 100%;
+        height: 50%;
+        padding: 0;
+        margin: 0;
+        transition: all 0.5s ease;
+    }
+    .rating{
+        padding: 8px;
+        border: none;
+        background-color: #ff5e62;
+        color: white;
+        margin-right: 10px;
+    }
+    .btn {
+        padding: 8px;
+        border: none;
+        background-color: #ff5e62;
+        color: white;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+    .add-to-cart-box-mobile{
+
+        padding: 1rem;
+        margin-top: 15px;
+        margin-left: 0;
+        display: block;
+    }
+    .add-to-cart-box-mobile .button{
+        padding: 25px;
+        border: none;
+        background-color: #ff5e62;
+        color: white;
+        cursor: pointer;
+        width: 100%;
+    }
+    .mobile-hide{
+        display: none;
+    }
+
+}
