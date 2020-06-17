@@ -10,10 +10,10 @@ import thunk from "redux-thunk";
 import { reduxFirestore, getFirestore } from "redux-firestore";
 import { reactReduxFirebase, getFirebase } from "react-redux-firebase";
 import config from "./config/Config";
-
+const composeEnhancer =  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducer,
-  compose(
+  composeEnhancer(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
     reactReduxFirebase(config, {useFirestoreForProfile:true,userProfile:'users', attachAuthIsReady: true }),
     reduxFirestore(config)

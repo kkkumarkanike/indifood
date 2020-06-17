@@ -62,6 +62,7 @@ class Search extends Component {
        this.setState({filteredItems : {}})
     }
 
+
   };
   render() {
     // let result = null;

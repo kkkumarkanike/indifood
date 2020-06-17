@@ -13,7 +13,7 @@ class nav extends Component {
   
   logout = () => {
     this.props.logout();
-    return <Redirect to="/login" />
+    return <Redirect to='/'/>;
   };
 
   signedInLinks = () => {
@@ -33,7 +33,7 @@ class nav extends Component {
         </li>
 
         <li>
-          <a className="logout" style={{color:"white"}} onClick={this.logout} to="LogOut">
+          <a href="/" className="logout" style={{color:"white"}} onClick={this.logout} >
             LogOut
           </a>
         </li>
@@ -45,7 +45,7 @@ class nav extends Component {
     return (
       <ul>
         <li>
-          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/">Login</NavLink>
         </li>
         <li>
           <NavLink to="/signup"> Sign Up</NavLink>

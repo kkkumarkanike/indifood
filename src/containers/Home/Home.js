@@ -10,7 +10,7 @@ import About from "./../../component/About/About";
 import Service from "./../../component/Service/Service";
 import MobileCard from "./../../component/FoodCard/MobileCard";
 import { Redirect } from "react-router";
-import { getItems } from "../../store/actions/itemActions";
+import {getCartItems, getItems} from "../../store/actions/itemActions";
 
 const home = (props) => {
   const { auth } = props;
@@ -20,6 +20,7 @@ const home = (props) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     props.getItems();
+    props.onGetCartItems();
   }, []);
 
   let mobileCards = null;
@@ -114,6 +115,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getItems: () => dispatch(getItems()),
+    onGetCartItems : () => dispatch(getCartItems())
   };
 };
 

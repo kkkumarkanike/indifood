@@ -9,15 +9,17 @@ class Service extends Component{
 
     componentDidMount() {
         this.props.getItems();
+        this.props.getSpecialItems()
         //     console.log('UseEffect worked successfully')
     }
 
     render() {
-        let products = null;
-        console.log("ARRAY OF ITEMS",this.props.items)
-        if (this.props.items){
-            const itemList = this.props.items;
-             products = Object.keys(itemList).map(id =>{
+        let specialFoodItems = null;
+        console.log("ARRAY OF ITEMS",this.props.specialItems)
+        
+        if (this.props.specialItems){
+            const itemList = this.props.specialItems;
+            specialFoodItems = Object.keys(itemList).map(id =>{
                 return (
                     <Aux>
                         <div className="menu_item" id="top">
@@ -47,7 +49,7 @@ class Service extends Component{
         return (
             <div className="service">
                 <div class="veg">
-                    {products}
+                    {specialFoodItems}
                 </div>
             </div>
         );
@@ -55,8 +57,10 @@ class Service extends Component{
 }
 
 const mapStateToProps = (state) => {
+    console.log("SERVICE STATE",state)
     return {
-        items: state.item.res
+        items: state.item.res,
+        specialItems:state.item.specialItems
     }
 }
 const mapDispatchToProps = (dispatch) =>{

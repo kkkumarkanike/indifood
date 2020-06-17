@@ -33,6 +33,7 @@
 .checkout-details .name{
     margin-top: 0;
     margin-bottom: 0;
+    font-size: 12px;
 }
 .checkout-details .price{
     margin-top: 5px;
@@ -89,6 +90,7 @@
     border-top: 1px solid #aaa ;
 }
 .checkout-button{
+    text-align: center;
     padding: 1rem;
     margin-top: 10px;
     margin-left: 0;
@@ -119,3 +121,138 @@
     }
 
 }
+
+
+
+.backdrop{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    position: fixed;
+    top : 0;
+    left : 0;
+}
+.order .cancel{
+    margin: 0;
+    padding: 8px;
+    text-align: center;
+    /*box-shadow: 0 0 10px black;*/
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    position: fixed;
+    top: 11%;
+    left: 67%;
+
+}
+.order{
+    padding: 10px;
+    background-color: white;
+    width: 40%;
+    height: 80%;
+    z-index: 1001;
+    position: fixed;
+    top: 10%;
+    left: 30%;
+    margin: auto;
+    overflow-y: scroll;
+    transition: 0.5s all ease;
+}
+.order::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE and Edge */
+.order {
+    -ms-overflow-style: none;
+}
+.order .checkout{
+    margin-top: 20px;
+}
+.order .checkout-container{
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 100%;
+    /* box-shadow: 0 0 10px #ccc; */
+    padding: 0;
+}
+.order .checkout .hrl{
+    padding: 1px;
+    background-color: #ccc;
+    width: 100%;
+    margin: auto;
+    margin-top: 5px;
+}
+.order .checkout-container .checkout-card .checkout-image{
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    margin: 0;
+}
+.order .checkout-button{
+    padding: 0;
+    margin-top: 20px;
+    margin-left: 13px;
+    margin-right: 13px;
+    display: block;
+}
+.order .checkout-button .button{
+    margin: 0 ;
+    padding: 20px;
+    border: none;
+    background-color: #ff5e62;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+}
+.order .hrl{
+    padding: 1px;
+    background-color: #ccc;
+    width: 100%;
+    margin: auto;
+    margin-top: 5px;
+}
+.order .total-details .total{
+    margin-right: 15px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.order .total-details .total .each-item{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 5px;
+}
+@media (min-width : 300px) and (max-width : 499px){
+    .order .checkout-container{
+        margin-top: 10px;
+        width: 100%;
+    }
+    .order{
+        padding: 10px;
+        background-color: white;
+        width: 85%;
+        height: 80%;
+        z-index: 1001;
+        position: fixed;
+        top: 10%;
+        left: 5%;
+        margin: auto;
+    }
+    .order .cancel{
+        top: 11%;
+        left: 85%;
+
+    }
+
+}
+
+
+.hide{
+    display: none;
+}
+
+
+
+
+

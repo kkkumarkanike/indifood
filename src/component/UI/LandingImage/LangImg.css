@@ -33,7 +33,7 @@
     font-size: 60px;
     font-weight: bolder;
     /* color: var(--primaryColor); */
-    color: #FD6831;
+    color: var(--primaryColor);
     margin-top: 10%;
     margin-bottom: 20px;
 }
