@@ -10,7 +10,8 @@ class Search extends Component {
   state = {
     searchText: "",
     filteredItems : {},
-    message : ''
+    message : '',
+    result:''
   };
   componentDidMount() {
     this.props.onGetItems();
@@ -21,7 +22,9 @@ class Search extends Component {
       searchText: "",
     });
   };
+ 
   handleInput = (e) => {
+    
     let filteredItems = {};
     this.setState({
       [e.target.name]: e.target.value,
@@ -35,23 +38,42 @@ class Search extends Component {
            filteredItems[key] = foodItems[key];
       })
       // console.log("************Filtered Items*************",filteredItems);
+      // const keys = Object.keys(filteredItems);
+      const values = Object.values(filteredItems);
+      if(values.length > 0){
+        this.state.result  = values.map(item =>{
+          return (
+          <div className="searchItemResult">
+            <img height="100" width="100" src={item.img} />
+           <div className="titleDesc">
+           <h3>{item.title[0].toUpperCase() + item.title.slice(1)}</h3>
+            <h6>{item.desc}</h6>
+           </div>
+          </div>
+            )
+        })
+      }else{
+        this.state.result= <h3 style={{textAlign : "center"}}>No Items Found For The Search...</h3>;
+      }
+      
        this.setState({filteredItems : filteredItems});
     }
     if (e.target.value.length <= 0){
-       this.setState({filteredItems : {}, message : "No Items Found For This Search"})
+       this.setState({filteredItems : {}})
     }
 
   };
   render() {
-    let result = null;
-    if (this.state.filteredItems.length > 0){
-      result = this.state.filteredItems.map(item =>{
-        return <h1>{item.title}</h1>;
-      })
-    
-    }else{
-      result = <h3 style={{textAlign : "center"}}>{this.state.message}</h3>;
-    }
+    // let result = null;
+    // const{filteredItems} = this.state;
+    // if (filteredItems.length > 0){
+    //   // result = this.state.filteredItems.map(item =>{
+    //   //   return <h1>{item.title}</h1>;
+    //   // })
+   
+    // }else{
+    //   result = <h3 style={{textAlign : "center"}}>{this.state.message}</h3>;
+    // }
     const {searchText} = this.state;
     return (
       <Aux>
@@ -74,7 +96,7 @@ class Search extends Component {
          </button> */}
           </div>
         </div>
-        {result ? result : this.state.message}
+        {this.state.result ? this.state.result : this.state.result }
       </Aux>
     );
   }

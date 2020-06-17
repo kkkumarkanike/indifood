@@ -43,6 +43,32 @@ export const getItems = () => {
       
     };
   };
+// Special Items
+  export const getSpecialItems = () => {
+    return (dispatch, getState, { getFirestore }) => {
+      // Make async call to database
+  const foodItems = {};
+      const firestore = getFirestore();
+      firestore.collection("items").where("category","==","special").orderBy("createdAt","desc").limit(4).get().then((data) =>{
+          console.log("ALL DOCS with their ids main DATA",data);
+        data.docs.map((doc) =>{
+            const id = doc.id;
+            // let obj = {};
+            // obj[id] = doc.data();
+            // console.log(obj);
+            foodItems[id] = doc.data();
+        })
+          console.log("foodItems",foodItems);
+          dispatch({ type: "GET_ITEMS_SUCCESS" ,res:foodItems});
+
+
+      }).catch((error) =>{
+          dispatch({type:"GET_ITEMS_ERROR"},error)
+      })
+
+      
+    };
+  };
 
 export const addItemToCart = (item) =>{
     return (dispatch, getState, { getFirestore,getFirebase }) => {

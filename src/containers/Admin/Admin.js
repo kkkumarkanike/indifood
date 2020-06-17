@@ -60,7 +60,9 @@ handleChange = (e) =>{
 }
 
     render() {
+        const itemList = this.props.foodItems;
         return (
+            <>
           
             <div className="login_fields admin">
 
@@ -88,6 +90,12 @@ handleChange = (e) =>{
             
             </div>
             </div>
+<br />
+<h1>Hello</h1>
+{Object.keys(itemList).map(id =>{
+    return <p>{itemList[id].title}</p>
+})}
+            </>
           
         )
     }

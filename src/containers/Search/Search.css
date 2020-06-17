@@ -29,6 +29,27 @@
     cursor: pointer;
     color: rgb(78, 76, 76);
 }
+.searchItemResult{
+  display: flex;
+  padding: 1rem 3rem;
+  width: 60vw;
+  justify-content: flex-start;
+  margin: 1rem auto;
+  border: none;
+  box-shadow: 1px 1px 0px #ccc;
+  cursor: pointer;
+ 
+}
+.searchItemResult img{
+  border-radius: 2px;
+}
+.searchItemResult .titleDesc{
+  padding: 0 1rem;
+  width: 100%;
+}
+.searchItemResult .titleDesc h3{
+  padding-bottom: 0.5rem ;
+}
 @media (max-width:900px){
   .search-field input{
     font-size: 12px;

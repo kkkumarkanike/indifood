@@ -1,13 +1,19 @@
 import React from 'react'
 import "./Error.css"
-// import errorImg from '../images/404.svg'
+import {useHistory} from "react-router-dom"
 
-function Error() {
+const Error = () => {
+    const history = useHistory();
+    const redirect = () =>{
+        return history.push("/");
+    }
     return (
         <div className="Error">
-            <h1>404 Page Not Found</h1>
-            {/* <img src={errorImg} alt="Page Not Found"/> */}
-            {/* <button className="gobackBtn">Go Back To Home</button> */}
+            <div className="text_404">404</div>
+            <h3 className="oops">Oops!!</h3>
+            <div className="unavailable">This Page doesn't exist or is unavailable</div>
+            <button onClick={redirect}>Go Back To Home</button>
+           
         </div>
     )
 }

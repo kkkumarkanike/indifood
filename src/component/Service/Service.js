@@ -3,7 +3,7 @@ import "./Service.css"
 import itemImg from "../../images/img2.jpg"
 import Aux from './../../hoc/Auxilary';
 import {connect} from "react-redux"
-import {getItems} from "../../store/actions/itemActions";
+import {getItems, getSpecialItems} from "../../store/actions/itemActions";
 
 class Service extends Component{
 
@@ -61,7 +61,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) =>{
     return {
-        getItems:() => dispatch(getItems())
+        getItems:() => dispatch(getItems()),
+        getSpecialItems:() => dispatch(getSpecialItems())
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Service);

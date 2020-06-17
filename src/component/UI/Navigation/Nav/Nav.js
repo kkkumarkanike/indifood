@@ -3,12 +3,14 @@ import Aux from "./../../../../hoc/Auxilary";
 import logo from "./../../../../images/logo.png";
 import "./Nav.css";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { NavLink, Redirect,useHistory } from "react-router-dom";
 import { logout } from "../../../../store/actions/authActions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBoxOpen} from "@fortawesome/free-solid-svg-icons";
 
+
 class nav extends Component {
+  
   logout = () => {
     this.props.logout();
     return <Redirect to="/login" />
@@ -18,16 +20,16 @@ class nav extends Component {
     return (
       <ul>
         <li>
-        <Link to ="/search"> <i className="fa fa-search"> </i>Search</Link></li>
+        <NavLink to ="/search"> <i className="fa fa-search"> </i>Search</NavLink></li>
         <li>
-        <Link to="/cart"><i className="fa fa-shopping-cart"> </i>Cart</Link>
+        <NavLink to="/cart"><i className="fa fa-shopping-cart"> </i>Cart</NavLink>
         </li>
         <li>
          
-          <Link to="/orders"><FontAwesomeIcon icon={faBoxOpen} style={{fontSize : "15px"}}/>&nbsp;Orders</Link>
+          <NavLink to="/orders"><FontAwesomeIcon icon={faBoxOpen} style={{fontSize : "15px"}}/>&nbsp;Orders</NavLink>
         </li>
         <li>
-          <Link to="/profile"><i className="fa fa-user"> </i>Profile</Link>
+          <NavLink to="/profile"><i className="fa fa-user"> </i>Profile</NavLink>
         </li>
 
         <li>
@@ -43,10 +45,10 @@ class nav extends Component {
     return (
       <ul>
         <li>
-          <Link to="/login">Login</Link>
+          <NavLink to="/login">Login</NavLink>
         </li>
         <li>
-          <Link to="/signup"> Sign Up</Link>
+          <NavLink to="/signup"> Sign Up</NavLink>
         </li>
       </ul>
     );
@@ -59,14 +61,14 @@ class nav extends Component {
         <header>
           <nav className="navigation" id="navigation">
             <div>
-              <Link to="/">
+              <NavLink to="/">
                 <img
                   src={logo}
                   alt="logo"
                   className="logo"
                   style={{ float: "left" }}
                 />
-              </Link>
+              </NavLink>
             </div>
             <div className="desktop">
               {this.props.auth.uid
@@ -77,7 +79,7 @@ class nav extends Component {
               <ul>
                 <li>
                 
-                  <Link to ="/search"> <i className="fa fa-search"> Search</i></Link>
+                  <NavLink to ="/search"> <i className="fa fa-search"> Search</i></NavLink>
                 </li>
               </ul>
             </div>
@@ -119,7 +121,6 @@ const matchDispatchToProps = (dispatch) => {
   };
 };
 const mapStateToProps = (state) => {
-  console.log("STATE",state)
   return {
     auth: state.firebase.auth,
   };

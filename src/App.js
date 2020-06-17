@@ -1,62 +1,73 @@
-import React from 'react';
-import Home from './containers/Home/Home';
-import SignUp from './containers/Signup/Signup';
-import {BrowserRouter ,Route, Switch } from 'react-router-dom';
+import React from "react";
+import Home from "./containers/Home/Home";
+import SignUp from "./containers/Signup/Signup";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./containers/Login/Login";
-import Nav from './component/UI/Navigation/Nav/Nav';
-import Service from './component/Service/Service';
-import Admin from "./containers/Admin/Admin"
-import About from './component/About/About';
-import Profile from './containers/Profile/Profile';
-import Search from './containers/Search/Search';
-import Footer from './component/Footer/Footer';
+import Nav from "./component/UI/Navigation/Nav/Nav";
+import Service from "./component/Service/Service";
+import Admin from "./containers/Admin/Admin";
+import About from "./component/About/About";
+import Profile from "./containers/Profile/Profile";
+import Search from "./containers/Search/Search";
+import Footer from "./component/Footer/Footer";
 import Error from "./component/Error/Error";
-import VegItems from './containers/VegItems/VegItems';
-import Cart from './containers/Cart/Cart';
-import Orders from './containers/Orders/Orders';
+import VegItems from "./containers/VegItems/VegItems";
+import Cart from "./containers/Cart/Cart";
+import Orders from "./containers/Orders/Orders";
+import { connect } from "react-redux";
 
-
-function App() {
+function App(props) {
   const routes = (
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/login"  component= {Login}/>
-        <Route path="/signup"  component={SignUp} />
-        <Route path="/admin" component={Admin} />
-        <Route path="/service"  component={Service} />
-      </Switch>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={SignUp} />
+      <Route path="/admin" component={Admin} />
+      <Route path="/service" component={Service} />
+    </Switch>
   );
 
   return (
     <BrowserRouter>
-    <Nav />
+      <Nav />
 
-    <Switch>
-    <Route path="/" exact component={Home} />
-    <Route path="/login"  component= {Login}/>
-    <Route path="/signup"  component={SignUp} />
-    <Route path="/admin" component={Admin} />
-    <Route path="/service"  component={Service} />
-    <Route path="/veg" component={VegItems}/>
-    <Route path="/non-veg" component={VegItems}/>
-    <Route path="/cart" component={Cart}/>
-    <Route path="/orders" component={Orders}/>
-    <Route path ="/about" component={About} />
-    <Route path ="/profile" component={Profile} />
-    <Route path ="/search" component={Search} />
-    <Route component={Error} />
-    {/* <Route path ="/orders" component={Search} /> */}
+      <Switch>
+        {/* {props.auth.uid ? (
+          <> */}
+            <Route path="/" exact component={Home} />
+            <Route path="/admin" component={Admin} />
+            <Route path="/service" component={Service} />
+            <Route path="/veg" component={VegItems} />
+            <Route path="/non-veg" component={VegItems} />
+            <Route path="/cart" component={Cart} />
+            <Route path="/orders" component={Orders} />
+            <Route path="/about" component={About} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/search" component={Search} />
 
+          {/* </>
+        ) : (
+          <> */}
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={SignUp} />
 
-    </Switch>
-{/* <Footer /> */}
+          {/* </>
+        )} */}
 
+        {/* <Route path ="/orders" component={Search} /> */}
+        <Route component={Error} />
+
+      </Switch>
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }
 
-
-export default App;
-
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+  };
+};
+export default connect(mapStateToProps)(App);
 
 // NAVIGATION BAR IS FIXES SO WE HAVE TO GIVE MARGIN TOP AND MARGIN BOTTOM TO ENTIRE APP

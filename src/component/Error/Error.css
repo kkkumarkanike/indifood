@@ -1,6 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .Error{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    align-items: center;
+    height: 90vh;
+    flex-direction: column;
+}
+.Error .text_404{
+    font-size: 50vh;
+    font-weight: 100;
+    background: -webkit-linear-gradient(#eee, #ff5e62);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: changeColor 3s ease-out;
+    /* transition: all 5s; */
+
+}
+.Error .unavailable{
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+.Error button{
+    outline: none;
+    border: none;
+    margin-top: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: #ff5e62;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+@keyframes changeColor{
+    from {
+        transform: translateY(-100%);
+      }
+    
+      to {
+        transform: translateY(0);
+      }
+    0% {
+        background: -webkit-linear-gradient(#eee, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+ 
+    50%{
+        background: -webkit-linear-gradient(#eee,orange);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    100%{
+            background: -webkit-linear-gradient(#eee,#ff5e62);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+    }
+ 
+}
+@media (max-width:900px){
+    .Error .text_404{
+        font-size:50vw;
+    }
 }

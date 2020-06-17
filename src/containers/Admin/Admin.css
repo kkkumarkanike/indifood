@@ -1,8 +1,11 @@
 .admin{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh; */
 margin-top: 70px;
 margin-bottom: 60px;
+}
+.admin .login_fields{
+    width: 50vw;
+}
+.admin_fooditems{
+    width: 50%;
+    display: flex;
 }
