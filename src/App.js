@@ -36,7 +36,7 @@ const signInRoutes = (
 const signOutRoutes = (
   <Switch>
     <Route  path="/" exact component={Login} />
-    <Route path="/signup" component={SignUp} />
+    <Route path="/signup" exact component={SignUp} />
     <Route component={Error} />
   </Switch>
 );
@@ -50,7 +50,6 @@ function App(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log("Main App", state);
   return {
     auth: state.firebase.auth,
   };

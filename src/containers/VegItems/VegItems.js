@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect,useState} from "react";
 import './VegItems.css';
 import {Link} from "react-router-dom";
 import Aux from './../../hoc/Auxilary';
@@ -8,11 +8,16 @@ import {connect} from "react-redux";
 import {getItems,addItemToCart} from "../../store/actions/itemActions";
 
 const vegItems = props =>{
+     // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [disable,setDisable] = useState(false)
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() =>{
         props.getItems();
-        console.log('Use Effect working');
     },[]);
+    const onAddItemToCart = (item) =>{
+        {props.onAddItemToCart(item)}
+        setDisable(true)
+    }
 
 
 
@@ -23,7 +28,6 @@ const vegItems = props =>{
     const allItemsIds = Object.keys(allItems);
     if (allItemsIds.length > 0){
         items = allItemsIds.map(item =>{
-            console.log("Single Item array",item);
             return (
 
                     <div className="filtered-food-card">
@@ -36,7 +40,8 @@ const vegItems = props =>{
                             </p>
                             <button className="left"><i className="fa fa-rupee"></i>&nbsp;{allItems[item].price}
                             </button>
-                            <button className="right" onClick={() => {props.onAddItemToCart(allItems[item])}}><b>ADD</b></button>
+                         <button className="right" onClick={onAddItemToCart(allItems[item])}><b>ADD</b></button>
+                          
                         </div>
                     </div>
             )

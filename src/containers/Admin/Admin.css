@@ -9,3 +9,10 @@ margin-bottom: 60px;
     width: 50%;
     display: flex;
 }
+.email_password select{
+    /* padding: 8px; */
+    border: none;
+    margin: 1rem ;
+    border-bottom: 1px solid #ccc;
+    width: 50vw;
+}

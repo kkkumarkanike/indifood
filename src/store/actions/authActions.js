@@ -55,7 +55,6 @@ export const resetPassword = () =>{
     const firebase = getFirebase();
     const currentUser = firebase.auth().currentUser;
     firebase.auth().sendPasswordResetEmail(currentUser.email).then(() =>{
-      console.log(currentUser)
       dispatch({type:"RESET_PASS_SUCCESS"});
     }).catch((error) =>{
       dispatch({type:"RESET_PASS_ERROR",error});

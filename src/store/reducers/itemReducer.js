@@ -1,6 +1,8 @@
 const initState = {
   res: [],
   specialItems: [],
+  vegItems: [],
+  nonVegItems: [],
   cart: {},
   itemDetails: {},
 };
@@ -32,6 +34,27 @@ const itemReducer = (state = initState, action) => {
     case "GET_SPECIAL_ITEMS_ERROR":
       console.log("Getting Special items error");
       return state;
+
+    case "GET_VEG_ITEMS_SUCCESS":
+      console.log("Getting Veg items error");
+      return {
+        ...state,
+        vegItems: action.vegItems,
+      };
+    case "GET_VEG_ITEMS_ERROR":
+      console.log("Getting Veg items error");
+      return state;
+
+    case "GET_NON_VEG_ITEMS_SUCCESS":
+      console.log("Getting Non-veg items success");
+      return {
+        ...state,
+        nonVegItems: action.nonVegItems,
+      };
+    case "GET_NON_VEG_ITEMS_ERROR":
+      console.log("Getting Non-veg items error");
+      return state;
+
     case "GET_CART_ITEMS_SUCCESS":
       console.log("Getting all items");
       return {

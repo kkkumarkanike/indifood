@@ -2,20 +2,20 @@ import React, {Component} from "react";
 import "./Service.css"
 import Aux from './../../hoc/Auxilary';
 import {connect} from "react-redux"
-import {getItems, getSpecialItems} from "../../store/actions/itemActions";
+import {getVegItems, getNonVegItems} from "../../store/actions/itemActions";
 
-class Service extends Component{
+class NonVegService extends Component{
 
     componentDidMount() {
-        this.props.getSpecialItems()
+        this.props.getNonVegItems()
     }
 
     render() {
-        let specialFoodItems = null;
+        let nonVegFoodItems = null;
         
-        if (this.props.specialItems){
-            const itemList = this.props.specialItems;
-            specialFoodItems = Object.keys(itemList).map(id =>{
+        if (this.props.nonVegItems){
+            const itemList = this.props.nonVegItems;
+            nonVegFoodItems = Object.keys(itemList).map(id =>{
                 return (
                     <Aux>
                         <div className="menu_item" id="top">
@@ -45,7 +45,7 @@ class Service extends Component{
         return (
             <div className="service">
                 <div class="veg">
-                    {specialFoodItems}
+                    {nonVegFoodItems}
                 </div>
             </div>
         );
@@ -54,12 +54,12 @@ class Service extends Component{
 
 const mapStateToProps = (state) => {
     return {
-        specialItems:state.item.specialItems
+        nonVegItems:state.item.nonVegItems
     }
 }
 const mapDispatchToProps = (dispatch) =>{
     return {
-        getSpecialItems:() => dispatch(getSpecialItems())
+        getNonVegItems:() => dispatch(getNonVegItems())
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Service);
+export default connect(mapStateToProps,mapDispatchToProps)(NonVegService);

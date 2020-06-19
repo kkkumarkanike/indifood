@@ -13,18 +13,20 @@ const cart = props =>{
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() =>{
         props.onGetCartItems();
-        console.log("Cart Items List",props.cartItems);
     },[]);
     const incCount = (id,count) =>{
          props.onIncCount(id,count);
         // props.onGetCartItems();
         props.onUpdateStateCart(id,count + 1);
     }
-    const decCount = (id,count) =>{
-    
-        props.onDecCount(id,count);
-        // props.onGetCartItems();
-        props.onUpdateStateCart(id,count-1);
+    const decCount = (id,count,items) =>{
+   if(count>1){        
+    props.onDecCount(id,count);
+    // props.onGetCartItems();
+    props.onUpdateStateCart(id,count-1);
+   }else{
+       props.onDeleteCartItem(id,items)
+   }
       
     }
 
@@ -45,14 +47,11 @@ const cart = props =>{
     let totalDetails = null;
     let total = 0;
     let list = Object.keys(props.cartItems);
-    console.log('THis is the List',list);
     if (list.length){
-        console.log("I am Entering into the Iteration");
         const Items = props.cartItems;
         const cartItemIds = Object.keys(Items);
 
         cart = cartItemIds.map(item =>{
-            console.log("These are the ids",Items[item].img);
             return (
                 <div className="checkout">
                 <div className="checkout-container">
@@ -70,7 +69,7 @@ const cart = props =>{
                         <div className="checkout-items">
                             <button className="bt inc" onClick={() => incCount(item,Items[item].count)}><i className="fa fa-plus"></i></button>
                             <button className="bt number">{Items[item].count}</button>
-                            <button className="bt dec" onClick={() => decCount(item,Items[item].count)}><i className="fa fa-minus"></i></button>
+                            <button className="bt dec" onClick={() => decCount(item,Items[item].count,Items)}><i className="fa fa-minus"></i></button>
                         </div>
                         <div>
                             <button className="delete" onClick={() => deleteFromCart(item,Items)}><i className="fa fa-trash" style={{fontSize: "15px"}}></i></button>

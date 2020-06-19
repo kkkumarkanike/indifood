@@ -103,6 +103,12 @@
     color: white;
     cursor: pointer;
     width: 100%;
+    transition: background 0.3s ease;
+}
+.checkout-button .button:hover{
+    color: #ff5e62;
+    border: 2px solid #ff5e62;
+    background: white;
 }
 @media (min-width : 300px) and (max-width : 499px){
     .checkout-container{

@@ -37,8 +37,7 @@ class Search extends Component {
        filteredItemsKeys.map(key =>{
            filteredItems[key] = foodItems[key];
       })
-      // console.log("************Filtered Items*************",filteredItems);
-      // const keys = Object.keys(filteredItems);
+   
       const values = Object.values(filteredItems);
       if(values.length > 0){
         this.state.result  = values.map(item =>{
