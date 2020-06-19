@@ -1,4 +1,5 @@
 
+
 export const addItem = (item) => {
   return (dispatch, getState, { getFirestore }) => {
     // Make async call to database
@@ -96,10 +97,12 @@ export const addItemToCart = (item) =>{
 // const firebase = getFirebase();
         const firestore = getFirestore();
         const firebase = getFirebase();
-        console.log('Firebase Auth Obj',firebase.auth());
+        console.log("********************** addItemToCart Firebase kaa Firebase *******************",firebase);
+        const userMail = firebase.auth().currentUser.email;
         firestore.collection("cart").add({
             ...item,
-            count : 1
+            count : 1,
+            userId : userMail
         }).then((res) =>{
             console.log("Item Added");
             // dispatch({type:"ADD_ITEM_SUCCESS"},res);
@@ -135,14 +138,24 @@ export const deleteItemFromCart = (id,details) =>{
 }
 
 export const getCartItems = () => {
-    return (dispatch, getState, { getFirestore }) => {
+    return (dispatch, getState, { getFirestore , getFirebase}) => {
         // Make async call to database
         const foodItems = {};
         const firestore = getFirestore();
+        const firebase = getFirebase();
+        if (localStorage.getItem('email')){
+            var userMail =localStorage.getItem('email') ;
+        }
+        // console.log("*************Fire Store*****************",firebase.auth().currentUser.email);
         firestore.collection("cart").get().then((data) =>{
             // console.log("Cart Items DOCS",data.docs);
             data.docs.map((doc) =>{
-                foodItems[doc.id] = doc.data();
+                if (userMail){
+                    if (doc.data().userId === userMail){
+                        foodItems[doc.id] = doc.data();
+                    }
+                }
+                // foodItems[doc.id] = doc.data();
             })
             console.log("getting Cart foodItems",foodItems);
             dispatch({type:"GET_CART_ITEMS_SUCCESS", cart : foodItems});
@@ -219,3 +232,4 @@ export const emptyCart = () =>{
 // const db = firebase.firestore();
 // const data = await db.collection('items').get();
 // const doc = data.docs.map(doc => console.log(doc.data()));
+

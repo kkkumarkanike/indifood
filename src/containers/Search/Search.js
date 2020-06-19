@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Search.css";
 import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 import Aux from './../../hoc/Auxilary';
 import {getItems} from "../../store/actions/itemActions";
 import load from './../../images/loading-search.gif';
@@ -39,17 +40,21 @@ class Search extends Component {
       })
       // console.log("************Filtered Items*************",filteredItems);
       // const keys = Object.keys(filteredItems);
-      const values = Object.values(filteredItems);
+      console.log("************** Here are the search filtered Items ************",filteredItems);
+      const values = Object.keys(filteredItems);
       if(values.length > 0){
         this.state.result  = values.map(item =>{
+          console.log("************* iItem *************",item);
           return (
-          <div className="searchItemResult">
-            <img height="100" width="100" src={item.img} />
-           <div className="titleDesc">
-           <h3>{item.title[0].toUpperCase() + item.title.slice(1)}</h3>
-            <h6>{item.desc}</h6>
-           </div>
-          </div>
+          <Link to={"/details/"+item} style={{textDecoration : "none",color : "#000"}}>
+            <div className="searchItemResult">
+              <img height="100" width="100" src={filteredItems[item].img} />
+              <div className="titleDesc">
+                <h3>{filteredItems[item].title[0].toUpperCase() + filteredItems[item].title.slice(1)}</h3>
+                <h6>{filteredItems[item].desc}</h6>
+              </div>
+            </div>
+          </Link>
             )
         })
       }else{

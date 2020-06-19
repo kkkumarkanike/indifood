@@ -1,13 +1,17 @@
 const initState = {
   authError: null,
+  isSignIn : false
 };
 
 const authReducer = (state = initState, action) => {
   switch (action.type) {
     case "LOGIN_SUCCESS":
+      localStorage.setItem('signIn',true);
+      localStorage.setItem('email',action.email);
       return {
         ...state,
         authError: null,
+        isSignIn: true
       };
     case "LOGIN_ERROR":
       console.log("login error");
@@ -30,9 +34,12 @@ const authReducer = (state = initState, action) => {
         authError: action.error.message,
       };
     case "SIGNOUT_SUCCESS":
+      localStorage.removeItem('signIn');
+      localStorage.removeItem('email');
       return {
         ...state,
         authError: null,
+
       };
     case "SIGNOUT_ERROR":
       return {
@@ -49,6 +56,7 @@ const authReducer = (state = initState, action) => {
         ...state,
         authError: action.error.message,
       };
+
 
     default:
       return state;

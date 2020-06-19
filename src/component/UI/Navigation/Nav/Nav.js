@@ -3,19 +3,27 @@ import Aux from "./../../../../hoc/Auxilary";
 import logo from "./../../../../images/logo.png";
 import "./Nav.css";
 import { connect } from "react-redux";
-import { NavLink, Redirect,useHistory } from "react-router-dom";
+import { NavLink, Redirect,useHistory ,Link} from "react-router-dom";
 import { logout } from "../../../../store/actions/authActions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBoxOpen} from "@fortawesome/free-solid-svg-icons";
+import {faBoxOpen, faSignInAlt, faUserAlt} from "@fortawesome/free-solid-svg-icons";
+import About from "../../../About/About";
 
 
 class nav extends Component {
-  
-  logout = () => {
+
+    logout = () => {
     this.props.logout();
     return <Redirect to='/'/>;
   };
+  activeSignUp = () =>{
+      document.querySelector('#login').classList.remove('active');
 
+    }
+   activeLogin = () =>{
+       document.querySelector('#signup').classList.remove('active');
+       document.querySelector('#login').classList.add('active');
+   }
   signedInLinks = () => {
     return (
       <ul>
@@ -33,9 +41,9 @@ class nav extends Component {
         </li>
 
         <li>
-          <a href="/" className="logout" style={{color:"white"}} onClick={this.logout} >
+          <Link to="/" className="logout" style={{color:"white"}} onClick={this.logout} >
             LogOut
-          </a>
+          </Link>
         </li>
       </ul>
     );
@@ -45,10 +53,10 @@ class nav extends Component {
     return (
       <ul>
         <li>
-          <NavLink to="/">Login</NavLink>
+          <NavLink to="/" id="login" onClick={this.activeLogin}>Login</NavLink>
         </li>
         <li>
-          <NavLink to="/signup"> Sign Up</NavLink>
+          <NavLink to="/signup" id="signup" onClick={this.activeSignUp}> Sign Up</NavLink>
         </li>
       </ul>
     );
@@ -71,7 +79,7 @@ class nav extends Component {
               </NavLink>
             </div>
             <div className="desktop">
-              {this.props.auth.uid
+              {localStorage.getItem('signIn')
                 ? this.signedInLinks()
                 : this.signedOutLinks()}
             </div>
@@ -86,29 +94,63 @@ class nav extends Component {
           </nav>
         </header>
         <div className="bottom-navigation">
-          <div className="flex-item">
-            <i
-              className="fa fa-home"
-              style={{ fontSize: "32px", width: "22%" }}
-            ></i>
-          </div>
-          <div className="flex-item">
-            <i
-              className="fa fa-shopping-cart"
-              style={{ fontSize: "32px", width: "22%" }}
-            ></i>
-          </div>
-          <div className="flex-item">
-            <FontAwesomeIcon icon={faBoxOpen}
-              style={{ fontSize: "30px", width: "22%" }}
-            />
-          </div>
-          <div className="flex-item">
-            <i
-              className="fa fa-user"
-              style={{ fontSize: "32px", width: "22%" }}
-            ></i>
-          </div>
+            {localStorage.getItem('signIn') ?
+
+               <Aux>
+                   <Link to='/'>
+                       <div className="flex-item" style={{width: "22%"}}>
+                           <i
+                               className="fa fa-home"
+                               style={{ fontSize: "22px",margin:0,padding:0}}
+                           ></i><br/>
+                           <span style={{fontSize : "10px",margin:0,padding:0}}>HOME</span>
+                       </div>
+                   </Link>
+                   <Link to='/cart'>
+                       <div className="flex-item" style={{width: "22%"}}>
+                           <i
+                               className="fa fa-shopping-cart"
+                               style={{ fontSize: "22px",margin:0,padding:0}}
+                           ></i><br/>
+                           <span style={{fontSize : "10px",margin:0,padding:0}}>CART</span>
+                       </div>
+                   </Link>
+                   <Link to='/orders'>
+                       <div className="flex-item" style={{width: "22%"}}>
+                           <FontAwesomeIcon icon={faBoxOpen}
+                                            style={{ fontSize: "20px",margin:0,padding:0}}
+                           /><br/>
+                           <span style={{fontSize : "10px",margin:0,padding:0}}>ORDERS</span>
+                       </div>
+                   </Link>
+                   <Link to='/profile'>
+                       <div className="flex-item" style={{width: "22%"}}>
+                           <FontAwesomeIcon icon={faUserAlt}
+                                            style={{ fontSize: "20px",margin:0,padding:0}}
+                           /><br/>
+                           <span style={{fontSize : "10px",margin:0,padding:0}}>PROGILE</span>
+                       </div>
+                   </Link>
+               </Aux> :
+                <Aux>
+                    <Link to='/'>
+                        <div className="flex-item" style={{width: "45%"}}>
+                            <FontAwesomeIcon icon={faSignInAlt}
+                                             style={{ fontSize: "18px",margin:0,padding:0}}
+                            /><br/>
+                            <span style={{fontSize : "10px",margin:0,padding:0}}>LOG IN</span>
+                        </div>
+                    </Link>
+                    <Link to='/signup'>
+                        <div className="flex-item" style={{width: "45%"}}>
+                            <FontAwesomeIcon icon={faUserAlt}
+                                             style={{ fontSize: "18px",margin:0,padding:0}}
+                            /><br/>
+                            <span style={{fontSize : "10px",margin:0,padding:0}}>SIGN UP</span>
+                        </div>
+                    </Link>
+                </Aux>
+            }
         </div>
       </Aux>
     );
@@ -123,6 +165,7 @@ const matchDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
+      isSignIn: state.auth.isSignIn
   };
 };
 

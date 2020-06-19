@@ -41,7 +41,7 @@ const item = (props) =>{
                 </div>
             </div>
             <div className="add-to-cart-box-mobile">
-                <button className="button" style={{fontSize: "20px",fontWeight: "bolder"}}><i
+                <button className="button" style={{fontSize: "20px",fontWeight: "bolder"}} onClick={() => props.click(details)}><i
                     className='fa fa-shopping-cart' style={{fontSize: "25px"}}></i>&nbsp;&nbsp;ADD TO CART
                 </button>
             </div>

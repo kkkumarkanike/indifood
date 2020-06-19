@@ -13,6 +13,7 @@ import Search from "./containers/Search/Search";
 import Footer from "./component/Footer/Footer";
 import Error from "./component/Error/Error";
 import VegItems from "./containers/VegItems/VegItems";
+import NonVegItems from "./containers/NonVegItems/VegItems";
 import Cart from "./containers/Cart/Cart";
 import Orders from "./containers/Orders/Orders";
 import Details from "./containers/Details/Details";
@@ -24,7 +25,7 @@ const signInRoutes = (
     <Route path="/service" component={Service} />
     <Route path="/veg" component={VegItems} />
     <Route path="/details/:id" component={Details} />
-    <Route path="/non-veg" component={VegItems} />
+    <Route path="/nonveg" component={NonVegItems} />
     <Route path="/cart" component={Cart} />
     <Route path="/orders" component={Orders} />
     <Route path="/about" component={About} />
@@ -36,7 +37,7 @@ const signInRoutes = (
 const signOutRoutes = (
   <Switch>
     <Route  path="/" exact component={Login} />
-    <Route path="/signup" component={SignUp} />
+    <Route path="/signup" exact component={SignUp} />
     <Route component={Error} />
   </Switch>
 );
@@ -44,7 +45,7 @@ function App(props) {
   return (
     <BrowserRouter>
       <Nav />
-      {!props.auth.uid ? signOutRoutes : signInRoutes}
+      {!localStorage.getItem("signIn") ? signOutRoutes : signInRoutes}
     </BrowserRouter>
   );
 }
@@ -53,6 +54,7 @@ const mapStateToProps = (state) => {
   console.log("Main App", state);
   return {
     auth: state.firebase.auth,
+      isSignIn : state.auth.isSignIn
   };
 };
 

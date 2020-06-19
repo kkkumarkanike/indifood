@@ -23,12 +23,12 @@ class SignUp extends Component {
   handleSignUp = (e) => {
     e.preventDefault();
     this.props.signUp(this.state);
-    return <Redirect to ="/" />
+    this.props.history.replace('/');
   };
 
   render() {
     const {authError,auth} = this.props;
-    if (auth.uid) return <Redirect to="/" />;
+    // if (auth.uid) return <Redirect to="/" />;
     return (
       <Aux>
         <div className="login_page" style={{ marginTop: "60px" }}>

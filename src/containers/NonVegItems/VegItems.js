@@ -7,7 +7,7 @@ import biryaani from './../../images/biryaani.jpg';
 import {connect} from "react-redux";
 import {getItems,addItemToCart} from "../../store/actions/itemActions";
 
-const NonVegItems = props =>{
+const vegItems = props =>{
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() =>{
         props.getItems();
@@ -73,10 +73,10 @@ const NonVegItems = props =>{
                     <div className="container-fluid">
                         <div className="desktop">
                             <div className="main-veg-banner">
-                                <div><img src={special} alt="banner" className="banner-image"/></div>
+                                <div><img src={biryaani} alt="banner" className="banner-image"/></div>
                                 <div className="item-type-details">
-                                    <p className="cui item-head">Only Veg</p>
-                                    <p className="cui-lite item-type"><b>All types of Veg items are available here</b></p>
+                                    <p className="cui item-head">Non Veg</p>
+                                    <p className="cui-lite item-type"><b>All types of Non Veg items are available here</b></p>
                                     <br/><p className="cui-lite item-type"><b>NTR Colony, Yemmiganur</b></p>
                                     <div className="accomplishments">
                                         <div className="overall-rating">
@@ -194,4 +194,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(NonVegItems);
+export default connect(mapStateToProps,mapDispatchToProps)(vegItems);

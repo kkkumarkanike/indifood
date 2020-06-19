@@ -63,15 +63,16 @@ body{
     bottom: 0;
     width: 100%;
     text-align : center;
-    padding : 0.7rem 0;
+    padding : 0.4rem 0;
     z-index: 10;
 }
 .flex-item{
-    display: inline;
+    display: inline-block;
     color: #f2f2f2;
     text-align: center;
     font-size: 17px;
     text-align : center;
+    padding: 0 5px;
 
 }
 .mobile{
@@ -94,6 +95,12 @@ body{
     border: 2px solid #ff5e62;
     color: #ff5e62;
 } */
+/*.link-active:focus{*/
+/*    color: red;*/
+/*}*/
+.active{
+    color: red;
+}
 @media(min-width : 301px) and (max-width : 1025px){
     .navigation ul li{
         display: inline;
@@ -110,3 +117,4 @@ body{
     }
 
 }
+

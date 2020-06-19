@@ -15,12 +15,10 @@ import {getCartItems, getItems} from "../../store/actions/itemActions";
 const home = (props) => {
   const { auth } = props;
 
-  if (!auth.uid) return <Redirect to="/login" />;
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     props.getItems();
-    props.onGetCartItems();
   }, []);
 
   let mobileCards = null;
@@ -41,18 +39,13 @@ const home = (props) => {
         <div style={{ margin: "0 20px 0 20px" }}>
           <h3>Special Items</h3>
           {mobileCards}
-          {mobileCards}
-          {mobileCards}
-          {mobileCards}
           <p style={{ float: "right", marginTop: "10px" }}>view more</p>
           <br />
         </div>
         <div style={{ margin: "0 20px 0 20px" }}>
           <h3>Veg</h3>
           {mobileCards}
-          {mobileCards}
-          {mobileCards}
-          {mobileCards}
+
           <p style={{ float: "right", marginTop: "10px" }}>view more</p>
           <br />
           <br />
@@ -60,9 +53,7 @@ const home = (props) => {
         <div style={{ margin: "0 20px 0 20px" }}>
           <h3>Non Veg</h3>
           {mobileCards}
-          {mobileCards}
-          {mobileCards}
-          {mobileCards}
+
           <p style={{ float: "right", marginTop: "10px" }}>view more</p>
           <br />
           <br />
