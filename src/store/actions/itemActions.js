@@ -10,7 +10,6 @@ export const addItem = (item) => {
       ...item,
       createdAt: new Date(),
     }).then((res) =>{
-        console.log(res.id);
         dispatch({ type: "ADD_ITEM", item },res);
     }).catch((error) =>{
         dispatch({type:"ADD_ITEM_ERROR",error});
@@ -25,12 +24,10 @@ export const getItems = () => {
   const foodItems = {};
       const firestore = getFirestore();
       firestore.collection("items").orderBy("createdAt","desc").get().then((data) =>{
-          console.log("ALL DOCS with their ids main DATA",data);
         data.docs.map((doc) =>{
             const id = doc.id;
             foodItems[id] = doc.data();
         })
-          console.log("foodItems",foodItems);
           dispatch({ type: "GET_ITEMS_SUCCESS" ,res:foodItems});
 
 
@@ -50,13 +47,11 @@ export const getItems = () => {
       const firestore = getFirestore();
       firestore.collection("items").where("category","==","special").limit(4).get().then((data) =>{
         //   .orderBy("createdAt","desc")
-          console.log("ALL DOCS with their ids SPECIAL DATA",data);
         data.docs.map((doc) =>{
             const id = doc.id;
         
             foodItems[id] = doc.data();
         })
-          console.log("foodItems",foodItems);
           dispatch({ type: "GET_SPECIAL_ITEMS_SUCCESS" ,specialItems:foodItems});
 
 
@@ -69,27 +64,51 @@ export const getItems = () => {
   };
   // Veg Items
   export const getVegItems = () => {
-    return (dispatch, { getFirestore }) => {
+    return (dispatch, getState, { getFirestore }) => {
       // Make async call to database
   const foodItems = {};
       const firestore = getFirestore();
       firestore.collection("items").where("category","==","veg").limit(4).get().then((data) =>{
         //   .orderBy("createdAt","desc")
-          console.log("ALL DOCS with their ids VEG DATA",data);
         data.docs.map((doc) =>{
             const id = doc.id;
         
             foodItems[id] = doc.data();
         })
-          console.log("foodItems",foodItems);
           dispatch({ type: "GET_VEG_ITEMS_SUCCESS" ,vegItems:foodItems});
 
 
       }).catch((error) =>{
           dispatch({type:"GET_VEG_ITEMS_ERROR"},error)
-      }) 
+      })
+
+      
     };
   };
+  // Non-veg Items
+  export const getNonVegItems = () => {
+    return (dispatch, getState, { getFirestore }) => {
+      // Make async call to database
+  const foodItems = {};
+      const firestore = getFirestore();
+      firestore.collection("items").where("category","==","non-veg").limit(4).get().then((data) =>{
+        //   .orderBy("createdAt","desc")
+        data.docs.map((doc) =>{
+            const id = doc.id;
+        
+            foodItems[id] = doc.data();
+        })
+          dispatch({ type: "GET_NON_VEG_ITEMS_SUCCESS" ,nonVegItems:foodItems});
+
+
+      }).catch((error) =>{
+          dispatch({type:"GET_NON_VEG_ITEMS_ERROR"},error)
+      })
+
+      
+    };
+  };
+
 
 export const addItemToCart = (item) =>{
     return (dispatch, getState, { getFirestore,getFirebase }) => {
@@ -99,16 +118,15 @@ export const addItemToCart = (item) =>{
         const firebase = getFirebase();
         console.log("********************** addItemToCart Firebase kaa Firebase *******************",firebase);
         const userMail = firebase.auth().currentUser.email;
+        console.log("Item To Add",item);
         firestore.collection("cart").add({
             ...item,
             count : 1,
             userId : userMail
         }).then((res) =>{
-            console.log("Item Added");
-            // dispatch({type:"ADD_ITEM_SUCCESS"},res);
+            dispatch({type:"ADD_ITEM_SUCCESS"},res);
         }).catch((error) =>{
-            console.log("Error in adding an Item");
-            // dispatch({type:"ADD_ITEM_ERROR"},error);
+            dispatch({type:"ADD_ITEM_ERROR"},error);
         })
 
     };
@@ -119,7 +137,6 @@ export const deleteItemFromCart = (id,details) =>{
 // const firebase = getFirebase();
         const firestore = getFirestore();
         const firebase = getFirebase();
-        console.log('Firebase Auth Obj',firebase.auth());
         const itemKeys = Object.keys(details);
         let updatedData = {};
         const updatedKeys = itemKeys.filter(item => item !== id);
@@ -127,10 +144,8 @@ export const deleteItemFromCart = (id,details) =>{
             updatedData[key] = details[key];
         })
         firestore.collection("cart").doc(id).delete().then((res) =>{
-            console.log("Deleted Successfully");
             dispatch({type : "CART_ITEM_DELETE", data : updatedData});
         }).catch((error) =>{
-            console.log("Error in adding an Item");
             // dispatch({type:"ADD_ITEM_ERROR"},error);
         })
 
@@ -148,7 +163,6 @@ export const getCartItems = () => {
         }
         // console.log("*************Fire Store*****************",firebase.auth().currentUser.email);
         firestore.collection("cart").get().then((data) =>{
-            // console.log("Cart Items DOCS",data.docs);
             data.docs.map((doc) =>{
                 if (userMail){
                     if (doc.data().userId === userMail){
@@ -157,7 +171,6 @@ export const getCartItems = () => {
                 }
                 // foodItems[doc.id] = doc.data();
             })
-            console.log("getting Cart foodItems",foodItems);
             dispatch({type:"GET_CART_ITEMS_SUCCESS", cart : foodItems});
         }).catch((error) =>{
             // dispatch({type:"GET_ITEMS_ERROR"},error);
@@ -172,9 +185,7 @@ export let incrementCount = (id, c) =>{
         firebase.collection("cart").doc(id).update({
             count : c + 1
         }).then(res =>{
-            console.log("Incremented successfully");
         }).catch(er =>{
-            console.log(er);
         })
 
     }
@@ -185,9 +196,7 @@ export let decrementCount = (id, c) =>{
         firebase.collection("cart").doc(id).update({
             count : c - 1
         }).then(res =>{
-            console.log("Decremented successfully");
         }).catch(er =>{
-            console.log(er);
         })
 
     }
@@ -209,10 +218,8 @@ export const getItemDetails = (id) =>{
             if (doc.exists){
                 dispatch({type: "ITEM_DETAILS",data : doc.data()});
             }else{
-                console.log("No such document!");
             }
         }).catch(e =>{
-            console.log(e);
         })
 
     }

@@ -51,7 +51,6 @@ function App(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log("Main App", state);
   return {
     auth: state.firebase.auth,
       isSignIn : state.auth.isSignIn

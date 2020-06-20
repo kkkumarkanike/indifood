@@ -9,7 +9,6 @@ const details = (props) =>{
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() =>{
         props.onGetDetails(props.match.params.id);
-        console.log("Information",props.info);
     },[]);
     return (
         <Aux>

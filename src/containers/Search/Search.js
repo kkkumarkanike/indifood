@@ -38,10 +38,8 @@ class Search extends Component {
        filteredItemsKeys.map(key =>{
            filteredItems[key] = foodItems[key];
       })
-      // console.log("************Filtered Items*************",filteredItems);
-      // const keys = Object.keys(filteredItems);
-      console.log("************** Here are the search filtered Items ************",filteredItems);
-      const values = Object.keys(filteredItems);
+   
+      const values = Object.values(filteredItems);
       if(values.length > 0){
         this.state.result  = values.map(item =>{
           console.log("************* iItem *************",item);
@@ -70,16 +68,7 @@ class Search extends Component {
 
   };
   render() {
-    // let result = null;
-    // const{filteredItems} = this.state;
-    // if (filteredItems.length > 0){
-    //   // result = this.state.filteredItems.map(item =>{
-    //   //   return <h1>{item.title}</h1>;
-    //   // })
-   
-    // }else{
-    //   result = <h3 style={{textAlign : "center"}}>{this.state.message}</h3>;
-    // }
+    
     const {searchText} = this.state;
     return (
       <Aux>

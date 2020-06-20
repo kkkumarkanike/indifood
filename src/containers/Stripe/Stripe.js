@@ -8,7 +8,6 @@ import {emptyCart} from "../../store/actions/itemActions";
 
 
 const testStripe = props =>{
-    console.log("Stripe Props",props);
     const key = 'pk_test_51GrK91AcP3XN5kttwg2Uo17UmF8QCuCy4Okb59kVtd59ncFPTTQ5kCaCb0p3NHvfEUHr0D6tmUrvJnajwhHU2CxB00Lx6RdcLM';
     const onToken = (token) => {
         fetch('/save-stripe-token', {
@@ -16,13 +15,11 @@ const testStripe = props =>{
             body: JSON.stringify(token),
         }).then(response => {
             response.json().then(data => {
-                console.log('Response',data);
                 alert(`We are in business, ${data.email}`);
             });
         });
     }
     const close= () =>{
-        console.log("Payment success");
         props.onEmptyCart();
         props.history.replace('/orders');
     }

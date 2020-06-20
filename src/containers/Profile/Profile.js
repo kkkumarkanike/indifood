@@ -18,7 +18,6 @@ class Profile extends Component {
   render() {
     const { name } = this.props.profile;
     const currentUser = firebase.auth().currentUser;
-    console.log(name)
     const { uid, email } = this.props.auth;
 
     if (!this.props.auth.uid) return <Redirect to="/login" />;

@@ -10,7 +10,15 @@ import About from "./../../component/About/About";
 import Service from "./../../component/Service/Service";
 import MobileCard from "./../../component/FoodCard/MobileCard";
 import { Redirect } from "react-router";
-import {getCartItems, getItems} from "../../store/actions/itemActions";
+import {
+  getCartItems,
+  getItems,
+  getVegItems,
+  getSpecialItems,
+  getNonVegItems,
+} from "../../store/actions/itemActions";
+import VegService from "../../component/Service/VegService";
+import NonVegService from "../../component/Service/NonVegService";
 
 const home = (props) => {
   const { auth } = props;
@@ -18,15 +26,33 @@ const home = (props) => {
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    props.getItems();
+    // props.getItems();
+    props.getSpecialItems();
+      props.getVegItems();
+      props.getNonVegItems();
+      props.onGetCartItems();
   }, []);
 
   let mobileCards = null;
-  if (props.foodItems) {
-    console.log(props.foodItems);
-    const keys = Object.keys(props.foodItems);
-    mobileCards = keys.map((id) => {
-      return <MobileCard details={props.foodItems[id]} />;
+  let specialMobileCards = null;
+  let vegMobileCards = null;
+  let nonVegMobileCards = null;
+  if (props.specialItems) {
+    const keys = Object.keys(props.specialItems);
+    specialMobileCards = keys.map((id) => {
+      return <MobileCard details={props.specialItems[id]} />;
+    });
+  }
+  if (props.vegItems) {
+    const keys = Object.keys(props.vegItems);
+    vegMobileCards = keys.map((id) => {
+      return <MobileCard details={props.vegItems[id]} />;
+    });
+  }
+  if (props.nonVegItems) {
+    const keys = Object.keys(props.nonVegItems);
+    nonVegMobileCards = keys.map((id) => {
+      return <MobileCard details={props.nonVegItems[id]} />;
     });
   }
   return (
@@ -38,22 +64,23 @@ const home = (props) => {
       <div className="mobile">
         <div style={{ margin: "0 20px 0 20px" }}>
           <h3>Special Items</h3>
-          {mobileCards}
+          {specialMobileCards}
+      
           <p style={{ float: "right", marginTop: "10px" }}>view more</p>
           <br />
         </div>
         <div style={{ margin: "0 20px 0 20px" }}>
           <h3>Veg</h3>
-          {mobileCards}
-
+          {vegMobileCards}
+         
           <p style={{ float: "right", marginTop: "10px" }}>view more</p>
           <br />
           <br />
         </div>
         <div style={{ margin: "0 20px 0 20px" }}>
           <h3>Non Veg</h3>
-          {mobileCards}
-
+          {nonVegMobileCards}
+         
           <p style={{ float: "right", marginTop: "10px" }}>view more</p>
           <br />
           <br />
@@ -69,12 +96,12 @@ const home = (props) => {
             <u>view more</u>
           </p>
           <p className="main-heading">Veg</p>
-          <Service />
+          <VegService />
           <p style={{ float: "right" }}>
             <u>view more</u>
           </p>
           <p className="main-heading">Non Veg</p>
-          <Service />
+          <NonVegService />
           <p style={{ float: "right" }}>
             <u>view more</u>
           </p>
@@ -100,13 +127,18 @@ const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
     foodItems: state.item.res,
+    specialItems:state.item.specialItems,
+    vegItems: state.item.vegItems,
+    nonVegItems: state.item.nonVegItems,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getItems: () => dispatch(getItems()),
-    onGetCartItems : () => dispatch(getCartItems())
+    getSpecialItems:() => dispatch(getSpecialItems()),
+    getVegItems: () => dispatch(getVegItems()),
+    getNonVegItems: () => dispatch(getNonVegItems()),
+    onGetCartItems: () => dispatch(getCartItems()),
   };
 };
 

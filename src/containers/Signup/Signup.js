@@ -74,7 +74,6 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log("STATE",state)
   return {
     auth: state.firebase.auth,
     authError: state.auth.authError,

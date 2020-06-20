@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect,useState} from "react";
 import './VegItems.css';
 import {Link} from "react-router-dom";
 import Aux from './../../hoc/Auxilary';
@@ -11,9 +11,10 @@ const NonVegItems = props =>{
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() =>{
         props.getItems();
-        console.log('Use Effect working');
     },[]);
-
+    const onAddItemToCart = (item) =>{
+        props.onAddingItemToCart(item);
+    }
 
 
 
@@ -23,7 +24,6 @@ const NonVegItems = props =>{
     const allItemsIds = Object.keys(allItems);
     if (allItemsIds.length > 0){
         items = allItemsIds.map(item =>{
-            console.log("Single Item array",item);
             return (
 
                     <div className="filtered-food-card">
@@ -36,7 +36,8 @@ const NonVegItems = props =>{
                             </p>
                             <button className="left"><i className="fa fa-rupee"></i>&nbsp;{allItems[item].price}
                             </button>
-                            <button className="right" onClick={() => {props.onAddItemToCart(allItems[item])}}><b>ADD</b></button>
+                         <button className="right" onClick={() => onAddItemToCart(allItems[item])}><b>ADD</b></button>
+                          
                         </div>
                     </div>
             )
@@ -57,7 +58,7 @@ const NonVegItems = props =>{
                             </div>
                             <div className="add-flex">
                                 <div>
-                                    <button className="add-btn" onClick={() => props.onAddItemToCart(allItems[item])}>ADD</button>
+                                    <button className="add-btn" onClick={() => onAddItemToCart(allItems[item])}>ADD</button>
                                 </div>
                             </div>
                         </div>
@@ -189,7 +190,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getItems: () => dispatch(getItems()),
-        onAddItemToCart: (item) => dispatch(addItemToCart(item))
+        onAddingItemToCart: (item) => dispatch(addItemToCart(item))
     };
 };
 
