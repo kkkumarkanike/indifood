@@ -8,6 +8,10 @@ import Footer from "../../component/Footer/Footer";
 import { connect } from "react-redux";
 import {login} from "../../store/actions/authActions"
 import {Redirect} from "react-router-dom"
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import CustomToast from "../../component/Toast/CutomToast"
+
 
 class Login extends Component {
   state = {
@@ -22,9 +26,17 @@ class Login extends Component {
   handleLogin = (e) => {
     e.preventDefault();
     this.props.login(this.state)
+    this.notify()
     return <Redirect to ="/" />
   
   };
+
+  notify = () => toast.dark(<CustomToast authError={this.props.authError} />,{
+    position:toast.POSITION.BOTTOM_CENTER,
+    hideProgressBar: true,
+    autoClose: 5000,   
+  
+  })
 
   render() {
     const {authError,auth} = this.props;
@@ -53,7 +65,7 @@ class Login extends Component {
                   onChange={this.handlchange}
                 />
                 <button onClick={this.handleLogin}>Login</button>
-            {authError?<h4>{authError}</h4>:null}
+            {/* {authError?this.notify:null} */}
 
               </div>
             </div>

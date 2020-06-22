@@ -7,18 +7,49 @@ import biryaani from './../../images/biryaani.jpg';
 import {connect} from "react-redux";
 import {getItems,addItemToCart} from "../../store/actions/itemActions";
 
-const vegItems = props =>{
+const VegItems = props =>{
+
+    // const [foodItem,setFoodItems] = useState();
+    const [filteredItems,setFilteredItems] = useState([])
+     const [isSpecialChecked,setIsSpecialChecked] = useState()
+     const [isVegChecked,setIsVegChecked] = useState()
+     const [isNonVegChecked,setIsNonVegChecked] = useState()
+
      // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [disable,setDisable] = useState(false)
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() =>{
         props.getItems();
     },[]);
     const onAddItemToCart = (item) =>{
         {props.onAddItemToCart(item)}
-        setDisable(true)
     }
+const handleSpecialChange = e =>{
+    let value = e.target.checked;
+    const allItems = props.foodItems;
+    const allItemsIds = Object.keys(allItems);
+    setIsSpecialChecked(value)
 
+    // allItemsIds.map(id =>{
+    // //      tempRooms = tempRooms.filter(room => room.type === type);
+    // let tempItems = allItemsIds;
+    // tempItems = tempItems.filter(item =>{
+    //     // item[id].category === "special"
+    //     console.log("ITEMS",item)
+    // })
+    // console.log("FILTEREDITEMS",tempItems)
+    // setFilteredItems(tempItems)
+
+    // })
+    
+}
+const handleVegChange = e =>{
+    let value = e.target.checked;
+    setIsVegChecked(value)
+}
+const handleNonVegChange = e =>{
+    let value = e.target.checked;
+    setIsNonVegChecked(value)
+}
 
 
 
@@ -106,16 +137,16 @@ const vegItems = props =>{
                             <div className="filter-block">
                                 <div className="filters">
                                     <div className="type-flex">
-                                        <p><input type="checkbox" name="rice_items"/>
-                                            <b><span className="txt hover">Rice Items</span></b></p>
+                                        <p><input type="checkbox" name="special" onChange={handleSpecialChange} checked={isSpecialChecked}/>
+                                            <b><span className="txt hover">special</span></b></p>
                                     </div>
                                     <div className="type-flex">
-                                        <p><input type="checkbox" name="breakfast"/>
-                                            <b><span className="txt hover">Breakfast</span></b></p>
+                                        <p><input type="checkbox" name="veg" onChange={handleVegChange} checked={isVegChecked}/>
+                                            <b><span className="txt hover">veg</span></b></p>
                                     </div>
                                     <div className="type-flex">
-                                        <p><input type="checkbox" name="curries"/>
-                                            <b><span className="txt hover">Curries</span></b></p>
+                                        <p><input type="checkbox" name="non-veg" onChange={handleNonVegChange} checked={isNonVegChecked}/>
+                                            <b><span className="txt hover">non-veg</span></b></p>
                                     </div>
                                     <div className="type-flex">
                                         <p><input type="checkbox" name="roties"/>
@@ -251,4 +282,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(vegItems);
+export default connect(mapStateToProps,mapDispatchToProps)(VegItems);

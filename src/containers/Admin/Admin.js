@@ -91,6 +91,7 @@ class Admin extends Component {
               </select>
               {/* <input type="text" placeholder="Category" name="category" onChange={this.handleChange}/> */}
               <input
+              className="file_input"
                 type="file"
                 name="image"
                 onChange={this.handleFileChange}

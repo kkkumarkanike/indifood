@@ -16,6 +16,7 @@ import VegItems from "./containers/VegItems/VegItems";
 import Cart from "./containers/Cart/Cart";
 import Orders from "./containers/Orders/Orders";
 import Details from "./containers/Details/Details";
+import { toast } from "react-toastify";
 
 const signInRoutes = (
   <Switch>
@@ -40,6 +41,8 @@ const signOutRoutes = (
     <Route component={Error} />
   </Switch>
 );
+
+toast.configure()
 function App(props) {
   return (
     <BrowserRouter>

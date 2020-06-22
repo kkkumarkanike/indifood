@@ -7,14 +7,23 @@ import { NavLink, Redirect,useHistory } from "react-router-dom";
 import { logout } from "../../../../store/actions/authActions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBoxOpen} from "@fortawesome/free-solid-svg-icons";
+import {toast} from "react-toastify"
+import CustomToast from "../../../Toast/CutomToast"
 
 
 class nav extends Component {
   
   logout = () => {
     this.props.logout();
+this.notify()
     return <Redirect to='/'/>;
   };
+  notify = () => toast.dark(<CustomToast authError={this.props.authError} />,{
+    position:toast.POSITION.BOTTOM_CENTER,
+    hideProgressBar: true,
+    autoClose: 5000,   
+  
+  })
 
   signedInLinks = () => {
     return (

@@ -47,13 +47,13 @@
         transform: translateY(0);
       }
     0% {
-        background: -webkit-linear-gradient(#eee, black);
+        background: -webkit-linear-gradient(#eee,#ccc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     }
  
     50%{
-        background: -webkit-linear-gradient(#eee,orange);
+        background: -webkit-linear-gradient(#eee,#ccc);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
