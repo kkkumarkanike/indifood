@@ -38,11 +38,11 @@ class Search extends Component {
        filteredItemsKeys.map(key =>{
            filteredItems[key] = foodItems[key];
       })
-   
-      const values = Object.values(filteredItems);
+
+      const values = Object.keys(filteredItems);
       if(values.length > 0){
         this.state.result  = values.map(item =>{
-          console.log("************* iItem *************",item);
+      
           return (
           <Link to={"/details/"+item} style={{textDecoration : "none",color : "#000"}}>
             <div className="searchItemResult">

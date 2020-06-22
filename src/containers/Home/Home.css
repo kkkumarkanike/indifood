@@ -1,59 +1,76 @@
-body{
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
 }
-.goTop{
-    position: fixed;
-    right: 20px;
-    bottom: 80px;
-    /* padding: 10px; */
-    /* height: 25px;
+.goTop {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  /* padding: 10px; */
+  /* height: 25px;
     width: 25px; */
-    border-radius: 50%;
-  background:  linear-gradient(90deg, rgba(247, 112, 98, 1), rgba(254, 81, 150, 1));
-text-align: center;
+  border-radius: 50%;
+  background: linear-gradient(
+    90deg,
+    rgba(247, 112, 98, 1),
+    rgba(254, 81, 150, 1)
+  );
+  text-align: center;
 
-    text-align: center;
-  }
-  .goTop a{
-    text-decoration: none;
-    color: white;
-  }
-  .goTop a i{
-      text-align: center;
-      padding: 16px 18px;
-     
-  }
-.main-heading{
-    font-size: 25px;
-    font-weight: bold;
+  text-align: center;
+}
+.goTop a {
+  text-decoration: none;
+  color: white;
+}
+.goTop a i {
+  text-align: center;
+  padding: 16px 18px;
+}
+.main-heading {
+  font-size: 25px;
+  font-weight: bold;
 }
 
-.mobile{
-    display: none;
+.mobile {
+  display: none;
+}
+
+.viewMoreBtn {
+  display: flex;
+  justify-content: center;
+}
+.viewMoreBtn button {
+  padding: 0.5rem 1rem;
+  background-color: #FF5E62;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
 }
 @media (max-width: 499px) {
-    .mobile{
-        display: block;
-    }
-    .desk{
-        display: none;
-    }
+  .mobile {
+    display: block;
+  }
+  .desk {
+    display: none;
+  }
 }
 @media (min-width: 500px) and (max-width: 799px) {
-    .mobile h4{
-        display: none;
-    }
+  .mobile h4 {
+    display: none;
+  }
 
-    .desk{
-        display: block;
-    }
+  .desk {
+    display: block;
+  }
 }
 @media (min-width: 800px) and (max-width: 1030px) {
-    .mobile h4{
-        display: none;
-    }
-    .desk{
-        display: block;
-    }
+  .mobile h4 {
+    display: none;
+  }
+  .desk {
+    display: block;
+  }
 }

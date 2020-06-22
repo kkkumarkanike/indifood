@@ -1,6 +1,10 @@
 .service{
   margin: 1rem auto;
 }
+.links,.links:hover{
+  text-decoration:none;
+  color: black;
+}
 
 .style_items{
     padding: 0.5rem 1rem;

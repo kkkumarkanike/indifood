@@ -7,9 +7,9 @@ import Landing from "./../../component/UI/LandingImage/LandImg";
 import Footer from "./../../component/Footer/Footer";
 import Contact from "./../../component/Contact/Contact";
 import About from "./../../component/About/About";
-import Service from "./../../component/Service/Service";
+import Service from "../../component/Service/SpecialService";
 import MobileCard from "./../../component/FoodCard/MobileCard";
-import { Redirect } from "react-router";
+import { Redirect , Link} from "react-router-dom";
 import {
   getCartItems,
   getItems,
@@ -28,9 +28,9 @@ const home = (props) => {
   useEffect(() => {
     // props.getItems();
     props.getSpecialItems();
-      props.getVegItems();
-      props.getNonVegItems();
-      props.onGetCartItems();
+    props.getVegItems();
+    props.getNonVegItems();
+    props.onGetCartItems();
   }, []);
 
   let mobileCards = null;
@@ -65,14 +65,13 @@ const home = (props) => {
         <div style={{ margin: "0 20px 0 20px" }}>
           <h3>Special Items</h3>
           {specialMobileCards}
-      
-          <p style={{ float: "right", marginTop: "10px" }}>view more</p>
+
           <br />
         </div>
         <div style={{ margin: "0 20px 0 20px" }}>
           <h3>Veg</h3>
           {vegMobileCards}
-         
+
           <p style={{ float: "right", marginTop: "10px" }}>view more</p>
           <br />
           <br />
@@ -80,7 +79,7 @@ const home = (props) => {
         <div style={{ margin: "0 20px 0 20px" }}>
           <h3>Non Veg</h3>
           {nonVegMobileCards}
-         
+
           <p style={{ float: "right", marginTop: "10px" }}>view more</p>
           <br />
           <br />
@@ -92,19 +91,21 @@ const home = (props) => {
             Special Items
           </p>
           <Service />
-          <p style={{ float: "right" }}>
+          {/* <p style={{ float: "right" }}>
             <u>view more</u>
-          </p>
+          </p> */}
           <p className="main-heading">Veg</p>
           <VegService />
-          <p style={{ float: "right" }}>
-            <u>view more</u>
-          </p>
+          <div className="viewMoreBtn">
+            <Link to="/veg"><button>view more</button></Link>
+          </div>
+
           <p className="main-heading">Non Veg</p>
           <NonVegService />
-          <p style={{ float: "right" }}>
-            <u>view more</u>
-          </p>
+          <div className="viewMoreBtn">
+          <Link to="/nonveg"><button>view more</button></Link>
+          </div>
+
         </div>
       </div>
       <br />
@@ -127,7 +128,7 @@ const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
     foodItems: state.item.res,
-    specialItems:state.item.specialItems,
+    specialItems: state.item.specialItems,
     vegItems: state.item.vegItems,
     nonVegItems: state.item.nonVegItems,
   };
@@ -135,7 +136,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getSpecialItems:() => dispatch(getSpecialItems()),
+    getSpecialItems: () => dispatch(getSpecialItems()),
     getVegItems: () => dispatch(getVegItems()),
     getNonVegItems: () => dispatch(getNonVegItems()),
     onGetCartItems: () => dispatch(getCartItems()),

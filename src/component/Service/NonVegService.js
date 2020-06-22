@@ -3,6 +3,8 @@ import "./Service.css"
 import Aux from './../../hoc/Auxilary';
 import {connect} from "react-redux"
 import {getVegItems, getNonVegItems} from "../../store/actions/itemActions";
+import {Link} from "react-router-dom"
+
 
 class NonVegService extends Component{
 
@@ -18,12 +20,13 @@ class NonVegService extends Component{
             nonVegFoodItems = Object.keys(itemList).map(id =>{
                 return (
                     <Aux>
+                        <Link className="links" to ={"/details/"+id} >
                         <div className="menu_item" id="top">
                             <img src={itemList[id].img} alt="Item Image"/>
                             <div className="style_items">
                                 <h4>{itemList[id].title[0].toUpperCase() + itemList[id].title.slice(1)}</h4>
                                 <p>
-                                    Price: <i className="fa fa-rupee rupee"></i>200
+                                    Price: <i className="fa fa-rupee rupee"></i>{itemList[id].price}
                                 </p>
                             </div>
                             <div className="type_rating">
@@ -37,6 +40,7 @@ class NonVegService extends Component{
                         </span>
                             </div>
                         </div>
+                        </Link>
                     </Aux>
                 );
             })

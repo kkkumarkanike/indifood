@@ -1,9 +1,9 @@
 
 
 .container{
-
-    margin: auto;
     margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #E9ECEE;
     width: 60%;
     border: 5px solid #ddd;

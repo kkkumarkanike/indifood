@@ -23,15 +23,15 @@ handleContactSubmit = e =>{
 
   const {name,email,message} = this.state;
 
-  // if(name.length<3 || email.length<3 || message.length<3){
-  //   this.props.hideLoader()
-  //   return alert("Please provide all the fields...")
-  // }
+  if(name.length<3 || email.length<3 || message.length<3){
+    this.props.hideLoader()
+    return alert("Please provide all the fields...")
+  }
   this.props.showLoader()
 
-  //  this.props.submitContact({
-  //    name,email,message
-  //  })
+   this.props.submitContact({
+     name,email,message
+   })
    
 
 }

@@ -5,7 +5,7 @@ import SignUp from "./containers/Signup/Signup";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./containers/Login/Login";
 import Nav from "./component/UI/Navigation/Nav/Nav";
-import Service from "./component/Service/Service";
+import Service from "./component/Service/SpecialService";
 import Admin from "./containers/Admin/Admin";
 import About from "./component/About/About";
 import Profile from "./containers/Profile/Profile";
