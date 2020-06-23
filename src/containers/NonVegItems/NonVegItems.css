@@ -183,6 +183,35 @@ body{
     padding: 1rem;
     margin: 0;
 }
+.fix{
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+}
+.filter-opt{
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 30px;
+    font-size: 12px;
+    width: 60px;
+    margin : 1px;
+}
+.filter-active{
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 30px;
+    font-size: 12px;
+    width: 60px;
+    margin : 1px;
+    background-color: black;
+    color: white;
+}
+.body-fix{
+    overflow-y: scroll;
+    position: fixed;
+    height: 50%;
+}
+
 .mobile .mobile-banner .mobile-banner-head{
     font-size: 25px;
     font-weight: bold;
@@ -212,7 +241,8 @@ body{
     font-weight: bold;
 }
 .each{
-    width: 35%;
+    width: 22%;
+    text-align: center;
 }
 .each-rate{
     display: flex;
@@ -232,6 +262,7 @@ body{
 .mobile-items{
     display: flex;
     flex-wrap: wrap;
+    overflow: scroll;
     /*justify-content: center;*/
 }
 .mobile-single-item{
@@ -286,6 +317,11 @@ body{
     padding: 3px 15px;
     text-align: center;
     margin-right: 10px;
+}
+.filter-text{
+    color : rgb(99, 96, 96);
+    font-size: 13px;
+    margin-bottom: 5px;
 }
 .rate-flex{
     display: flex;

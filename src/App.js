@@ -13,7 +13,7 @@ import Search from "./containers/Search/Search";
 import Footer from "./component/Footer/Footer";
 import Error from "./component/Error/Error";
 import VegItems from "./containers/VegItems/VegItems";
-import NonVegItems from "./containers/NonVegItems/VegItems";
+import NonVegItems from "./containers/NonVegItems/NonVegItems";
 import Cart from "./containers/Cart/Cart";
 import Orders from "./containers/Orders/Orders";
 import Details from "./containers/Details/Details";
