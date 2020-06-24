@@ -1,15 +1,18 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Notable&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 *{
     margin: 0;
     padding: 0;
 }
 :root{
     --primaryColor :#ff5e62;
+    bgColor: #f8484b;
 }
 .landing-image{
     display: flex;
     margin-top: 100px;
     margin-bottom: 50px;
-    /*background-color: black;*/
     margin-left: auto;
     margin-right: auto;
 }
@@ -36,6 +39,9 @@
     color: var(--primaryColor);
     margin-top: 10%;
     margin-bottom: 20px;
+    /* font-family: 'Cinzel', serif; */
+    font-family: 'Lobster', cursive;
+
 }
 .para{
     text-align: justify;
@@ -64,10 +70,11 @@
 }
 @media(min-width : 301px) and (max-width : 1025px){
     .head{
-        font-size: 40px;
+        font-size: 60px;
+        letter-spacing: 2px;
         font-weight: bolder;
         color: var(--primaryColor);
-        margin-top: 50%;
+        margin-top: 40%;
     }
     .landing-image{
         display: flex;
@@ -78,8 +85,9 @@
     }
     .text{
         /* background-color: red; */
-        width: 100vw;
-        padding : 1rem 4rem 0 4rem;
+        width: 100%;
+        /* padding : 1rem 4rem 0 4rem; */
+        padding: 1rem;
         text-align: center;
         background-image: url('./../../../images/launch-image.jpg');
         background-size: cover;
@@ -89,6 +97,7 @@
         position: relative;
         margin-left: 0;
         z-index: 1;
+        color: rgb(134, 133, 133);
     }
     .text::before{
         background-color: rgba(0, 0, 0, 0.6);
@@ -112,8 +121,9 @@
     .para{
         text-align: center;
         padding: 0;
+        font-size: 18px;
         margin: 0;
-        color: white;
+        color: rgb(231, 229, 229);
     }
     .get-started{
         border: none;
@@ -122,10 +132,17 @@
         font-size: 18px;
         font-weight: bold;
         color: white;
-        background-color: #FD6831;
+        background-color:var(--primaryColor);
         border-radius: 30px;
         transition: all  0.3s ease;
         cursor: pointer;
-        box-shadow: 5px 5px 30px #FD6831;
+        box-shadow: 5px 5px 30px var(--primaryColor);
+        border: 2px solid var(--primaryColor);
+        
+    }
+    .get-started:hover{
+        border: 2px solid var(--primaryColor);
+        background-color:var(--primaryColor);
+        color: white;
     }
 }

@@ -7,9 +7,9 @@ import Landing from "./../../component/UI/LandingImage/LandImg";
 import Footer from "./../../component/Footer/Footer";
 import Contact from "./../../component/Contact/Contact";
 import About from "./../../component/About/About";
-import Service from "./../../component/Service/Service";
+import Service from "../../component/Service/SpecialService";
 import MobileCard from "./../../component/FoodCard/MobileCard";
-import { Redirect } from "react-router";
+import { Redirect , Link} from "react-router-dom";
 import {
   getCartItems,
   getItems,
@@ -23,15 +23,14 @@ import NonVegService from "../../component/Service/NonVegService";
 const home = (props) => {
   const { auth } = props;
 
-  if (!auth.uid) return <Redirect to="/login" />;
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     // props.getItems();
     props.getSpecialItems();
-      props.getVegItems();
-      props.getNonVegItems();
-      props.onGetCartItems();
+    props.getVegItems();
+    props.getNonVegItems();
+    props.onGetCartItems();
   }, []);
 
   let mobileCards = null;
@@ -41,19 +40,19 @@ const home = (props) => {
   if (props.specialItems) {
     const keys = Object.keys(props.specialItems);
     specialMobileCards = keys.map((id) => {
-      return <MobileCard details={props.specialItems[id]} />;
+      return <MobileCard details={props.specialItems} />;
     });
   }
   if (props.vegItems) {
     const keys = Object.keys(props.vegItems);
     vegMobileCards = keys.map((id) => {
-      return <MobileCard details={props.vegItems[id]} />;
+      return <MobileCard details={props.vegItems} />;
     });
   }
   if (props.nonVegItems) {
     const keys = Object.keys(props.nonVegItems);
     nonVegMobileCards = keys.map((id) => {
-      return <MobileCard details={props.nonVegItems[id]} />;
+      return <MobileCard details={props.nonVegItems} />;
     });
   }
   return (
@@ -64,48 +63,49 @@ const home = (props) => {
       </div>
       <div className="mobile">
         <div style={{ margin: "0 20px 0 20px" }}>
-          <h3>Special Items</h3>
+          <h3 className="categoryNames">Special Items</h3>
           {specialMobileCards}
-      
-          <p style={{ float: "right", marginTop: "10px" }}>view more</p>
+
           <br />
         </div>
         <div style={{ margin: "0 20px 0 20px" }}>
-          <h3>Veg</h3>
+          <h3 className="categoryNames">Veg</h3>
           {vegMobileCards}
-         
-          <p style={{ float: "right", marginTop: "10px" }}>view more</p>
+
+          <Link to="/veg" style={{ float: "right", marginTop: "10px" }}>view more</Link>
           <br />
           <br />
         </div>
         <div style={{ margin: "0 20px 0 20px" }}>
-          <h3>Non Veg</h3>
+          <h3 className="categoryNames">Non Veg</h3>
           {nonVegMobileCards}
-         
-          <p style={{ float: "right", marginTop: "10px" }}>view more</p>
+
+          <Link to="/nonveg" style={{ float: "right", marginTop: "10px" }}>view more</Link>
           <br />
           <br />
         </div>
       </div>
       <div className="desk">
         <div style={{ margin: "0 80px" }}>
-          <p className="main-heading" style={{ margin: 0, padding: 0 }}>
+          <h3 className="categoryNames" style={{ margin: 0, padding: 0 }}>
             Special Items
-          </p>
+          </h3>
           <Service />
-          <p style={{ float: "right" }}>
+          {/* <p style={{ float: "right" }}>
             <u>view more</u>
-          </p>
-          <p className="main-heading">Veg</p>
+          </p> */}
+          <h3 className="categoryNames">Veg</h3>
           <VegService />
-          <p style={{ float: "right" }}>
-            <u>view more</u>
-          </p>
-          <p className="main-heading">Non Veg</p>
+          <div className="viewMoreBtn">
+            <Link to="/veg"><button>view more</button></Link>
+          </div>
+
+          <h3 className="categoryNames">Non Veg</h3>
           <NonVegService />
-          <p style={{ float: "right" }}>
-            <u>view more</u>
-          </p>
+          <div className="viewMoreBtn">
+          <Link to="/nonveg"><button>view more</button></Link>
+          </div>
+
         </div>
       </div>
       <br />
@@ -128,7 +128,7 @@ const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
     foodItems: state.item.res,
-    specialItems:state.item.specialItems,
+    specialItems: state.item.specialItems,
     vegItems: state.item.vegItems,
     nonVegItems: state.item.nonVegItems,
   };
@@ -136,8 +136,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // getItems: () => dispatch(getItems()),
-    getSpecialItems:() => dispatch(getSpecialItems()),
+    getSpecialItems: () => dispatch(getSpecialItems()),
     getVegItems: () => dispatch(getVegItems()),
     getNonVegItems: () => dispatch(getNonVegItems()),
     onGetCartItems: () => dispatch(getCartItems()),

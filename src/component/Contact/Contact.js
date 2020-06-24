@@ -1,73 +1,125 @@
-import React, { Component } from 'react'
-import "./Contact.css"
-import {connect} from "react-redux"
-import {submitContact, showLoader, hideLoader} from "../../store/actions/contactAction"
-import spinner from '../UI/Spinner/Spinner'
-import Loader from '../Loader/Loader'
-
+import React, { Component } from 'react';
+import './Contact.css';
+import { connect } from 'react-redux';
+import {
+  submitContact,
+  showLoader,
+  hideLoader,
+} from '../../store/actions/contactAction';
+import spinner from '../UI/Spinner/Spinner';
+import Loader from '../Loader/Loader';
+import CustomToast from '../../component/Toast/CutomToast';
+import { toast } from 'react-toastify';
 
 class Contact extends Component {
+  state = {
+    name: '',
+    email: '',
+    message: '',
+    loading: false,
+    disabled: false,
+  };
 
-  state={
-    name:"",
-    email:"",
-    message:"",
-    loading:false,
-  }
-  
-handleChange = e =>{
-  this.setState({[e.target.name] : e.target.value})
-}
-handleContactSubmit = e =>{
-  e.preventDefault();
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  handleContactSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, message } = this.state;
 
-  const {name,email,message} = this.state;
+    if (name.length < 3 || email.length < 3 || message.length < 3) {
+      // this.props.hideLoader()
+      this.setState({ disabled: false });
 
-  // if(name.length<3 || email.length<3 || message.length<3){
-  //   this.props.hideLoader()
-  //   return alert("Please provide all the fields...")
-  // }
-  this.props.showLoader()
+      // return alert('Please provide all the fields...');
+      return toast.error(
+        <CustomToast authError='Please provide all the fields...' />,
+        {
+          position: toast.POSITION.BOTTOM_CENTER,
+          hideProgressBar: true,
+          autoClose: 5000,
+        }
+      );
+    }
+    this.setState({ disabled: !this.state.disabled });
 
-  //  this.props.submitContact({
-  //    name,email,message
-  //  })
-   
+    // this.props.showLoader()
 
-}
+    // this.props.submitContact({
+    //   name,
+    //   email,
+    //   message,
+    // });
+    this.notify();
+  };
+  notify = () =>
+    toast.success(<CustomToast authError='We Have Received Your Info...' />, {
+      position: toast.POSITION.BOTTOM_CENTER,
+      hideProgressBar: true,
+      autoClose: 5000,
+    });
 
-  render(){
-if(this.props.loading === true) return <Loader />
+  render() {
+    if (this.props.loading === true) return <Loader />;
     return (
-        <div className="contact">
-
-<div className="contact_card">
-<h2>Contact Us</h2>
-       <div className="contact_input_fields">
-         <input type="text" name="txt" placeholder="Name" name="name"onChange={this.handleChange}/>
-         <input type="email" placeholder="Email" name="email" onChange={this.handleChange}/>
-         <textarea placeholder="Message" type="text" name="message" onChange={this.handleChange}></textarea>
-    <button onClick={this.handleContactSubmit}>Send Message</button>
-     </div>
-</div>
+      <div className='contact'>
+        <div className='contact_card'>
+          <h2>Contact Us</h2>
+          <div className='contact_input_fields'>
+            <input
+              type='text'
+              name='txt'
+              placeholder='Name'
+              name='name'
+              onChange={this.handleChange}
+            />
+            <input
+              type='email'
+              placeholder='Email'
+              name='email'
+              onChange={this.handleChange}
+            />
+            <textarea
+              placeholder='Message'
+              type='text'
+              name='message'
+              onChange={this.handleChange}
+            ></textarea>
+            <button
+              onClick={this.handleContactSubmit}
+              disabled={this.state.disabled}
+            >
+              Send Message
+            </button>
+          </div>
+        </div>
+        <iframe
+          src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d30716.00432859132!2d77.4928063!3d15.777539599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1592967515040!5m2!1sen!2sin'
+          width='800'
+          height='450'
+          frameborder='0'
+          style={{ border: '4px' }}
+          allowfullscreen=''
+          aria-hidden='false'
+          tabindex='0'
+        ></iframe>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = state =>{
-  return{
-    loading:state.contact.loading
-  }
-}
-
-const mapDispatchToProps = dispatch =>{
+const mapStateToProps = (state) => {
   return {
-    submitContact : (contactDetails) => dispatch(submitContact(contactDetails)),
-    showLoader:() => dispatch(showLoader()),
-    hideLoader:() => dispatch(hideLoader())
+    loading: state.contact.loading,
+  };
+};
 
-  }
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    submitContact: (contactDetails) => dispatch(submitContact(contactDetails)),
+    // showLoader:() => dispatch(showLoader()),
+    // hideLoader:() => dispatch(hideLoader())
+  };
+};
 
-export default connect(mapStateToProps,mapDispatchToProps)(Contact)
+export default connect(mapStateToProps, mapDispatchToProps)(Contact);

@@ -63,15 +63,16 @@ body{
     bottom: 0;
     width: 100%;
     text-align : center;
-    padding : 0.7rem 0;
+    padding : 0.4rem 0;
     z-index: 10;
 }
 .flex-item{
-    display: inline;
+    display: inline-block;
     color: #f2f2f2;
     text-align: center;
     font-size: 17px;
     text-align : center;
+    padding: 0 5px;
 
 }
 .mobile{
@@ -80,6 +81,8 @@ body{
 .bottom-navigation{
     display: none;
 }
+
+
 .logout{
     padding: 0.5rem 1rem;
     color: white;
@@ -94,10 +97,18 @@ body{
     border: 2px solid #ff5e62;
     color: #ff5e62;
 } */
+/*.link-active:focus{*/
+/*    color: red;*/
+/*}*/
+.active{
+    color: red;
+}
 @media(min-width : 301px) and (max-width : 1025px){
     .navigation ul li{
-        display: inline;
-        padding: 21px;
+        display: flex;
+        align-items: center;
+        padding: 6px;
+        
     }
     .desktop{
         display: none;
@@ -108,5 +119,27 @@ body{
     .bottom-navigation{
         display: block;
     }
+    /* .bottom-navigation .activeIcon{
+        background-color: red;
+        color: yellow;
+    } */
+    .bottom-navigation .active .flex-item i,
+    .bottom-navigation .active .flex-item .fa_icon,
+    .bottom-navigation .active .flex-item span{
+       color: #ff5e62; 
+       font-weight: bold;
+    }
+    .bottom-navigation .flex-item span{
+        font-size: 10px;
+    }
+    .bottom-navigation .active .flex-item span{
+        font-size: 12px;
+    }
+    /* .bottom-navigation .flex-item {
+        background-color: yellow;
+    } */
+ 
+
 
 }
+

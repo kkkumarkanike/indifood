@@ -25,7 +25,7 @@ const notify = () => toast("Hiiiiiiiiiiii")
                             laying out print, graphic or web designs. The passage is attributed
                             to an unknown typesetter in the 15th century.
                         </p>
-                        <button onClick={notify} className="get-started">Get started</button>
+                        <button className="get-started">Get started</button>
                         <br/><br/><br/><br/><br/>
                     </div>
                     <div className="banner-image" style={{textAlign : "center"}}>

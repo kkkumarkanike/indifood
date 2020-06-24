@@ -5,7 +5,7 @@ import SignUp from "./containers/Signup/Signup";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./containers/Login/Login";
 import Nav from "./component/UI/Navigation/Nav/Nav";
-import Service from "./component/Service/Service";
+import Service from "./component/Service/SpecialService";
 import Admin from "./containers/Admin/Admin";
 import About from "./component/About/About";
 import Profile from "./containers/Profile/Profile";
@@ -13,6 +13,7 @@ import Search from "./containers/Search/Search";
 import Footer from "./component/Footer/Footer";
 import Error from "./component/Error/Error";
 import VegItems from "./containers/VegItems/VegItems";
+import NonVegItems from "./containers/NonVegItems/VegItems";
 import Cart from "./containers/Cart/Cart";
 import Orders from "./containers/Orders/Orders";
 import Details from "./containers/Details/Details";
@@ -25,7 +26,7 @@ const signInRoutes = (
     <Route path="/service" component={Service} />
     <Route path="/veg" component={VegItems} />
     <Route path="/details/:id" component={Details} />
-    <Route path="/non-veg" component={VegItems} />
+    <Route path="/nonveg" component={NonVegItems} />
     <Route path="/cart" component={Cart} />
     <Route path="/orders" component={Orders} />
     <Route path="/about" component={About} />
@@ -47,7 +48,7 @@ function App(props) {
   return (
     <BrowserRouter>
       <Nav />
-      {!props.auth.uid ? signOutRoutes : signInRoutes}
+      {!localStorage.getItem("signIn") ? signOutRoutes : signInRoutes}
     </BrowserRouter>
   );
 }
@@ -55,6 +56,7 @@ function App(props) {
 const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
+      isSignIn : state.auth.isSignIn
   };
 };
 

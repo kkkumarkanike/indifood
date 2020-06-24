@@ -40,7 +40,7 @@ class Login extends Component {
 
   render() {
     const {authError,auth} = this.props;
-    if(auth.uid) return <Redirect to ="/" />
+    if(localStorage.getItem("signIn")) return <Redirect to ="/" />
     return (
       <Aux>
         <div className="login_page" style={{ marginTop: "60px" }}>
@@ -84,7 +84,8 @@ class Login extends Component {
 const mapStateToProps = (state) =>{
     return{
         authError:state.auth.authError,
-        auth:state.firebase.auth
+        auth:state.firebase.auth,
+      isSignIn: state.auth.isSignIn
     }
 }
 const mapDispatchToProps = (dispatch) =>{

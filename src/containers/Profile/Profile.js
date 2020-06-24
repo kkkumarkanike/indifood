@@ -3,13 +3,31 @@ import "./Profile.css";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import profileImg from "../../images/avatar.png";
-import {resetPassword} from "../../store/actions/authActions"
+import {resetPassword,logout} from "../../store/actions/authActions"
 import firebase from "../../config/Config"
+import CustomToast from "../../component/Toast/CutomToast"
+import {toast} from "react-toastify"
+
 class Profile extends Component {
+  state={
+    disabled:false,
+  }
 
   changePass =() =>{
+   this.setState({disabled:!this.state.disabled})
     this.props.resetPassword();
+   this.notify()
   }
+  notify = () =>
+  toast.dark(<CustomToast authError="We Have Sent You a Reset Mail Please Check It Out..." />, {
+    position: toast.POSITION.BOTTOM_CENTER,
+    hideProgressBar: true,
+    autoClose: 5000,
+  });
+  logoutAction = () => {
+    this.props.onLogout();
+    this.props.history.replace('/');
+  };
 
   render() {
     const { name } = this.props.profile;
@@ -30,8 +48,9 @@ class Profile extends Component {
 
         </div>
         <div className="danger_section">
-          <button onClick={this.changePass} className="change_pass">Change Password</button>
+          <button onClick={this.changePass}  disabled={this.state.disabled} className="change_pass">CHANGE PASSWORD</button>
           {/* <button className="delete_ac">Delete Account</button> */}
+          <button onClick={this.logoutAction} className="change_pass">LOGOUT</button>
         </div>
       </div>
     );
@@ -46,7 +65,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps =(dispatch) =>{
   return{
-    resetPassword:() => dispatch(resetPassword())
+    resetPassword:() => dispatch(resetPassword()),
+    onLogout : () => dispatch(logout())
+
   }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Profile);

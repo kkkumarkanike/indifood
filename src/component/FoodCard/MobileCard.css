@@ -12,18 +12,21 @@
 /* background-color: orange; */
 }
 .heading{
-    font-size: 18px;
-    font-weight: normal;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(110, 110, 110);
     margin: 0;
     padding: 0;
+    text-transform: capitalize;
 }
 .desc{
     padding: 0 1rem;
+    /* text-transform: capitalize; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 60vw;
-    height: 100px;
+    height: 80px;
 
 }
 
@@ -41,9 +44,10 @@
     padding: 0;
 }
 .line{
-    padding: 1px;
+    padding: 0;
     background-color: #cccccc;
     width: 100%;
+    height: 1px;
 }
 
 @media (min-width: 500px) and (max-width: 799px) {

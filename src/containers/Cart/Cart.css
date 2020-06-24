@@ -29,10 +29,10 @@
 }
 .checkout-details{
     margin-left: 20px;
+    text-transform: capitalize;
 }
 .checkout-details .name{
-    margin-top: 0;
-    margin-bottom: 0;
+    margin:0.3rem 0;
     font-size: 12px;
 }
 .checkout-details .price{
@@ -50,7 +50,8 @@
      box-shadow: 0 5px 50px #ddd;
 } */
 .checkout .hr-cart{
-    padding: 1px;
+    /* padding: 1px; */
+    height: 1px;
     background-color: #ccc;
     width: 60%;
     margin: auto;
@@ -99,10 +100,13 @@
 .checkout-button .button{
     padding: 1rem;
     border: none;
+    font-weight: bold;
     background-color: #ff5e62;
     color: white;
     cursor: pointer;
     width: 100%;
+    font-size: 18px;
+    border-radius: 3px;
     transition: background 0.3s ease;
 }
 .checkout-button .button:hover{

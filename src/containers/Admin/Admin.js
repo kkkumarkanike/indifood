@@ -6,6 +6,8 @@ import { addItem } from "../../store/actions/itemActions";
 import { getItems } from "../../store/actions/itemActions";
 import { storage } from "../../config/Config";
 import Spinner from "./../../component/UI/Spinner/Spinner";
+import CustomToast from "../../component/Toast/CutomToast"
+import {toast} from "react-toastify"
 
 class Admin extends Component {
   state = {
@@ -13,6 +15,7 @@ class Admin extends Component {
     desc: "",
     price: "",
     category: "",
+    sub_cat:"",
     img: "",
     loading: false,
   };
@@ -24,17 +27,30 @@ class Admin extends Component {
     const { title, desc, price, category } = this.state;
     e.preventDefault();
     if (!title || !desc || !price || !category) {
-      return alert("Please provide all the fields...");
+      return   toast.error(<CustomToast authError="Please provide all the fields..." />, {
+        position: toast.POSITION.BOTTOM_CENTER,
+        hideProgressBar: true,
+        autoClose: 5000,
+      });
     }
     this.props.addItem({
       title: this.state.title,
       desc: this.state.desc,
       price: this.state.price,
       category: this.state.category,
+      sub_cat:this.state.sub_cat,
       img: this.state.img,
     });
-    this.props.history.push("/");
+    this.notify()
+    // this.props.history.push("/");
   };
+  notify = () =>
+  toast.success(<CustomToast authError="Item added successfully..." />, {
+    position: toast.POSITION.BOTTOM_CENTER,
+    hideProgressBar: true,
+    autoClose: 5000,
+  });
+
 
   handleFileChange = (event) => {
     this.setState({ loading: true });
@@ -50,9 +66,13 @@ class Admin extends Component {
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  handleSelect = e =>{
+  handleCategorySelect = e =>{
       this.setState({category:e.target.value})
   }
+  handleSubCategorySelect = e =>{
+    this.setState({sub_cat:e.target.value})
+}
+
 
   render() {
     const itemList = this.props.foodItems;
@@ -83,11 +103,21 @@ class Admin extends Component {
                 name="price"
                 onChange={this.handleChange}
               />
-              <select onChange={this.handleSelect}>
+              {/* Category */}
+              <select onChange={this.handleCategorySelect}>
                 <option value="veg">veg</option>
                 <option value="non-veg">non-veg</option>
                 <option value="special">special</option>
                 <option value="tiffin">tiffin</option>
+              </select>
+{/* Sub Category */}
+              <select onChange={this.handleSubCategorySelect}>
+                <option value="rice">rice</option>
+                <option value="roti">roti</option>
+                <option value="curry">curry</option>
+                <option value="starter">starter</option>
+                <option value="tiffin">tiffin</option>
+
               </select>
               {/* <input type="text" placeholder="Category" name="category" onChange={this.handleChange}/> */}
               <input
@@ -109,9 +139,15 @@ class Admin extends Component {
           </div>
         </div>
         <br />
-        <h1>Hello</h1>
         {Object.keys(itemList).map((id) => {
-          return <p>{itemList[id].title}</p>;
+          return <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center"}}>
+            <p>Title : {itemList[id].title}</p>
+            <p>Category : {itemList[id].category}</p>
+            <p>SubCat : {itemList[id].sub_cat}</p>
+            <p>****************</p>
+
+
+          </div>
         })}
       </>
     );
@@ -131,3 +167,4 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);
+// Rice,Roti,Curry,Starter
