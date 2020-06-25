@@ -9,6 +9,7 @@ import Contact from "./../../component/Contact/Contact";
 import About from "./../../component/About/About";
 import Service from "../../component/Service/SpecialService";
 import MobileCard from "./../../component/FoodCard/MobileCard";
+import Maps from "../../component/Maps/Maps"
 import { Redirect , Link} from "react-router-dom";
 import {
   getCartItems,
@@ -111,6 +112,7 @@ const home = (props) => {
       <br />
       <br />
       <Contact />
+      <Maps />
       {/*<About/>*/}
       <Footer />
 

@@ -26,7 +26,7 @@ store.firebaseAuthIsReady.then(() => {
     </Provider>,
     document.getElementById("root")
   );
-  serviceWorker.unregister();
+  serviceWorker.register();
 });
 
 // * Here  useFirestoreForProfile is for displaying profile data with the same userID,

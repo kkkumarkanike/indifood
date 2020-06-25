@@ -1,0 +1,21 @@
+.map_iframe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.map_iframe iframe{
+    height:600px
+}
+
+@media (max-width:900px){
+.map_iframe iframe{
+    height: 450px;
+}
+
+    /* .map_iframe{
+    margin:  1rem;
+} */
+/* .map_iframe iframe{
+    border-radius: 4px;
+} */
+}

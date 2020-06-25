@@ -11,21 +11,13 @@ import {
   faUserAlt,
   faSignInAlt,
 } from '@fortawesome/free-solid-svg-icons';
-import { toast } from 'react-toastify';
-import CustomToast from '../../../Toast/CutomToast';
 
 class nav extends Component {
   logout = () => {
     this.props.logout();
-    this.notify();
     return <Redirect to='/' />;
   };
-  notify = () =>
-    toast.dark(<CustomToast authError={this.props.authError} />, {
-      position: toast.POSITION.BOTTOM_CENTER,
-      hideProgressBar: true,
-      autoClose: 5000,
-    });
+
   // activeSignUp = () =>{
   //     document.querySelector('#login').classList.remove('active');
 

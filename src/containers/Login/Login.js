@@ -26,15 +26,14 @@ class Login extends Component {
   handleLogin = (e) => {
     e.preventDefault();
     this.props.login(this.state)
-    this.notify()
     return <Redirect to ="/" />
   
   };
 
-  notify = () => toast.dark(<CustomToast authError={this.props.authError} />,{
+  notify = () => toast.success(<CustomToast authError="Login Success" />,{
     position:toast.POSITION.BOTTOM_CENTER,
     hideProgressBar: true,
-    autoClose: 5000,   
+    autoClose: 3000,   
   
   })
 
@@ -66,6 +65,7 @@ class Login extends Component {
                 />
                 <button onClick={this.handleLogin}>Login</button>
             {/* {authError?this.notify:null} */}
+            {authError?authError:null}
 
               </div>
             </div>

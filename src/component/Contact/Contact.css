@@ -6,10 +6,7 @@ text-align: center;
   linear-gradient(90deg, rgba(247, 112, 98, 0.44), rgba(254, 81, 150, 0.5)),
   url('../../images/pizza.jpg');
   width: auto;
-    height: 480px;
-  /* background-size: cover;
-  background-position: center; */
-  /* color: white; */
+  height:600px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -17,15 +14,11 @@ text-align: center;
 
 
 .contact_card{
-  /* height: 350px;
-  width: 350px; */
   border: 1px solid rgb(230, 230, 230);
   width: 600px;
-  height: 450px;
-  /* background-color: white; */
-  /* box-shadow: 0 0 1px #eee; */
-  background-color: #EBE9E5;
-  /* border-radius: 4px; */
+  height: 440px;
+  background-color: white;
+  border-radius: 4px;
   
 }
 .contact_input_fields{
@@ -38,23 +31,22 @@ text-align: center;
   letter-spacing: 2px;
   font-weight: bold;
   padding: 0.7rem;
-  /* color: rgb(105, 105, 105); */
-  color: black;
+  color: rgb(105, 105, 105);
 }
  .contact_input_fields input,.contact_input_fields textarea{
   border: none;
   background-color: transparent;
   padding: 1.5rem 0;
   width: 90%;
-  border-bottom: 1px solid gray;
-  color: gray;
+  border-bottom: 1px solid rgb(105, 105, 105);;
+  color: rgb(105, 105, 105);
   text-indent: 20px;
 }
 .contact_input_fields input,.contact_input_fields textarea{
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(105, 105, 105);;
 }
 .contact_input_fields input::placeholder,.contact_input_fields textarea::placeholder{
-  color: black;
+  color: rgb(105, 105, 105);
 }
 .contact_input_fields button{
   background:  linear-gradient(90deg, rgba(247, 112, 98, 1), rgba(254, 81, 150, 1));
