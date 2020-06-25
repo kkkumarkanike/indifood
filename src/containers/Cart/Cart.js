@@ -42,11 +42,15 @@ const cart = props =>{
         props.onDeleteCartItem(id,items);
     }
 
+    let orderingItemsForStoringInOrders = [];
     let cart = 'Your cart is Empty';
     let orderList = null;
     let totalDetails = null;
     let total = 0;
     let list = Object.keys(props.cartItems);
+    list.map(id =>{
+        orderingItemsForStoringInOrders.push(props.cartItems[id]);
+    })
     if (list.length){
         const Items = props.cartItems;
         const cartItemIds = Object.keys(Items);
@@ -143,7 +147,7 @@ const cart = props =>{
                 </div>
                 <div className="checkout-container">
                     <div className="checkout-button">
-                        <PayButton amount={total} style={{width:"100%"}}/>
+                        <PayButton amount={total} items={orderingItemsForStoringInOrders} ids={list} style={{width:"100%"}}/>
                         {/*<button className="button" style={{fontSize: "15px",fontWeight: "bolder"}}>PLACE ORDER</button>*/}
                     </div>
                 </div>

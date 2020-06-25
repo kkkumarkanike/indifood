@@ -5,6 +5,7 @@ const initState = {
   nonVegItems: [],
   cart: {},
   itemDetails: {},
+  orders : {}
 };
 
 const itemReducer = (state = initState, action) => {
@@ -92,6 +93,12 @@ const itemReducer = (state = initState, action) => {
       return {
         ...state,
         cart: {},
+      };
+    case "USER_ORDERS":
+      console.log("getting orders done");
+      return {
+        ...state,
+        orders: action.userOrders
       };
     default:
       return state;

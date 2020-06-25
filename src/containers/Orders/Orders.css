@@ -2,6 +2,14 @@
 .orders{
     margin: 1rem;
 }
+.single-order{
+    margin: 10px;
+    box-shadow: 0 0 5px #ccc;
+    margin: 10px auto;
+    margin-top: 10px;
+    padding: 0.5rem;
+    width: 60%;
+}
 
 .orders-head{
     margin: 100px 0 0 0 ;
@@ -10,7 +18,7 @@
 .orders-container{
     margin: 0 auto;
     margin-top: 10px;
-    width: 60%;
+    width: 100%;
     /* box-shadow: 0 0 10px #ccc; */
     padding: 0;
 }
@@ -49,7 +57,7 @@
 .orders .order-hr{
     padding: 1px;
     background-color: #ccc;
-    width: 60%;
+    width: 100%;
     margin: auto;
     margin-top: 10px;
 }
@@ -68,6 +76,14 @@
         width: 100%;
         margin: auto;
         margin-top: 5px;
+    }
+    .single-order{
+        margin: 10px;
+        box-shadow: 0 0 5px #ccc;
+        margin: 10px auto;
+        margin-top: 10px;
+        padding: 0.5rem;
+        width: 90%;
     }
 
 }

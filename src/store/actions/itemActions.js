@@ -1,4 +1,5 @@
 
+import axios from 'axios';
 
 export const addItem = (item) => {
   return (dispatch, getState, { getFirestore }) => {
@@ -230,6 +231,46 @@ export const emptyCart = () =>{
         type : "EMPTY_CART"
     }
 }
+
+export const cleanCart = (ids) =>{
+    return (dispatch, getState, { getFirestore }) =>{
+        const firebase = getFirestore();
+        ids.map(id =>{
+            firebase.collection("cart").doc(id).delete()
+            .then(res =>{
+                console.log("Deleted Item");
+            }).catch(er =>{
+                console.log("Error in deleting");
+            });
+        })
+    }
+}
+export const orders = (order) =>{
+    return {
+        type : "USER_ORDERS",
+        userOrders : order
+    }
+}
+export const getOrders = () =>{
+    return dispatch => {
+
+        if (localStorage.getItem('email')){
+            var userMail =localStorage.getItem('email') ;
+        }
+        axios.get("https://indifood-8870f.firebaseio.com/orders.json")
+        .then(res =>{
+            let userData ={};
+            const data = res.data;
+            const userDataIds = Object.keys(data).filter(id => data[id].email === userMail);
+            userDataIds.map(id =>{
+                userData[id] = data[id];
+            });
+            console.log(userData);
+            dispatch(orders(userData))
+        })
+    }
+}
+
 // Normally we write action as an object like
 // return {
 //     type:"ADD_ITEM",
