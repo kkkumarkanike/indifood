@@ -382,10 +382,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    getItems: () => dispatch(getItems()),
-    onAddingItemToCart: (item) => dispatch(addItemToCart(item)),
-  };
+    return {
+        getItems: () => dispatch(getItems()),
+        onAddingItemToCart: (item) => dispatch(addItemToCart(item))
+    };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(VegItems);
+
+export default connect(mapStateToProps,mapDispatchToProps)(VegItems);

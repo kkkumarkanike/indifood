@@ -9,6 +9,7 @@ import Contact from "./../../component/Contact/Contact";
 import About from "./../../component/About/About";
 import Service from "../../component/Service/SpecialService";
 import MobileCard from "./../../component/FoodCard/MobileCard";
+import Maps from "../../component/Maps/Maps"
 import { Redirect , Link} from "react-router-dom";
 import {
   getCartItems,
@@ -40,19 +41,20 @@ const home = (props) => {
   if (props.specialItems) {
     const keys = Object.keys(props.specialItems);
     specialMobileCards = keys.map((id) => {
-      return <MobileCard details={props.specialItems[id]} />;
+      return <MobileCard details={props.specialItems[id]} id={id} />;
     });
   }
+  console.log("Special Mobile Card",props.specialItems);
   if (props.vegItems) {
     const keys = Object.keys(props.vegItems);
     vegMobileCards = keys.map((id) => {
-      return <MobileCard details={props.vegItems[id]} />;
+      return <MobileCard details={props.vegItems[id]} id={id}/>;
     });
   }
   if (props.nonVegItems) {
     const keys = Object.keys(props.nonVegItems);
     nonVegMobileCards = keys.map((id) => {
-      return <MobileCard details={props.nonVegItems[id]} />;
+      return <MobileCard details={props.nonVegItems[id]} id={id} />;
     });
   }
   return (
@@ -63,44 +65,44 @@ const home = (props) => {
       </div>
       <div className="mobile">
         <div style={{ margin: "0 20px 0 20px" }}>
-          <h3>Special Items</h3>
+          <h3 className="categoryNames">Special Items</h3>
           {specialMobileCards}
 
           <br />
         </div>
         <div style={{ margin: "0 20px 0 20px" }}>
-          <h3>Veg</h3>
+          <h3 className="categoryNames">Veg</h3>
           {vegMobileCards}
 
-          <p style={{ float: "right", marginTop: "10px" }}>view more</p>
+          <Link to="/veg" style={{ float: "right", marginTop: "10px" }}>view more</Link>
           <br />
           <br />
         </div>
         <div style={{ margin: "0 20px 0 20px" }}>
-          <h3>Non Veg</h3>
+          <h3 className="categoryNames">Non Veg</h3>
           {nonVegMobileCards}
 
-          <p style={{ float: "right", marginTop: "10px" }}>view more</p>
+          <Link to="/nonveg" style={{ float: "right", marginTop: "10px" }}>view more</Link>
           <br />
           <br />
         </div>
       </div>
       <div className="desk">
         <div style={{ margin: "0 80px" }}>
-          <p className="main-heading" style={{ margin: 0, padding: 0 }}>
+          <h3 className="categoryNames" style={{ margin: 0, padding: 0 }}>
             Special Items
-          </p>
+          </h3>
           <Service />
           {/* <p style={{ float: "right" }}>
             <u>view more</u>
           </p> */}
-          <p className="main-heading">Veg</p>
+          <h3 className="categoryNames">Veg</h3>
           <VegService />
           <div className="viewMoreBtn">
             <Link to="/veg"><button>view more</button></Link>
           </div>
 
-          <p className="main-heading">Non Veg</p>
+          <h3 className="categoryNames">Non Veg</h3>
           <NonVegService />
           <div className="viewMoreBtn">
           <Link to="/nonveg"><button>view more</button></Link>
@@ -111,6 +113,7 @@ const home = (props) => {
       <br />
       <br />
       <Contact />
+      <Maps />
       {/*<About/>*/}
       <Footer />
 

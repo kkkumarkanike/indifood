@@ -10,7 +10,7 @@ const authReducer = (state = initState, action) => {
       localStorage.setItem('email',action.email);
       return {
         ...state,
-        authError: null,
+        authError: "Login Success",
         isSignIn: true
       };
     case "LOGIN_ERROR":
@@ -24,7 +24,7 @@ const authReducer = (state = initState, action) => {
 
       return {
         ...state,
-        authError: null,
+        authError: "SingUp Success...",
       };
     case "SIGNUP_ERROR":
       console.log("signup error");
@@ -39,7 +39,6 @@ const authReducer = (state = initState, action) => {
       return {
         ...state,
         authError: null,
-
       };
     case "SIGNOUT_ERROR":
       return {
@@ -49,7 +48,7 @@ const authReducer = (state = initState, action) => {
     case "RESET_PASS_SUCCESS":
       return {
         ...state,
-        authError: null,
+        authError: "Reset Password Success...",
       };
     case "RESET_PASS_ERROR":
       return {

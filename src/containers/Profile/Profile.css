@@ -4,13 +4,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid gray; */
     width: 30%;
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
     padding: 1rem 0;
-    box-shadow: 1px 1px 5px #ccc;
+    /* box-shadow: 1px 1px 5px #ccc; */
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 4px;
+    
     
 }
 .profile_pic{
@@ -65,7 +67,14 @@
 .danger_section{
     width: 90%;
 }
+.danger_section > button{
+    font-weight: bold;
 
+}
+.danger_section button:disabled{
+    background-color: #cccccc;
+    cursor:not-allowed !important;
+}
 @media (max-width:900px){
     .profile{
         display: flex;
@@ -73,6 +82,7 @@
         justify-content: space-evenly;
         align-items: center;
         width: 90%;
+       
     }
     .profile_pic,.danger_section{
         margin: 0.6rem;
@@ -80,5 +90,6 @@
     
     .danger_section > button{
         margin: 4px;
+        font-weight: bold;
     }
 }

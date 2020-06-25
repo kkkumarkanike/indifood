@@ -15,7 +15,7 @@ const item = (props) =>{
                 <div className="details">
                     <p className="details-head">{details.title}</p>
                     <p className="name">{details.desc}</p>
-                    <p className="name">Non-Veg</p>
+                    <p className="name" style={{fontWeight:"bold",textTransform:"capitalize"}}>{details.category}</p>
                     <p className="price">
                         <del style={{color: "rgb(141, 140, 140)"}}><i className="fa fa-rupee rupee"></i>&nbsp;249</del>
                         &nbsp;&nbsp;<i className="fa fa-rupee rupee"></i>&nbsp;{details.price}
@@ -31,11 +31,11 @@ const item = (props) =>{
                                                        style={{fontSize: "15px"}}></i>&nbsp;&nbsp;ADD
                             </button>
                         </div>
-                        <div className="block">
+                        {/* <div className="block">
                             <button className="btn rating"><i className='fa fa-star'
                                                        style={{fontSize: "15px"}}></i>&nbsp;&nbsp;ADD REVIEW
-                            </button>
-                        </div>
+                            </button> */}
+                        {/* </div> */}
 
                     </div>
                 </div>

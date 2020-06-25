@@ -81,6 +81,8 @@ body{
 .bottom-navigation{
     display: none;
 }
+
+
 .logout{
     padding: 0.5rem 1rem;
     color: white;
@@ -103,8 +105,10 @@ body{
 }
 @media(min-width : 301px) and (max-width : 1025px){
     .navigation ul li{
-        display: inline;
-        padding: 21px;
+        display: flex;
+        align-items: center;
+        padding: 6px;
+        
     }
     .desktop{
         display: none;
@@ -115,6 +119,27 @@ body{
     .bottom-navigation{
         display: block;
     }
+    /* .bottom-navigation .activeIcon{
+        background-color: red;
+        color: yellow;
+    } */
+    .bottom-navigation .active .flex-item i,
+    .bottom-navigation .active .flex-item .fa_icon,
+    .bottom-navigation .active .flex-item span{
+       color: #ff5e62; 
+       font-weight: bold;
+    }
+    .bottom-navigation .flex-item span{
+        font-size: 10px;
+    }
+    .bottom-navigation .active .flex-item span{
+        font-size: 12px;
+    }
+    /* .bottom-navigation .flex-item {
+        background-color: yellow;
+    } */
+ 
+
 
 }
 
