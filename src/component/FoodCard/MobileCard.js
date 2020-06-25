@@ -5,12 +5,10 @@ import Aux from './../../hoc/Auxilary';
 import { Link } from 'react-router-dom';
 
 function MobileCard(props) {
-  const keys = Object.keys(props.details);
-  console.log('KEys', keys);
 
   return (
     <Aux>
-      <Link to={'/details/' + props.details.title}>
+      <Link to={'/details/' + props.id}>
         <div className='single-card'>
           <div className='card'>
             <div className=''>

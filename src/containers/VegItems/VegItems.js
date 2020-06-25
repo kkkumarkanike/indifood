@@ -384,7 +384,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getItems: () => dispatch(getItems()),
-        onAdddingItemToCart: (item) => dispatch(addItemToCart(item))
+        onAddingItemToCart: (item) => dispatch(addItemToCart(item))
     };
 };
 

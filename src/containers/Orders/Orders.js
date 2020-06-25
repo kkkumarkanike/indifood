@@ -1,69 +1,80 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Aux from './../../hoc/Auxilary';
 import bir from './../../images/bir.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Orders.css';
 import {faBoxOpen} from "@fortawesome/free-solid-svg-icons";
+import { connect } from "react-redux";
+import {getOrders} from "./../../store/actions/itemActions";
+import Spinner from './../../component/UI/Spinner/Spinner';
+
 
 const orders = props =>{
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+        props.onGetOrders();
+    }, []);
+    console.log("User Orders",props.orders);
+
+    let items = <Spinner/>;
+    const orders = props.orders;
+    const orderIds = Object.keys(orders);
+    if (orderIds.length > 0){
+        items = orderIds.map(id =>{
+            const userOrders = orders[id].orderedItems;
+            console.log(userOrders);
+            return (
+                <div className="single-order">
+                    {userOrders.map(each =>{
+                        return (
+                            <div className="orders">
+                                <div className="orders-container">
+                                    <div className="order-card">
+                                        <div>
+                                            <img src={each.img} alt="image" className="order-image"/>
+
+                                        </div>
+                                        <div className="order-details">
+                                            <h3>{each.title[0].toUpperCase() + each.title.slice(1)}</h3>
+                                            <p className="name">{each.category}</p>
+                                            <p className="price"><i className="fa fa-rupee rupee"></i>&nbsp;{each.price}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div className="order-hr"></div>
+                            </div>
+                        );
+                    })}
+                </div>
+            )
+        })
+    }
     return (
         <Aux>
             <h2 className="orders-head"><FontAwesomeIcon icon={faBoxOpen} style={{fontSize : "20px"}}/>&nbsp;Your Orders</h2>
             <br/><br/>
 
-            <div className="orders">
-                <div className="orders-container">
-                    <div className="order-card">
-                        <div>
-                            <img src={bir} alt="Biryaani" className="order-image"/>
+                {orderIds.length ?
+                    items
+                    :
+                    <p style={{textAlign : "center"}}>You have no Orders yet!!</p>
+                }
 
-                        </div>
-                        <div className="order-details">
-                            <h3>Hyderbad Dham Biryaani</h3>
-                            <p className="name">Non-Veg</p>
-                            <p className="price"><i className="fa fa-rupee rupee"></i>&nbsp;200</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div className="order-hr"></div>
-            </div>
-            <div className="orders">
-                <div className="orders-container">
-                    <div className="order-card">
-                        <div>
-                            <img src={bir} alt="Biryaani" className="order-image"/>
-
-                        </div>
-                        <div className="order-details">
-                            <h3>Hyderbad Dham Biryaani</h3>
-                            <p className="name">Non-Veg</p>
-                            <p className="price"><i className="fa fa-rupee rupee"></i>&nbsp;200</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div className="order-hr"></div>
-            </div>
-            <div className="orders">
-                <div className="orders-container">
-                    <div className="order-card">
-                        <div>
-                            <img src={bir} alt="Biryaani" className="order-image"/>
-
-                        </div>
-                        <div className="order-details">
-                            <h3>Hyderbad Dham Biryaani</h3>
-                            <p className="name">Non-Veg</p>
-                            <p className="price"><i className="fa fa-rupee rupee"></i>&nbsp;200</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div className="order-hr"></div>
-            </div>
         </Aux>
     );
 }
+const mapStateToProps = state =>{
+    return {
+        orders : state.item.orders
+    }
+}
 
-export default orders;
+const mapDispatchToProps = dispatch =>{
+    return {
+        onGetOrders : () => dispatch(getOrders())
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(orders);

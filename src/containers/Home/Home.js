@@ -41,19 +41,20 @@ const home = (props) => {
   if (props.specialItems) {
     const keys = Object.keys(props.specialItems);
     specialMobileCards = keys.map((id) => {
-      return <MobileCard details={props.specialItems} />;
+      return <MobileCard details={props.specialItems[id]} id={id} />;
     });
   }
+  console.log("Special Mobile Card",props.specialItems);
   if (props.vegItems) {
     const keys = Object.keys(props.vegItems);
     vegMobileCards = keys.map((id) => {
-      return <MobileCard details={props.vegItems} />;
+      return <MobileCard details={props.vegItems[id]} id={id}/>;
     });
   }
   if (props.nonVegItems) {
     const keys = Object.keys(props.nonVegItems);
     nonVegMobileCards = keys.map((id) => {
-      return <MobileCard details={props.nonVegItems} />;
+      return <MobileCard details={props.nonVegItems[id]} id={id} />;
     });
   }
   return (
