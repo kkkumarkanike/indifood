@@ -3,10 +3,25 @@ import Aux from './../../hoc/Auxilary';
 import './ItemDetails.css';
 import biryaani from './../../images/special.jpg';
 import {getItemDetails} from "../../store/actions/itemActions";
+import CustomToast from '../../component/Toast/CutomToast';
+import { toast } from 'react-toastify';
 
 
 
 const item = (props) =>{
+
+    const addToCartBtn = () =>{
+        props.click(details)
+        return toast.success(
+            <CustomToast authError='Item added to cart...' />,
+            {
+              position: toast.POSITION.BOTTOM_CENTER,
+              hideProgressBar: true,
+              autoClose: 5000,
+            }
+          );
+    }
+    
     const details = props.info;
     return (
         <Aux>
@@ -27,7 +42,7 @@ const item = (props) =>{
                             </button>
                         </div>
                         <div className="block mobile-hide">
-                            <button className="btn" onClick={() => props.click(details)}><i className='fa fa-shopping-cart'
+                            <button className="btn" onClick={addToCartBtn}><i className='fa fa-shopping-cart'
                                                        style={{fontSize: "15px"}}></i>&nbsp;&nbsp;ADD
                             </button>
                         </div>
@@ -41,7 +56,7 @@ const item = (props) =>{
                 </div>
             </div>
             <div className="add-to-cart-box-mobile">
-                <button className="button" style={{fontSize: "20px",fontWeight: "bolder"}} onClick={() => props.click(details)}><i
+                <button className="button" style={{fontSize: "20px",fontWeight: "bolder"}} onClick={addToCartBtn}><i
                     className='fa fa-shopping-cart' style={{fontSize: "25px"}}></i>&nbsp;&nbsp;ADD TO CART
                 </button>
             </div>

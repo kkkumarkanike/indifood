@@ -5,7 +5,8 @@ import bir from './../../images/bir.jpg';
 import {connect}from "react-redux";
 import PayButton from './../Stripe/Stripe';
 import {getCartItems,incrementCount,decrementCount,updateStateCart,deleteItemFromCart} from './../../store/actions/itemActions';
-
+import CustomToast from '../../component/Toast/CutomToast';
+import { toast } from 'react-toastify';
 
 // const stripePromise = loadStripe('pk_test_51GrK91AcP3XN5kttwg2Uo17UmF8QCuCy4Okb59kVtd59ncFPTTQ5kCaCb0p3NHvfEUHr0D6tmUrvJnajwhHU2CxB00Lx6RdcLM');
 
@@ -40,6 +41,14 @@ const cart = props =>{
     }
     const deleteFromCart = (id,items) =>{
         props.onDeleteCartItem(id,items);
+        return toast.error(
+            <CustomToast authError='Item deleted successfully...' />,
+            {
+              position: toast.POSITION.BOTTOM_CENTER,
+              hideProgressBar: true,
+              autoClose: 5000,
+            }
+          );
     }
 
     let cart = 'Your cart is Empty';

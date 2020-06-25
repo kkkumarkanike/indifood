@@ -139,7 +139,7 @@ class Admin extends Component {
           </div>
         </div>
         <br />
-        {Object.keys(itemList).map((id) => {
+        {/* {Object.keys(itemList).map((id) => {
           return <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center"}}>
             <p>Title : {itemList[id].title}</p>
             <p>Category : {itemList[id].category}</p>
@@ -148,7 +148,7 @@ class Admin extends Component {
 
 
           </div>
-        })}
+        })} */}
       </>
     );
   }
