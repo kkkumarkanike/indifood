@@ -2,21 +2,18 @@ import React, { Component } from "react";
 import "./Login.css";
 import Aux from "./../../hoc/Auxilary";
 import img from "../../images/login_img.svg";
-import Nav from "../../component/UI/Navigation/Nav/Nav";
-import Landing from "../../component/UI/LandingImage/LandImg";
 import Footer from "../../component/Footer/Footer";
 import { connect } from "react-redux";
 import {login} from "../../store/actions/authActions"
 import {Redirect} from "react-router-dom"
-import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import CustomToast from "../../component/Toast/CutomToast"
 
 
 class Login extends Component {
   state = {
     email: "",
     password: "",
+    loading:true,
   };
   handlchange = (e) => {
     this.setState({
@@ -26,16 +23,13 @@ class Login extends Component {
   handleLogin = (e) => {
     e.preventDefault();
     this.props.login(this.state)
+      this.setState({loading:false})
+   
     return <Redirect to ="/" />
   
   };
 
-  notify = () => toast.success(<CustomToast authError="Login Success" />,{
-    position:toast.POSITION.BOTTOM_CENTER,
-    hideProgressBar: true,
-    autoClose: 3000,   
-  
-  })
+
 
   render() {
     const {authError,auth} = this.props;
@@ -63,9 +57,10 @@ class Login extends Component {
                   name="password"
                   onChange={this.handlchange}
                 />
-                <button onClick={this.handleLogin}>Login</button>
+                {/* {this.state.loading ? <h2></h2> : <h2>Loading</h2> } */}
+                <button onClick={this.handleLogin}> Login</button>
             {/* {authError?this.notify:null} */}
-            {authError?authError:null}
+            <h5 style={{color:"red",marginLeft:"1rem"}}>{authError?authError:null}</h5>
 
               </div>
             </div>

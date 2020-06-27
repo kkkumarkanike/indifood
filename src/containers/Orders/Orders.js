@@ -1,6 +1,5 @@
 import React,{useEffect} from "react";
 import Aux from './../../hoc/Auxilary';
-import bir from './../../images/bir.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Orders.css';
 import {faBoxOpen} from "@fortawesome/free-solid-svg-icons";

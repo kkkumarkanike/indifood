@@ -2,17 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="./favicon.ico" />
+    <link rel="icon" type="image/png" href="./favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f8484b" />
-
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <meta name="description" content="Modern PWA Online Restaurant React Application" />
+    <link rel="apple-touch-icon" href="../src/images/logo.png" />
+    <link rel="manifest" href="./manifest.json" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
@@ -23,6 +18,16 @@
     <div id="root"></div>
   </body>
   <script>
+  if('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./serviceworker.js')
+                    .then((reg) => console.log('Success: ', reg.scope))
+                    .catch((err) => console.log('Failure: ', err));
+            })
+        } else {
+        console.log('Service Worker is not supported by browser.');
+      }
+
     window.onscroll = function() {scrollFunction()};
     function scrollFunction(){
       if(document.body.scrollTop > 10 || document.documentElement.scrollTop > 10){
@@ -33,18 +38,6 @@
       }
     }
 
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('worker.js').then(function(registration) {
-            console.log('Worker registration successful', registration.scope);
-          }, function(err) {
-            console.log('Worker registration failed', err);
-          }).catch(function(err) {
-            console.log(err);
-          });
-        });
-      } else {
-        console.log('Service Worker is not supported by browser.');
-      }
+  
   </script>
 </html>

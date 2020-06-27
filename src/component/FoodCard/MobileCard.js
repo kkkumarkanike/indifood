@@ -1,5 +1,4 @@
 import React from 'react';
-import img from '../../images/img2.jpg';
 import './MobileCard.css';
 import Aux from './../../hoc/Auxilary';
 import { Link } from 'react-router-dom';

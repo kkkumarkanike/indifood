@@ -3,7 +3,7 @@ import StripeCheckout from "react-stripe-checkout";
 import "./Stripe.css";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import axios from "axios";
+import axios from "axios"
 import { cleanCart } from "../../store/actions/itemActions";
 
 const Checkout = (props) => {

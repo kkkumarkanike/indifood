@@ -3,8 +3,6 @@ import './NonVegItems.css';
 import {Link} from "react-router-dom";
 import Aux from '../../hoc/Auxilary';
 import special from './../../images/special.jpg';
-import biryaani from './../../images/biryaani.jpg';
-
 import {connect} from "react-redux";
 import {getItems,addItemToCart} from "../../store/actions/itemActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

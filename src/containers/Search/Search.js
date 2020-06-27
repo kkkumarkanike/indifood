@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import Aux from './../../hoc/Auxilary';
 import {getItems} from "../../store/actions/itemActions";
-import load from './../../images/loading-search.gif';
 
 class Search extends Component {
 

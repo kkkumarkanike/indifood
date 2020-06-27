@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import "./Service.css"
 import Aux from './../../hoc/Auxilary';
 import {connect} from "react-redux"
-import {getVegItems, getNonVegItems} from "../../store/actions/itemActions";
+import { getNonVegItems} from "../../store/actions/itemActions";
 import {Link} from "react-router-dom"
 
 

@@ -3,7 +3,7 @@ import Aux from './../../../../hoc/Auxilary';
 import logo from './../../../../images/logo.png';
 import './Nav.css';
 import { connect } from 'react-redux';
-import { NavLink, Redirect, useHistory, Link } from 'react-router-dom';
+import { NavLink, Redirect, Link } from 'react-router-dom';
 import { logout } from '../../../../store/actions/authActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {

@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
 import Aux from './../../hoc/Auxilary';
 import './Cart.css';
-import bir from './../../images/bir.jpg';
 import {connect}from "react-redux";
 import PayButton from './../Stripe/Stripe';
 import {getCartItems,incrementCount,decrementCount,updateStateCart,deleteItemFromCart} from './../../store/actions/itemActions';

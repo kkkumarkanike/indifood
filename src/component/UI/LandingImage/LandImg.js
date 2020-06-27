@@ -2,7 +2,6 @@ import React from "react";
 import Aux from './../../../hoc/Auxilary';
 import './LangImg.css';
 import banner from './../../../images/landing.svg';
-import CustomToast from "../../Toast/CutomToast"
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 

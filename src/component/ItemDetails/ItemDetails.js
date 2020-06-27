@@ -1,8 +1,6 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Aux from './../../hoc/Auxilary';
 import './ItemDetails.css';
-import biryaani from './../../images/special.jpg';
-import {getItemDetails} from "../../store/actions/itemActions";
 import CustomToast from '../../component/Toast/CutomToast';
 import { toast } from 'react-toastify';
 

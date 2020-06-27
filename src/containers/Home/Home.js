@@ -6,11 +6,10 @@ import Nav from "./../../component/UI/Navigation/Nav/Nav";
 import Landing from "./../../component/UI/LandingImage/LandImg";
 import Footer from "./../../component/Footer/Footer";
 import Contact from "./../../component/Contact/Contact";
-import About from "./../../component/About/About";
 import Service from "../../component/Service/SpecialService";
 import MobileCard from "./../../component/FoodCard/MobileCard";
 import Maps from "../../component/Maps/Maps"
-import { Redirect , Link} from "react-router-dom";
+import { Link} from "react-router-dom";
 import {
   getCartItems,
   getItems,

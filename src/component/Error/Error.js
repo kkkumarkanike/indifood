@@ -15,7 +15,8 @@ const Error = () => {
             <button onClick={redirect}>Go Back To Home</button>
            
         </div>
-    )
+
+              )
 }
 
 export default Error
