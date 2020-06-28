@@ -18,11 +18,12 @@ import Cart from "./containers/Cart/Cart";
 import Orders from "./containers/Orders/Orders";
 import Details from "./containers/Details/Details";
 import { toast } from "react-toastify";
+import keys from './keys'
 
 const signInRoutes = (
   <Switch>
     <Route path="/" exact component={Home} />
-    <Route path="/admin" component={Admin} />
+    <Route path={"/"+keys.adminRoute} component={Admin} />
     <Route path="/service" component={Service} />
     <Route path="/veg" component={VegItems} />
     <Route path="/details/:id" component={Details} />
