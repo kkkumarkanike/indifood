@@ -51,12 +51,12 @@ html{
   color: purple;
 }
 .viewMoreBtn button {
-  padding: 0.5rem 1rem;
+  padding: 0.66rem 1rem;
   background-color: #FF5E62;
   color: white;
   font-weight: bold;
   border: none;
-  border-radius: 2px;
+  border-radius: 3px;
   cursor: pointer;
 }
 .categoryNames{

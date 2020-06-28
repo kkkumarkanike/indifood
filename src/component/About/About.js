@@ -17,7 +17,7 @@ function About() {
   return (
     <>
       <section>
-        <div className='main-about'>
+        <div className='main-about' id="main_about">
           <div className='ramu'>
             <div className='image_logo'>
               <img className='pic' src={ramu} alt='Ramu' />

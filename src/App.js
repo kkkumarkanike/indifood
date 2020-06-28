@@ -39,6 +39,7 @@ const signOutRoutes = (
   <Switch>
     <Route  path="/" exact component={Login} />
     <Route path="/signup" exact component={SignUp} />
+    <Route path="/search" component={Search} />
     <Route component={Error} />
   </Switch>
 );

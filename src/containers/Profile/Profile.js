@@ -22,7 +22,7 @@ class Profile extends Component {
   toast.dark(<CustomToast authError="We Have Sent You a Reset Mail Please Check It Out..." />, {
     position: toast.POSITION.BOTTOM_CENTER,
     hideProgressBar: true,
-    autoClose: 5000,
+    autoClose: 3000,
   });
   logoutAction = () => {
     this.props.onLogout();
@@ -42,9 +42,9 @@ class Profile extends Component {
           <i className="fa fa-pencil"></i>
         </div>
         <div className="user_detail">
-          <p>UserName : {!name?email.split("@")[0] : name}</p>
+          <p>Username : {!name?email.split("@")[0] : name}</p>
           <p>Email : {email}</p>
-          <p>Phone : +918919308004</p>
+          {/* <p>Phone : +918919308004</p> */}
 
         </div>
         <div className="danger_section">
