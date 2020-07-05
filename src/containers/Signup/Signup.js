@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { signUp } from '../../store/actions/authActions';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 class SignUp extends Component {
   state = {
     name: '',
@@ -17,11 +18,15 @@ class SignUp extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+    
   };
   handleSignUp = (e) => {
     e.preventDefault();
     this.props.signUp(this.state);
+    // this.props.history.replace('/');
   };
+
+  
 
 
   render() {

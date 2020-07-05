@@ -20,7 +20,7 @@ class NonVegService extends Component{
             nonVegFoodItems = Object.keys(itemList).map(id =>{
                 return (
                     <Aux>
-                        <Link className="links" to ={"/details/"+id} >
+                        <Link className="links" to ={"/details/"+id} key={id}>
                         <div className="menu_item" id="top">
                             <img src={itemList[id].img} alt="Item Image"/>
                             <div className="style_items">

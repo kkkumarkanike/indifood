@@ -10,7 +10,7 @@ const authReducer = (state = initState, action) => {
       localStorage.setItem('email',action.email);
       return {
         ...state,
-        authError: "Login Success",
+        authError: "Logging in...",
         isSignIn: true
       };
     case "LOGIN_ERROR":
@@ -24,7 +24,7 @@ const authReducer = (state = initState, action) => {
 
       return {
         ...state,
-        authError: "SingUp Success...",
+        authError: "SingUp Success Please Login...",
       };
     case "SIGNUP_ERROR":
       console.log("signup error");

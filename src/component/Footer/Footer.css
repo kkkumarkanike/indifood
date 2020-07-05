@@ -40,6 +40,9 @@
   display: flex;
 
 }
+.social_icons a{
+  color: white;
+}
 .nav_links ul a{
   color: white;
   text-decoration: none;
