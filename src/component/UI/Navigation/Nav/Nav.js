@@ -107,15 +107,19 @@ class nav extends Component {
                   style={{ float: 'left' }}
                 />
               </NavLink>
+              {/* <NavLink to='/search'>
+                <div className='nav_search'>
+                  <i className='fa fa-search'></i>
+                  <p>Search</p>
+                </div>
+              </NavLink> */}
             </div>
             <div className='desktop'>
               {localStorage.getItem('signIn')
                 ? this.signedInLinks()
                 : this.signedOutLinks()}
             </div>
-            <div className='mobile'>
-              
-            </div>
+            <div className='mobile'></div>
           </nav>
         </header>
         <div className='bottom-navigation'>
@@ -128,9 +132,7 @@ class nav extends Component {
                     style={{ fontSize: '22px', margin: 0, padding: 0 }}
                   ></i>
                   <br />
-                  <span style={{  margin: 0, padding: 0 }}>
-                    HOME
-                  </span>
+                  <span style={{ margin: 0, padding: 0 }}>HOME</span>
                 </div>
               </NavLink>
               <NavLink to='/cart'>
@@ -140,9 +142,7 @@ class nav extends Component {
                     style={{ fontSize: '22px', margin: 0, padding: 0 }}
                   ></i>
                   <br />
-                  <span style={{  margin: 0, padding: 0 }}>
-                    CART
-                  </span>
+                  <span style={{ margin: 0, padding: 0 }}>CART</span>
                 </div>
               </NavLink>
               <NavLink to='/orders'>
@@ -153,9 +153,7 @@ class nav extends Component {
                     style={{ fontSize: '20px', margin: 0, padding: 0 }}
                   />
                   <br />
-                  <span style={{  margin: 0, padding: 0 }}>
-                    ORDERS
-                  </span>
+                  <span style={{ margin: 0, padding: 0 }}>ORDERS</span>
                 </div>
               </NavLink>
               <NavLink to='/profile'>
@@ -166,9 +164,7 @@ class nav extends Component {
                     style={{ fontSize: '20px', margin: 0, padding: 0 }}
                   />
                   <br />
-                  <span style={{  margin: 0, padding: 0 }}>
-                    PROFILE
-                  </span>
+                  <span style={{ margin: 0, padding: 0 }}>PROFILE</span>
                 </div>
               </NavLink>
             </Aux>
@@ -182,9 +178,7 @@ class nav extends Component {
                     style={{ fontSize: '18px', margin: 0, padding: 0 }}
                   />
                   <br />
-                  <span style={{  margin: 0, padding: 0 }}>
-                    LOG IN
-                  </span>
+                  <span style={{ margin: 0, padding: 0 }}>LOG IN</span>
                 </div>
               </NavLink>
               <NavLink to='/signup'>
@@ -195,9 +189,7 @@ class nav extends Component {
                     style={{ fontSize: '18px', margin: 0, padding: 0 }}
                   />
                   <br />
-                  <span style={{  margin: 0, padding: 0 }}>
-                    SIGN UP
-                  </span>
+                  <span style={{ margin: 0, padding: 0 }}>SIGN UP</span>
                 </div>
               </NavLink>
             </Aux>

@@ -1,5 +1,5 @@
 import React from 'react';
-import ramu from '../../images/ramu.jpg';
+import ramu from '../../images/ramu.jpeg';
 import kalyan from '../../images/kalyan.jpeg';
 import './About.css';
 import '../../App.css';

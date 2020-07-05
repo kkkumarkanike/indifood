@@ -31,6 +31,7 @@ class Admin extends Component {
         position: toast.POSITION.BOTTOM_CENTER,
         hideProgressBar: true,
         autoClose: 3000,
+        closeButton:false,
       });
     }
     this.props.addItem({
@@ -49,6 +50,7 @@ class Admin extends Component {
     position: toast.POSITION.BOTTOM_CENTER,
     hideProgressBar: true,
     autoClose: 3000,
+    closeButton: false,
   });
 
 

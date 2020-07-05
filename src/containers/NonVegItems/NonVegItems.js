@@ -7,6 +7,8 @@ import {connect} from "react-redux";
 import {getItems,addItemToCart} from "../../store/actions/itemActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import {toast} from "react-toastify"
+import CustomToast from "../../component/Toast/CutomToast"
 
 
 class NonVegItems extends Component {
@@ -17,6 +19,17 @@ class NonVegItems extends Component {
         starter : false
     }
     
+  notify = () => {
+    return toast.success(<CustomToast authError='Item Added Successfully' />, {
+      position: toast.POSITION.BOTTOM_CENTER,
+      hideProgressBar: true,
+      autoClose: 3000,
+      closeButton: false,
+
+      // color:#489E48
+    });
+  };
+    
     componentDidMount()
     {
         this.props.getItems();
@@ -25,6 +38,7 @@ class NonVegItems extends Component {
 
     onAddItemToCart = (item) =>{
         this.props.onAddingItemToCart(item);
+        this.notify()
     }
 
     

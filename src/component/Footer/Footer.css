@@ -74,7 +74,7 @@ color: #ff5e62;
 
 @media (max-width:900px){
   .nav_links {
-    font-size: 12px;
+    font-size: 14px;
   }
   .footer{
     margin-bottom: 55px;
@@ -84,6 +84,7 @@ color: #ff5e62;
   }
   .copy_right{
     font-size: 14px;
+    padding-bottom: 1rem;
   }
 }
 /* @media(min-width : 301px) and (max-width : 1025px){

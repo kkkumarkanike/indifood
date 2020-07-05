@@ -16,6 +16,7 @@ const item = (props) =>{
               position: toast.POSITION.BOTTOM_CENTER,
               hideProgressBar: true,
               autoClose: 3000,
+              closeButton:false,
             }
           );
     }

@@ -21,7 +21,6 @@
 }
 .desc{
     padding: 0 1rem;
-    /* text-transform: capitalize; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -40,7 +39,7 @@
     margin: 0;
 }
 .card p{
-    font-size: 14px;
+    font-size: 12px;
     padding: 0;
 }
 .line{

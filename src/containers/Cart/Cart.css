@@ -69,10 +69,11 @@
     display: flex;
 }
 .delete{
-    padding: 6px 10px;
+    padding: 6px 8px;
     color: white;
     cursor: pointer;
     background-color: #EC4654;
+    border-radius: 3px;
     border: none;
     margin-left: 20px;
 
@@ -119,6 +120,12 @@
     color: #ff5e62;
     border: 2px solid #ff5e62;
     background: white;
+}
+
+@media (max-width : 900px){
+    .checkout-button .button{
+        margin-bottom: 5rem;
+    }
 }
 @media (min-width : 300px) and (max-width : 499px){
     .checkout-container{

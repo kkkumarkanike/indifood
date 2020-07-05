@@ -38,6 +38,7 @@ class Contact extends Component {
           position: toast.POSITION.BOTTOM_CENTER,
           hideProgressBar: true,
           autoClose: 3000,
+          closeButton: false,
         }
       );
     }
@@ -57,6 +58,7 @@ class Contact extends Component {
       position: toast.POSITION.BOTTOM_CENTER,
       hideProgressBar: true,
       autoClose: 3000,
+      closeButton: false,
     });
 
   render() {
@@ -93,7 +95,6 @@ class Contact extends Component {
             </button>
           </div>
         </div>
-       
       </div>
     );
   }

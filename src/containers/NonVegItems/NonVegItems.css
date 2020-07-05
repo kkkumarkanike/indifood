@@ -179,7 +179,6 @@ body{
     display: none;
 }
 .mobile{
-    padding: 0;
     padding: 1rem;
     margin: 0;
 }
@@ -333,9 +332,7 @@ body{
     justify-content: flex-end;
     width: 50%;
 }
-@media (min-width : 822px) and (max-width : 1213px){
 
-}
 @media(min-width: 541px) and (max-width: 699px){
     .mobi-item-details{
         padding: 6px  5px 15px 10px;
@@ -427,6 +424,7 @@ body{
 @media (min-width : 300px) and (max-width: 799px){
     .mobile{
         display: block;
+        padding:0;
     }
     .desk{
         display: none;

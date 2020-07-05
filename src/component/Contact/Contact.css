@@ -2,10 +2,12 @@
 
 .contact{
 text-align: center;
-  background-image:
+  background:
   linear-gradient(90deg, rgba(247, 112, 98, 0.44), rgba(254, 81, 150, 0.5)),
   url('../../images/pizza.jpg');
-  width: auto;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
   height:600px;
   display: flex;
   align-items: center;
@@ -70,6 +72,7 @@ text-align: center;
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: auto;
     margin:1rem;
     background-image: none;
   }

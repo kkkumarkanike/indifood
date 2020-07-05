@@ -16,8 +16,7 @@
     
 }
 .profile_pic{
-    position: relative;
-    width: 80px;
+    width: 100px;
 
 }
 .profile_pic img{
@@ -25,17 +24,7 @@
     width: 100px;
     border-radius: 50%;
 }
-.profile_pic i{
-    position: absolute;
-    bottom: -12px;
-        left: 35px;
-    right: auto;
-    cursor: pointer;
-    background-color:papayawhip;
-    color: black;
-    padding: 8px;
-    border-radius: 50%;
-}
+
 .user_detail{
     padding: 1rem 0;
 }
@@ -69,6 +58,7 @@
 }
 .danger_section > button{
     font-weight: bold;
+    border-radius: 3px;
 
 }
 .danger_section button:disabled{
@@ -89,7 +79,8 @@
     }
     
     .danger_section > button{
-        margin: 4px;
+        margin: 6px;
         font-weight: bold;
+    
     }
 }

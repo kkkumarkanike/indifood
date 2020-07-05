@@ -1,5 +1,5 @@
 .login_page{
-    height: 100vh;
+    height: 85vh;
     display: flex;
     justify-content: center;
     margin: 16px;
@@ -136,6 +136,10 @@ margin: 0 5rem;
      }
      .email_password button{
          width: 95%;
+              }
+              .email_password button:hover{
+                  background-color: #ff5e62;
+                  color: white;
               }
            
     }

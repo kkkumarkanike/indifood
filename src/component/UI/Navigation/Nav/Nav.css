@@ -50,6 +50,7 @@ body{
     border-radius: 3px;
 }
 
+
 .bottom-menu{
     padding: 0;
     margin: 0;
@@ -78,6 +79,19 @@ body{
 .mobile{
     display: none;
 }
+/* .nav_search{
+    display: none;
+    display: flex;
+    height: 70px;
+    margin: auto 0.5rem;
+    align-items: center;
+    justify-content: flex-end;
+}
+.navigation a{
+    text-decoration: none;
+    color: black;
+
+} */
 .bottom-navigation{
     display: none;
 }

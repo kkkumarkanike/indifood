@@ -23,6 +23,10 @@ section{
     justify-content: space-around;
     align-items: center;
 }
+.about_country{
+    color: rgb(134, 133, 133);
+    font-weight: 550;
+}
 .ramu{
     margin-bottom: 1rem;
 }

@@ -5,7 +5,7 @@ import img from '../../images/login_img.svg';
 import { connect } from 'react-redux';
 import { signUp } from '../../store/actions/authActions';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Spinner from "./../../component/UI/Spinner/Spinner";
 
 class SignUp extends Component {
   state = {
@@ -18,7 +18,6 @@ class SignUp extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    
   };
   handleSignUp = (e) => {
     e.preventDefault();
@@ -26,11 +25,8 @@ class SignUp extends Component {
     // this.props.history.replace('/');
   };
 
-  
-
-
   render() {
-    const { authError, auth } = this.props;
+    const { signUpError } = this.props;
     return (
       <Aux>
         <div className='login_page' style={{ marginTop: '60px' }}>
@@ -59,8 +55,10 @@ class SignUp extends Component {
                   name='password'
                   onChange={this.handleChange}
                 />
-                <button onClick={this.handleSignUp}>Sign Up</button>
-                <h5 style={{color:"red",marginLeft:"1rem"}}>{authError?authError:null}</h5>
+                <button onClick={this.handleSignUp}>{this.props.loading ? <Spinner /> : "SIGN UP"}</button>
+                <h5 style={{ color: 'red', marginLeft: '1rem' }}>
+                  {signUpError ? signUpError : null}
+                </h5>
               </div>
             </div>
           </div>
@@ -76,8 +74,8 @@ class SignUp extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    auth: state.firebase.auth,
-    authError: state.auth.authError,
+    signUpError: state.auth.signUpError,
+    loading : state.auth.loading
   };
 };
 const mapDispatchToProps = (dispatch) => {
