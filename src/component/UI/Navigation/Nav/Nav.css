@@ -106,14 +106,6 @@ body{
     border-radius: 3px;
     cursor: pointer;
 }
-/* .logout:hover{
-    background-color: white;
-    border: 2px solid #ff5e62;
-    color: #ff5e62;
-} */
-/*.link-active:focus{*/
-/*    color: red;*/
-/*}*/
 .active{
     color: red;
 }
@@ -137,26 +129,15 @@ body{
  background-color: #333;
 text-decoration: none;
     }
-    /* .bottom-navigation .activeIcon{
-        background-color: red;
-        color: yellow;
-    } */
     .bottom-navigation .active .flex-item i,
     .bottom-navigation .active .flex-item .fa_icon,
     .bottom-navigation .active .flex-item span{
        color: #ff5e62; 
-       font-weight: bold;
     }
     .bottom-navigation .flex-item span{
         font-size: 10px;
     }
-    .bottom-navigation .active .flex-item span{
-        font-size: 12px;
-    }
-    /* .bottom-navigation .flex-item {
-        background-color: yellow;
-    } */
- 
+
 
 
 }

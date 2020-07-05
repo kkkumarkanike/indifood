@@ -90,14 +90,6 @@ class nav extends Component {
                   style={{ float: 'left' }}
                 />
               </NavLink>
-              {localStorage.getItem('signIn') ? (
-                <NavLink to='/search'>
-                  <span style={{ float: 'right' }} className='nav_search'>
-                    <i className='fa fa-search'></i>
-                    <p>Search</p>
-                  </span>
-                </NavLink>
-              ) : null}
             </div>
             <div className='desktop'>
               {localStorage.getItem('signIn')
@@ -111,7 +103,7 @@ class nav extends Component {
           {localStorage.getItem('signIn') ? (
             <Aux>
               <NavLink exact to='/'>
-                <div className='flex-item' style={{ width: '22%' }}>
+                <div className='flex-item' style={{ width: '15%' }}>
                   <i
                     className='fa fa-home'
                     style={{ fontSize: '22px', margin: 0, padding: 0 }}
@@ -121,7 +113,7 @@ class nav extends Component {
                 </div>
               </NavLink>
               <NavLink to='/cart'>
-                <div className='flex-item' style={{ width: '22%' }}>
+                <div className='flex-item' style={{ width: '15%' }}>
                   <i
                     className='fa fa-shopping-cart'
                     style={{ fontSize: '22px', margin: 0, padding: 0 }}
@@ -130,8 +122,18 @@ class nav extends Component {
                   <span style={{ margin: 0, padding: 0 }}>CART</span>
                 </div>
               </NavLink>
+              <NavLink exact to='/search'>
+                <div className='flex-item' style={{ width: '15%' }}>
+                  <i
+                    className='fa fa-search'
+                    style={{ fontSize: '22px', margin: 0, padding: 0 }}
+                  ></i>
+                  <br />
+                  <span style={{ margin: 0, padding: 0 }}>SEARCH</span>
+                </div>
+              </NavLink>
               <NavLink to='/orders'>
-                <div className='flex-item' style={{ width: '22%' }}>
+                <div className='flex-item' style={{ width: '15%' }}>
                   <FontAwesomeIcon
                     className='fa_icon'
                     icon={faBoxOpen}
@@ -142,7 +144,7 @@ class nav extends Component {
                 </div>
               </NavLink>
               <NavLink to='/profile'>
-                <div className='flex-item' style={{ width: '22%' }}>
+                <div className='flex-item' style={{ width: '15%' }}>
                   <FontAwesomeIcon
                     className='fa_icon'
                     icon={faUserAlt}
