@@ -32,13 +32,13 @@ const signInRoutes = (
     <Route path="/about" component={About} />
     <Route path="/profile" component={Profile} />
     <Route path="/search" component={Search} />
-    <Route component={Error} />
   </Switch>
 );
 const signOutRoutes = (
   <Switch>
     <Route  path="/" exact component={Login} />
     <Route path="/signup" exact component={SignUp} />
+    <Route path="/about" exact component={About}/>
     <Route component={Error} />
   </Switch>
 );

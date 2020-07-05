@@ -14,7 +14,7 @@ const orders = props =>{
     useEffect(() => {
         props.onGetOrders();
     }, []);
-    console.log("User Orders",props.orders);
+
 
     let items = <Spinner/>;
     const orders = props.orders;
@@ -22,12 +22,12 @@ const orders = props =>{
     if (orderIds.length > 0){
         items = orderIds.map(id =>{
             const userOrders = orders[id].orderedItems;
-            console.log(userOrders);
+            
             return (
-                <div className="single-order">
+                <div className="single-order" key={id}>
                     {userOrders.map(each =>{
                         return (
-                            <div className="orders">
+                            <div className="orders" key={each.img}>
                                 <div className="orders-container">
                                     <div className="order-card">
                                         <div>

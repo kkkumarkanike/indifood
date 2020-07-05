@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 function MobileCard(props) {
 
   return (
-    <Aux>
+    <Aux >
       <Link to={'/details/' + props.id}>
-        <div className='single-card'>
+        <div className='single-card' key={props.id}>
           <div className='card'>
             <div className=''>
               <img height='80' width='80' src={props.details.img} />

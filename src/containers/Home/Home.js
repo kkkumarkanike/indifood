@@ -43,7 +43,7 @@ const home = (props) => {
       return <MobileCard details={props.specialItems[id]} id={id} />;
     });
   }
-  console.log("Special Mobile Card",props.specialItems);
+
   if (props.vegItems) {
     const keys = Object.keys(props.vegItems);
     vegMobileCards = keys.map((id) => {

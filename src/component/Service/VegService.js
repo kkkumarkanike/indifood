@@ -18,7 +18,7 @@ class VegService extends Component{
             const itemList = this.props.vegItems;
             vegFoodItems = Object.keys(itemList).map(id =>{
                 return (
-                    <Aux>
+                    <Aux key={id}>
                         <Link className="links" to ={"/details/"+id} >
                         <div className="menu_item" id="top">
                             <img src={itemList[id].img} alt="Item Image"/>
