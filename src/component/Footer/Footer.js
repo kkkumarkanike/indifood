@@ -1,47 +1,69 @@
-import React,{Component} from "react";
-import "./Footer.css";
-import { connect } from "react-redux";
-import Aux from "./../../hoc/Auxilary";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import './Footer.css';
+import { connect } from 'react-redux';
+import Aux from './../../hoc/Auxilary';
+import { Link } from 'react-router-dom';
 
 class Footer extends Component {
+  signedInLinks = () => {
+    return (
+      <ul>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/about'>About</Link>
+        </li>
+        <li>
+          <Link to='/veg'>Menu</Link>
+        </li>
+        <li>
+          <Link to='#contact'>Contact</Link>
+        </li>
 
-    signedInLinks = () =>{
-        return(
-          <ul>
-          <li><Link to="/">Home</Link></li>
-         <li><Link to="/about">About</Link></li>
-         <li><Link to="/veg">Menu</Link></li>
-         <li><Link to="#contact">Contact</Link></li>
-        
-         {/* <li>
+        {/* <li>
            <a onClick={this.logout} to="LogOut">
              LogOut
            </a>
          </li> */}
-       </ul>
-        )
-      }
+      </ul>
+    );
+  };
 
-      signedOutLinks = () =>{
-        return(
-          <ul>
-          <li><Link to="/">Home</Link></li>
-         <li><Link to="#contact">Contact</Link></li>
-       </ul>
-        )
-      }
+  signedOutLinks = () => {
+    return (
+      <ul>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='#contact'>Contact</Link>
+        </li>
+      </ul>
+    );
+  };
 
   render() {
     return (
-      <footer className="footer">
-        <div className="social_icons">
-          <a href="#"><i className="fa fa-facebook facebook"></i></a>
-          <a href="https://www.linkedin.com/in/ramu-bugudi-2a5a5a161/"  target="_blank"><i className="fa fa-linkedin"></i></a>
-          <a href="#"  ><i className="fa fa-instagram"></i></a>
-          <a href="https://github.com/kkkumarkanike/indifood"  target="_blank"><i className="fa fa-github"></i></a>
+      <footer className='footer'>
+        <div className='social_icons'>
+          <a href='#'>
+            <i className='fa fa-facebook facebook'></i>
+          </a>
+          <a
+            href='https://www.linkedin.com/in/ramu-bugudi-2a5a5a161/'
+            target='_blank'
+          >
+            <i className='fa fa-linkedin'></i>
+          </a>
+          <a href='#'>
+            <i className='fa fa-instagram'></i>
+          </a>
+          <a href='https://github.com/kkkumarkanike/indifood' target='_blank'>
+            <i className='fa fa-github'></i>
+          </a>
         </div>
-        <div className="nav_links">
+        <div className='nav_links'>
           {this.props.auth.uid ? (
             <Aux>
               {/* <p>Home</p>
@@ -58,7 +80,27 @@ class Footer extends Component {
             </Aux>
           )}
         </div>
-        <div className="copy_right">Copyright &copy; IndiFood</div>
+        {/* <span>
+          Designed and Coded by{' '}
+          <b>
+            <span className='coders'> </span>
+          </b>{' '}
+          Ramu & Kalyan
+          <br />
+          <p style={{ fontSize: '14px', padding: '0.5rem 0' }}>
+            Source Code :{' '}
+            <a
+              style={{ color: 'rgb(139, 139, 248)', textDecoration: 'none' }}
+              href='https://www.github.com/kkkumarkanike/indifood'
+              target='_blank'
+            >
+              {' '}
+              here
+            </a>
+          </p>
+        </span> */}
+
+        <div className='copy_right'>Copyright &copy; IndiFood</div>
       </footer>
     );
   }

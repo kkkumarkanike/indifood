@@ -18,23 +18,6 @@ class nav extends Component {
     return <Redirect to='/' />;
   };
 
-  // activeSignUp = () =>{
-  //     document.querySelector('#login').classList.remove('active');
-
-  //   }
-  //  activeLogin = () =>{
-  //      document.querySelector('#signup').classList.remove('active');
-  //      document.querySelector('#login').classList.add('active');
-  //  }
-  //    activeIcon = () =>{
-  // const item = document.querySelector(".names").classList.contains("active");
-  // if(item){
-  //   console.log(document.querySelectorAll(".flex-item"))
-  //   document.querySelector("i").style.color="yellow"
-  // }else{
-  //   document.querySelector("i").style.color="blue"
-  // }
-  //    }
   signedInLinks = () => {
     return (
       <ul>
@@ -107,12 +90,14 @@ class nav extends Component {
                   style={{ float: 'left' }}
                 />
               </NavLink>
-              {/* <NavLink to='/search'>
-                <div className='nav_search'>
-                  <i className='fa fa-search'></i>
-                  <p>Search</p>
-                </div>
-              </NavLink> */}
+              {localStorage.getItem('signIn') ? (
+                <NavLink to='/search'>
+                  <span style={{ float: 'right' }} className='nav_search'>
+                    <i className='fa fa-search'></i>
+                    <p>Search</p>
+                  </span>
+                </NavLink>
+              ) : null}
             </div>
             <div className='desktop'>
               {localStorage.getItem('signIn')

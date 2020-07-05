@@ -18,9 +18,9 @@ class Service extends Component{
             const itemList = this.props.specialItems;
             specialFoodItems = Object.keys(itemList).map(id =>{
                 return (
-                    <Aux>
+                    <Aux key={id}>
                         <Link className="links" to ={"/details/"+id} >
-                        <div className="menu_item" id="top">
+                        <div className="menu_item" id="top" >
                             <img src={itemList[id].img} alt="Item Image"/>
                             <div className="style_items">
                                 <h4>{itemList[id].title[0].toUpperCase() + itemList[id].title.slice(1)}</h4>
@@ -46,7 +46,7 @@ class Service extends Component{
         }
 
         return (
-            <div className="service">
+            <div className="service" key="1">
                 <div class="veg">
                     {specialFoodItems}
                 </div>

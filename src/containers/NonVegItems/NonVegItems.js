@@ -26,14 +26,12 @@ class NonVegItems extends Component {
       autoClose: 3000,
       closeButton: false,
 
-      // color:#489E48
     });
   };
     
     componentDidMount()
     {
         this.props.getItems();
-        console.log("************* Filtered Food Items ***************",this.props.foodItems);
     }
 
     onAddItemToCart = (item) =>{
@@ -43,7 +41,6 @@ class NonVegItems extends Component {
 
     
     handleFilters = (event,filters) =>{
-        // console.log(e.target.name);
         const name = event.target.name;
         const target = event.target;
         if (target.checked){
@@ -75,7 +72,6 @@ class NonVegItems extends Component {
     
     
     render() { 
-        // console.log("Our State",this.state);
         let items = null;
         let mobileItems = null;
         let allItems = {};
@@ -89,9 +85,7 @@ class NonVegItems extends Component {
 
         let finalFilteredItems = {};
         const filteredTypes = this.state;
-        console.log("Filtered Types",filteredTypes);
         const filteredItems = Object.keys(filteredTypes).filter(item => filteredTypes[item] === true);
-        console.log("Filtered Items",filteredItems);
         
         if(filteredItems.length === 0){
             finalFilteredItems = allItems;
@@ -107,7 +101,6 @@ class NonVegItems extends Component {
             })
         }
 
-        console.log("Final filtered Items",finalFilteredItems);
         const allItemsIds = Object.keys(finalFilteredItems);
         if (allItemsIds.length > 0){
             items = allItemsIds.map(item =>{

@@ -28,10 +28,8 @@ class Contact extends Component {
     const { name, email, message } = this.state;
 
     if (name.length < 3 || email.length < 3 || message.length < 3) {
-      // this.props.hideLoader()
       this.setState({ disabled: false });
 
-      // return alert('Please provide all the fields...');
       return toast.error(
         <CustomToast authError='Please provide all the fields...' />,
         {
@@ -44,13 +42,6 @@ class Contact extends Component {
     }
     this.setState({ disabled: !this.state.disabled });
 
-    // this.props.showLoader()
-
-    // this.props.submitContact({
-    //   name,
-    //   email,
-    //   message,
-    // });
     this.notify();
   };
   notify = () =>
@@ -109,8 +100,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     submitContact: (contactDetails) => dispatch(submitContact(contactDetails)),
-    // showLoader:() => dispatch(showLoader()),
-    // hideLoader:() => dispatch(hideLoader())
+  
   };
 };
 

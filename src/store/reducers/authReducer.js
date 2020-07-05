@@ -14,15 +14,11 @@ const authReducer = (state = initState, action) => {
         loading: true,
       };
 
-    // case 'SIGNUP_START': {
-    //   return {
-    //     ...state,
-    //     loading: true,
-    //   };
-    // }
     case 'LOGIN_SUCCESS':
       localStorage.setItem('signIn', true);
       localStorage.setItem('email', action.email);
+    case "LOGIN_ERROR":
+
       return {
         ...state,
         loginError: 'Login success',

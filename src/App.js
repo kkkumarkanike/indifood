@@ -19,6 +19,7 @@ import Orders from "./containers/Orders/Orders";
 import Details from "./containers/Details/Details";
 import { toast } from "react-toastify";
 import keys from './keys'
+import OrderDetails from "./containers/OrderDetails/OrderDetails";
 
 const signInRoutes = (
   <Switch>
@@ -33,13 +34,14 @@ const signInRoutes = (
     <Route path="/about" component={About} />
     <Route path="/profile" component={Profile} />
     <Route path="/search" component={Search} />
-    <Route component={Error} />
+    <Route path="/order-details/:id" component={OrderDetails}/>
   </Switch>
 );
 const signOutRoutes = (
   <Switch>
     <Route  path="/" exact component={Login} />
     <Route path="/signup" exact component={SignUp} />
+    <Route path="/about" exact component={About}/>
     <Route path="/search" component={Search} />
     <Route component={Error} />
   </Switch>
@@ -64,4 +66,3 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps)(App);
 
-// NAVIGATION BAR IS FIXES SO WE HAVE TO GIVE MARGIN TOP AND MARGIN BOTTOM TO ENTIRE APP

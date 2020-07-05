@@ -13,7 +13,6 @@ import {
 import CustomToast from '../../component/Toast/CutomToast';
 import { toast } from 'react-toastify';
 
-// const stripePromise = loadStripe('pk_test_51GrK91AcP3XN5kttwg2Uo17UmF8QCuCy4Okb59kVtd59ncFPTTQ5kCaCb0p3NHvfEUHr0D6tmUrvJnajwhHU2CxB00Lx6RdcLM');
 
 const cart = (props) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -22,13 +21,11 @@ const cart = (props) => {
   }, []);
   const incCount = (id, count) => {
     props.onIncCount(id, count);
-    // props.onGetCartItems();
     props.onUpdateStateCart(id, count + 1);
   };
   const decCount = (id, count, items) => {
     if (count > 1) {
       props.onDecCount(id, count);
-      // props.onGetCartItems();
       props.onUpdateStateCart(id, count - 1);
     } else {
       props.onDeleteCartItem(id, items);

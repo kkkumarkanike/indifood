@@ -4,7 +4,7 @@ import 'firebase/auth';
 import 'firebase/storage';
 import keys from '../keys';
 
-// Your web app's Firebase configuration
+//  Firebase configuration
 const config = {
   apiKey: keys.apiKey,
   authDomain: keys.authDomain,

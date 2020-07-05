@@ -72,6 +72,12 @@ color: #ff5e62;
 
 } */
 
+.coders:before{
+    content: '</'
+    }
+.coders:after{
+    content: '>';
+}
 @media (max-width:900px){
   .nav_links {
     font-size: 14px;

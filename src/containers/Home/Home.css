@@ -4,16 +4,16 @@ body {
   margin: 0;
   padding: 0;
 }
-.aux::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 12px;
 }
 
-.aux::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #333;
 
 }
 
-.aux::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   border-radius: 5px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
   background: linear-gradient(

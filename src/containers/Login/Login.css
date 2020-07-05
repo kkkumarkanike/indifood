@@ -101,7 +101,7 @@ margin: 0 5rem;
         font-size: 18px;
         color: white;
         font-weight: bold;
-        border: none;
+        border: 2px solid #ff5e62;
         padding: 1rem 0.5rem;
         margin: 1rem;
         width: 90%;

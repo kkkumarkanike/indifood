@@ -130,12 +130,9 @@ export const addItemToCart = (item) => {
     // const firebase = getFirebase();
     const firestore = getFirestore();
     const firebase = getFirebase();
-    console.log(
-      '********************** addItemToCart Firebase kaa Firebase *******************',
-      firebase
-    );
+   
     const userMail = firebase.auth().currentUser.email;
-    console.log('Item To Add', item);
+   
     firestore
       .collection('cart')
       .add({
@@ -185,7 +182,7 @@ export const getCartItems = () => {
     if (localStorage.getItem('email')) {
       var userMail = localStorage.getItem('email');
     }
-    // console.log("*************Fire Store*****************",firebase.auth().currentUser.email);
+    
     firestore
       .collection('cart')
       .get()
@@ -268,12 +265,7 @@ export const cleanCart = (ids) =>{
     return (dispatch, getState, { getFirestore }) =>{
         const firebase = getFirestore();
         ids.map(id =>{
-            firebase.collection("cart").doc(id).delete()
-            .then(res =>{
-                console.log("Deleted Item");
-            }).catch(er =>{
-                console.log("Error in deleting");
-            });
+            firebase.collection("cart").doc(id).delete();
         })
     }
 }
@@ -297,18 +289,30 @@ export const getOrders = () =>{
             userDataIds.map(id =>{
                 userData[id] = data[id];
             });
-            console.log(userData);
+        
             dispatch(orders(userData))
         })
     }
 }
+export const getDetails = (details) =>{
+  return {
+    type : "GET_COMPLETED_ORDER_DETAILS",
+    data : details
+  }
+}
+export const getOrderedDetails = (id) =>{
+  return dispatch => {
+    axios
+    .get(
+      "https://indifood-8870f.firebaseio.com/orders/" +
+        id +
+        ".json"
+    )
+    .then((res) => {
+      dispatch(getDetails(res.data));
+    })
+    .catch((err) => {
+    });
+  }
+}
 
-// Normally we write action as an object like
-// return {
-//     type:"ADD_ITEM",
-//     item:item
-// }
-// With the help of redux-thunk we can write a function and run the async code by halting the dispatch event
-// const db = firebase.firestore();
-// const data = await db.collection('items').get();
-// const doc = data.docs.map(doc => console.log(doc.data()));

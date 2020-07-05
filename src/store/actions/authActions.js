@@ -7,7 +7,6 @@ export const login = (credentials) => {
       .signInWithEmailAndPassword(credentials.email, credentials.password)
       .then(() => {
         dispatch({ type: 'LOGIN_SUCCESS', email: credentials.email });
-        // dispatch({type:"LOGIN_START",})
       })
       .catch((error) => {
         dispatch({ type: 'LOGIN_ERROR', error });

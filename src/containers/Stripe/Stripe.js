@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import axios from "axios"
 import { cleanCart } from "../../store/actions/itemActions";
+import logo from "./../../images/logo.png";
 
 const Checkout = (props) => {
   const key =
@@ -16,15 +17,13 @@ const Checkout = (props) => {
 
   const successPayment = (data) => {
     alert("Payment Successful");
-    console.log("Payment Success", data);
   };
 
   const errorPayment = (data) => {
     alert("Payment Error");
-    console.log("Payment Error", data);
   };
 
-  const onToken = (amount, description) => (token) =>
+  const onToken = (amount, description) => (token,billingAddress) =>{
     axios
       .post("https://indifood-8870f.firebaseio.com/orders.json", {
         description: description,
@@ -33,21 +32,25 @@ const Checkout = (props) => {
         amount: props.amount,
         email: localStorage.getItem("email"),
         orderedItems: props.items,
+        address : billingAddress
       })
       .then((res) => {
-        console.log(res);
         props.onEmptyCart(props.ids);
         props.history.replace("/orders");
+        successPayment(res.data);
         
       })
       .catch(errorPayment);
-
+    }
   return (
     <StripeCheckout
       amount={inRupees}
       token={onToken(inRupees, "Hi")}
       currency={CURRENCY}
       stripeKey={key}
+      image={logo}
+      billingAddress
+      zipCode={true}
     />
   );
 };

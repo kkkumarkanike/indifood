@@ -79,19 +79,19 @@ body{
 .mobile{
     display: none;
 }
-/* .nav_search{
-    display: none;
+.nav_search{
     display: flex;
     height: 70px;
-    margin: auto 0.5rem;
+    margin: auto 1rem;
     align-items: center;
     justify-content: flex-end;
+
 }
 .navigation a{
     text-decoration: none;
-    color: black;
+    color: rgb(39, 38, 38);
 
-} */
+}
 .bottom-navigation{
     display: none;
 }

@@ -43,7 +43,6 @@ class Admin extends Component {
       img: this.state.img,
     });
     this.notify()
-    // this.props.history.push("/");
   };
   notify = () =>
   toast.success(<CustomToast authError="Item added successfully..." />, {
@@ -169,4 +168,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);
-// Rice,Roti,Curry,Starter

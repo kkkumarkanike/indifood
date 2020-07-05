@@ -22,7 +22,6 @@ class SignUp extends Component {
   handleSignUp = (e) => {
     e.preventDefault();
     this.props.signUp(this.state);
-    // this.props.history.replace('/');
   };
 
   render() {
