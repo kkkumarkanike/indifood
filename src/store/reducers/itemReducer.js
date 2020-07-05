@@ -5,7 +5,9 @@ const initState = {
   nonVegItems: [],
   cart: {},
   itemDetails: {},
-  orders : {}
+  orders: {},
+  eachOrderDetails : {}
+
 };
 
 const itemReducer = (state = initState, action) => {
@@ -15,16 +17,13 @@ const itemReducer = (state = initState, action) => {
     case "ADD_ITEM_ERROR":
       return state;
     case "GET_ITEMS_SUCCESS":
-
       return {
         ...state,
         res: action.res,
       };
     case "GET_ITEMS_ERROR":
-      
       return state;
     case "GET_SPECIAL_ITEMS_SUCCESS":
-     
       return {
         ...state,
         specialItems: action.specialItems,
@@ -33,33 +32,29 @@ const itemReducer = (state = initState, action) => {
       return state;
 
     case "GET_VEG_ITEMS_SUCCESS":
-      
       return {
         ...state,
         vegItems: action.vegItems,
       };
     case "GET_VEG_ITEMS_ERROR":
-      
       return state;
 
     case "GET_NON_VEG_ITEMS_SUCCESS":
-      
       return {
         ...state,
         nonVegItems: action.nonVegItems,
       };
     case "GET_NON_VEG_ITEMS_ERROR":
-      
       return state;
 
     case "GET_CART_ITEMS_SUCCESS":
-       return {
+      return {
         ...state,
         cart: action.cart,
       };
 
     case "UPDATE_STATE_CART":
-        return {
+      return {
         ...state,
         cart: {
           ...state.cart,
@@ -76,7 +71,6 @@ const itemReducer = (state = initState, action) => {
       };
 
     case "CART_ITEM_DELETE":
-      
       return {
         ...state,
         cart: action.data,
@@ -87,10 +81,16 @@ const itemReducer = (state = initState, action) => {
         cart: {},
       };
     case "USER_ORDERS":
-         return {
+      return {
         ...state,
-        orders: action.userOrders
+        orders: action.userOrders,
       };
+    case "GET_COMPLETED_ORDER_DETAILS":
+      return {
+        ...state,
+        eachOrderDetails : action.data
+      };
+      ;
     default:
       return state;
   }

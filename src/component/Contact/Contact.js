@@ -37,7 +37,7 @@ class Contact extends Component {
         {
           position: toast.POSITION.BOTTOM_CENTER,
           hideProgressBar: true,
-          autoClose: 5000,
+          autoClose: 3000,
         }
       );
     }
@@ -56,13 +56,13 @@ class Contact extends Component {
     toast.success(<CustomToast authError='We Have Received Your Info...' />, {
       position: toast.POSITION.BOTTOM_CENTER,
       hideProgressBar: true,
-      autoClose: 5000,
+      autoClose: 3000,
     });
 
   render() {
     if (this.props.loading === true) return <Loader />;
     return (
-      <div className='contact'>
+      <div className='contact' id='contact'>
         <div className='contact_card'>
           <h2>Contact Us</h2>
           <div className='contact_input_fields'>

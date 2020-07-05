@@ -30,7 +30,7 @@ class Admin extends Component {
       return   toast.error(<CustomToast authError="Please provide all the fields..." />, {
         position: toast.POSITION.BOTTOM_CENTER,
         hideProgressBar: true,
-        autoClose: 5000,
+        autoClose: 3000,
       });
     }
     this.props.addItem({
@@ -48,7 +48,7 @@ class Admin extends Component {
   toast.success(<CustomToast authError="Item added successfully..." />, {
     position: toast.POSITION.BOTTOM_CENTER,
     hideProgressBar: true,
-    autoClose: 5000,
+    autoClose: 3000,
   });
 
 

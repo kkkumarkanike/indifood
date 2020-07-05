@@ -114,14 +114,7 @@ class nav extends Component {
                 : this.signedOutLinks()}
             </div>
             <div className='mobile'>
-              <ul>
-                <li>
-                  <NavLink to='/search'>
-                    {' '}
-                    <i className='fa fa-search'> Search</i>
-                  </NavLink>
-                </li>
-              </ul>
+              
             </div>
           </nav>
         </header>

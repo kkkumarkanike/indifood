@@ -45,7 +45,7 @@ const cart = props =>{
             {
               position: toast.POSITION.BOTTOM_CENTER,
               hideProgressBar: true,
-              autoClose: 5000,
+              autoClose: 3000,
             }
           );
     }

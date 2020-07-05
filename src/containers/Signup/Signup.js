@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import '../Login/Login.css';
 import Aux from './../../hoc/Auxilary';
 import img from '../../images/login_img.svg';
-import Footer from '../../component/Footer/Footer';
 import { connect } from 'react-redux';
 import { signUp } from '../../store/actions/authActions';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 class SignUp extends Component {
   state = {
@@ -18,6 +18,7 @@ class SignUp extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+    
   };
   handleSignUp = (e) => {
     e.preventDefault();
@@ -25,10 +26,11 @@ class SignUp extends Component {
     // this.props.history.replace('/');
   };
 
+  
+
 
   render() {
     const { authError, auth } = this.props;
-    // if (auth.uid) return <Redirect to="/" />;
     return (
       <Aux>
         <div className='login_page' style={{ marginTop: '60px' }}>
@@ -67,7 +69,6 @@ class SignUp extends Component {
             <img src={img} alt='Hello' />
           </div>
         </div>
-        <Footer />
       </Aux>
     );
   }

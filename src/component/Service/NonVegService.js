@@ -19,9 +19,9 @@ class NonVegService extends Component{
             const itemList = this.props.nonVegItems;
             nonVegFoodItems = Object.keys(itemList).map(id =>{
                 return (
-                    <Aux key={id}>
-                        <Link className="links" to ={"/details/"+id} >
-                        <div className="menu_item" id="top" >
+                    <Aux>
+                        <Link className="links" to ={"/details/"+id} key={id}>
+                        <div className="menu_item" id="top">
                             <img src={itemList[id].img} alt="Item Image"/>
                             <div className="style_items">
                                 <h4>{itemList[id].title[0].toUpperCase() + itemList[id].title.slice(1)}</h4>

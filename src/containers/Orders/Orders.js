@@ -6,7 +6,7 @@ import {faBoxOpen} from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import {getOrders} from "./../../store/actions/itemActions";
 import Spinner from './../../component/UI/Spinner/Spinner';
-
+import {Link} from "react-router-dom";
 
 const orders = props =>{
 
@@ -18,13 +18,14 @@ const orders = props =>{
 
     let items = <Spinner/>;
     const orders = props.orders;
+    console.log("All Orders",orders);
     const orderIds = Object.keys(orders);
     if (orderIds.length > 0){
         items = orderIds.map(id =>{
             const userOrders = orders[id].orderedItems;
             
             return (
-                <div className="single-order" key={id}>
+                <Link to={"/order-details/"+id} style={{textDecoration : "none",color:"#000"}}><div className="single-order" style={{boxShadow: "2px 2px 6px #ccc"}} key={id}>
                     {userOrders.map(each =>{
                         return (
                             <div className="orders" key={each.img}>
@@ -35,18 +36,18 @@ const orders = props =>{
 
                                         </div>
                                         <div className="order-details">
-                                            <h3>{each.title[0].toUpperCase() + each.title.slice(1)}</h3>
+                                            <h5>{each.title[0].toUpperCase() + each.title.slice(1)}</h5>
                                             <p className="name">{each.category}</p>
                                             <p className="price"><i className="fa fa-rupee rupee"></i>&nbsp;{each.price}</p>
                                         </div>
                                     </div>
 
                                 </div>
-                                <div className="order-hr"></div>
+                                {/* <div className="order-hr"></div> */}
                             </div>
                         );
                     })}
-                </div>
+                </div></Link>
             )
         })
     }

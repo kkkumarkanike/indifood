@@ -63,7 +63,7 @@ body{
     bottom: 0;
     width: 100%;
     text-align : center;
-    padding : 0.4rem 0;
+    padding : 0.5rem 0;
     z-index: 10;
 }
 .flex-item{
@@ -118,6 +118,10 @@ body{
     }
     .bottom-navigation{
         display: block;
+    }
+    .bottom-navigation .flex-item:active{
+ background-color: #333;
+text-decoration: none;
     }
     /* .bottom-navigation .activeIcon{
         background-color: red;

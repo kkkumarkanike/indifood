@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Login.css";
 import Aux from "./../../hoc/Auxilary";
 import img from "../../images/login_img.svg";
-import Footer from "../../component/Footer/Footer";
 import { connect } from "react-redux";
 import {login} from "../../store/actions/authActions"
 import {Redirect} from "react-router-dom"
@@ -12,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 class Login extends Component {
   state = {
     email: "",
-    password: "",
+    password: "", 
     loading:true,
   };
   handlchange = (e) => {
@@ -57,11 +56,8 @@ class Login extends Component {
                   name="password"
                   onChange={this.handlchange}
                 />
-                {/* {this.state.loading ? <h2></h2> : <h2>Loading</h2> } */}
                 <button onClick={this.handleLogin}> Login</button>
-            {/* {authError?this.notify:null} */}
-            <h5 style={{color:"red",marginLeft:"1rem"}}>{authError?authError:null}</h5>
-
+                <h5 style={{color:"red",marginLeft:"1rem"}}>{authError?authError:null}</h5>
               </div>
             </div>
           </div>
@@ -70,7 +66,6 @@ class Login extends Component {
             <img src={img} alt="Hello" />
           </div>
         </div>
-        <Footer />
       </Aux>
     );
   }

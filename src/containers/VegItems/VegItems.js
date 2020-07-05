@@ -3,11 +3,12 @@ import "./VegItems.css";
 import { Link } from "react-router-dom";
 import Aux from "./../../hoc/Auxilary";
 import special from "./../../images/special.jpg";
-import biryaani from "./../../images/biryaani.jpg";
 import { connect } from "react-redux";
 import { getItems, addItemToCart } from "../../store/actions/itemActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import {toast} from "react-toastify"
+import CustomToast from "../../component/Toast/CutomToast"
 
 
 class VegItems extends Component {
@@ -27,8 +28,19 @@ class VegItems extends Component {
     );
   }
 
+  notify = () =>{
+    return toast.success(<CustomToast authError="Item Added Successfully" />,{
+      position: toast.POSITION.BOTTOM_CENTER,
+      hideProgressBar: true,
+      autoClose: 3000,
+      
+      // color:#489E48
+    })
+  }
+
   onAddItemToCart = (item) => {
     this.props.onAddingItemToCart(item);
+    this.notify()
   };
 
   handleFilters = (event, filters) => {

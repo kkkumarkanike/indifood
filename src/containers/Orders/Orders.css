@@ -1,19 +1,23 @@
 /************************************ Orders Page *************************/
 .orders{
-    margin: 1rem;
+    padding: 0.1rem 0 0.7rem 0.5rem;
 }
 .single-order{
-    margin: 10px;
-    box-shadow: 0 0 5px #ccc;
     margin: 10px auto;
-    margin-top: 10px;
-    padding: 0.5rem;
+    padding: 0.1rem;
     width: 60%;
 }
 
 .orders-head{
     margin: 100px 0 0 0 ;
     text-align: center;
+    /* margin: 0 auto; */
+    margin-top: 100px;
+    margin-bottom: 0;
+    font-family: 'Lobster', cursive;
+    color: #FF5E62;
+    font-size: 32px;
+    letter-spacing: 2px;
 }
 .orders-container{
     margin: 0 auto;
@@ -39,12 +43,15 @@
 .order-details .name{
     margin-top: 0;
     margin-bottom: 0;
+    color: gray;
+    font-size: 13px;
 }
 .order-details .price{
     margin-top: 5px;
     margin-bottom: 0;
     padding: 0;
-    font-size: 15px;
+    color: gray;
+    font-size: 13px;
 }
 .order-details h3{
     padding: 0;
@@ -55,35 +62,40 @@
      box-shadow: 0 5px 50px #ddd;
 } */
 .orders .order-hr{
-    padding: 1px;
+    height: 1px;
     background-color: #ccc;
     width: 100%;
     margin: auto;
     margin-top: 10px;
 }
 
-@media (min-width : 300px) and (max-width : 499px){
+@media (min-width : 300px) and (max-width : 900px){
     .orders-container{
         margin: 0 auto;
         margin-top: 10px;
         width: 100%;
-        /* box-shadow: 0 0 10px #ccc; */
         padding: 0;
     }
+    .order-card{
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
     .orders .order-hr{
-        padding: 1px;
+        height: 1px;
         background-color: #eee;
         width: 100%;
         margin: auto;
         margin-top: 5px;
     }
     .single-order{
-        margin: 10px;
-        box-shadow: 0 0 5px #ccc;
-        margin: 10px auto;
+        margin: 0 auto;
+        box-shadow: 0 0 5px #aaa;
+        /* margin: 10px 0;
         margin-top: 10px;
-        padding: 0.5rem;
+        padding: 0.5rem; */
+        padding:0.05rem 0;
         width: 90%;
+        
     }
 
 }

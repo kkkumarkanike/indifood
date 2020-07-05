@@ -17,7 +17,7 @@ body{
     -webkit-background-clip: text;
     
     -webkit-text-fill-color: transparent;
-    animation: changeColor 3s ease-out;
+    animation: changeColor 1s ease-out;
 
 }
 .Error .unavailable{

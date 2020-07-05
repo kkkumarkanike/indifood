@@ -101,7 +101,7 @@ margin: 0 5rem;
         font-size: 18px;
         color: white;
         font-weight: bold;
-        border: none;
+        border: 2px solid #ff5e62;
         padding: 1rem 0.5rem;
         margin: 1rem;
         width: 90%;
@@ -116,7 +116,11 @@ margin: 0 5rem;
         background: white;
     }
 
-    @media (max-width:1025px){
+    @media (max-width:900px){
+        .login_page{
+            height: 80vh;
+           
+        }
      .login_img{
          display: none;
      }   
@@ -132,5 +136,6 @@ margin: 0 5rem;
      }
      .email_password button{
          width: 95%;
-     }
+              }
+           
     }

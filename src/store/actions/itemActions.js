@@ -294,4 +294,27 @@ export const getOrders = () =>{
         })
     }
 }
+export const getDetails = (details) =>{
+  return {
+    type : "GET_COMPLETED_ORDER_DETAILS",
+    data : details
+  }
+}
+export const getOrderedDetails = (id) =>{
+  return dispatch => {
+    axios
+    .get(
+      "https://indifood-8870f.firebaseio.com/orders/" +
+        id +
+        ".json"
+    )
+    .then((res) => {
+      console.log("Details Got");
+      dispatch(getDetails(res.data));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+}
 
